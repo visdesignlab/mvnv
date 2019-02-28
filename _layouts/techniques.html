@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="banner"> 
+</div>
+
+  <article class="publications-content">
+
+    <h1>Node Link Layouts</h1>
+
+    {% for technique in site.techniques reversed  %}
+      {% if technique.type == "node-link" %}
+        {% include technique_list_entry.html %}
+      {% endif %}
+    {% endfor %}
+
+    <h1>Tabular Layouts</h1>
+
+    {% for technique in site.techniques  %}
+      {% if technique.type == "node-link" %}
+        {% include technique_list_entry.html %}
+      {% endif %}
+    {% endfor %}
+
+
+    <h1>Implicit Layouts</h1>
+
+    {% for technique in site.techniques  %}
+      {% if technique.type == "node-link" %}
+        {% include technique_list_entry.html %}
+      {% endif %}
+    {% endfor %}
+
+    <h1>Coordinated and Hybrid Views</h1>
+
+    {% for technique in site.techniques  %}
+      {% if technique.type == "node-link" %}
+        {% include technique_list_entry.html %}
+      {% endif %}
+    {% endfor %}
+
+
+
+
+  </article>
+

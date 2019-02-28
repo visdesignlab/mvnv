@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<div class="publication">
+
+  <header id="title" class="publication-title"><h1>{{page.category}} - {{ page.title | remove: "| Vis Design Lab" }}</h1></header>
+
+
+  <article class="publication-content-main">
+
+    <!-- If we have a large picture, we display it here -->
+    {% if page.image_large %}
+    <img id="publication-image-large" alt="{{ page.shortname }} screenshot" class="paper-image-small" src="{{ site.baseurl }}/assets/images/techniques/{{ page.image }}">
+    {% endif %}
+
+    {% if page.image %}
+    <img id="publication-image" alt="{{ page.shortname }} screenshot" class="paper-image-small" src="{{ site.baseurl }}/assets/images/techniques/{{ page.image }}">
+      {% endif %}
+
+    <h1>Description</h1>
+
+   
+    {{ page.description }}
+
+  </article>
+
+  <article class="publication-content">
+
+          <!-- main markdown content -->
+    {{ content }}
+
+    <h2>References</h2>
+    <ul>
+    {% for paper in page.papers %}
+        <li>
+        {% reference {{paper}} %}
+      </li>
+      {% endfor %}
+      </ul>
+
+    
+<!-- {% bibliography -q @*[note ~= node-link] %} -->
+
+
+  </article> 
+
+
+  <article class="publication-meta">
+
+  </article>
+
+  <article class="publication-resources">
+  </article>
+
+  <script>
+
+    function onClick(key) {
+      let scores = JSON.parse(key.replace(/=>/g, ':'));
+      console.log(scores.task1)
+      ;
+    }
+      document.getElementById("title").addEventListener("click", ()=>onClick('{{ page.scores }}'));
+                
+          </script>
+</div>

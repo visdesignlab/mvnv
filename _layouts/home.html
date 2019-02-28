@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% include head_default.html %}
+
+    <!-- Here we write the publications into the publications javascript variable -->
+
+    {% capture publications %}
+    [
+    {% for publication in site.publications %}
+
+    {% if publication.personal  %}
+    {% elsif publication.image_large and publication.year > 2017 and publication.type == "paper"%}
+    {
+    "title"    : "{{ publication.title }}",
+    "shortname" : "{{ publication.shortname }}",
+    "url"      : "{{ publication.url }}",
+    "image_large"     : "{{ publication.image_large }}",
+    }
+    {% if forloop.last %}{% else %},{% endif %}
+    {% endif %}
+    {% endfor %}
+    ]
+    {% endcapture %}
+
+    <script>
+    var publications = {{ publications }}
+    </script>
+</head>
+
+<body>
+
+<div class="wrap">
+{% include header.html %}
+  <article class="home-content-main">
+
+  <h1>About</h1>
+
+
+      <p>This is a companion website for the STAR Report on Multivariate Network Visualization Techniques. The STAR report can be found <a href="http://www.vdl.sci.utah.edu/">here</a>. </p>
+  
+
+     <p> Multivariate networks capture relationships between nodes and attributes about the nodes and relationships themselves. Most
+      relational data is associated with rich attributes. Visualization of multivariate networks, however, is challenging, especially
+      when both the topology of the network and the attributes need to be considered concurrently. In this state-of-the-art report, we
+      
+      analyze current practices and classify techniques along four axes: Layouts, View Operations, Layout Operations, and Data Operations.
+       We also provide an analysis of tasks specific to multivariate networks and give recommendations for which technique
+      
+      to use in which scenario. Finally, we briefly survey application areas and evaluation methodologies.
+      Keywords: graph visualization, network visualization, multivariate networks.</p>
+  
+
+  </article>
+  {% include taxonomy.html %}
+
+
+
+    {% include footer.html %}
+</div>
+
+{% if site.use_analytics == true %}
+{% include google_analytics.html %}
+{% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+<script src="{{base.url}}/scripts/vdl_logo_script.js"></script>
+<script src="{{base.url}}/scripts/test.js"></script>
+</body>
+</html>

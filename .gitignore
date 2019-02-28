@@ -1,0 +1,15 @@
+_site/
+.sass-cache/
+.idea/
+*.sublime-*
+css/site.css
+.jekyll-metadata
+*.avi
+*.m4v
+*.mov
+*.mp4
+*.wmv
+*.pptx
+*.zip
+*.pdf
+.DS_Store

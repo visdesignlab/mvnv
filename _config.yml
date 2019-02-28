@@ -1,0 +1,72 @@
+# Site settings
+title: MVN Visualization Techniques
+email: cnobre@sci.utah.edu
+description: "Partner website for STAR on Visualization Multivariate Networks"
+baseurl: ""
+url: "http://vdl.sci.utah.edu"
+twitter_username:
+github_username: 
+youtube_username:
+facebook_page:
+safe: false
+lsi: false
+google_analytics: "'--'"
+use_analytics: true
+
+paper_content_url: http://sci.utah.edu/~vdl/papers/
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll/scholar
+
+# Build settings
+permalink: pretty
+sass:
+  sass_dir: _sass
+# exclude from build
+exclude: ["README.md", ".idea/"]
+
+# Collections
+collections:
+  # persons:
+  #   output: true
+  publications:
+    output: true
+    permalink: /publications/:path/
+  # videos:
+  #   output: false
+  # institutions:
+  #   output: false
+  # projects:
+  #   output: true
+  # talks:
+  #   output: false
+  techniques:
+    output: true
+    permalink: /techniques/:path/
+
+scholar:
+  style: apa
+  locale: en
+
+  sort_by: year
+  order: ascending
+
+  group_by: none
+  group_order: ascending
+
+  source: ./_bibliography
+  bibliography: references.bib
+  bibliography_template: ""
+
+  replace_strings: true
+  join_strings:    true
+
+  use_raw_bibtex_entry: false
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+
+  query: "@*"
+

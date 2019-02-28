@@ -1,0 +1,661 @@
+{
+  "config": {
+    "id": "36a3b0b5-bad0-4a04-b79b-441c7cef77db",
+    "label": "BetterBibTeX JSON",
+    "release": {
+      "Zotero": {
+        "version": "5.0.60",
+        "platform": "MacIntel",
+        "oscpu": "Intel Mac OS X 10.14",
+        "locale": "en-US",
+        "appName": "Zotero",
+        "appVersion": "5.0.60",
+        "isZotero": true,
+        "isJurisM": false
+      },
+      "BetterBibTeX": "5.1.58"
+    },
+    "preferences": {
+      "DOIandURL": "both",
+      "ascii": "",
+      "asciiBibLaTeX": false,
+      "asciiBibTeX": true,
+      "autoAbbrev": false,
+      "autoAbbrevStyle": "",
+      "autoExport": "immediate",
+      "autoExportDelay": 1,
+      "autoExportIdleWait": 10,
+      "autoExportPrimeExportCacheBatch": 10,
+      "autoExportPrimeExportCacheThreshold": 0,
+      "autoPin": false,
+      "auxImport": false,
+      "biblatexExtendedDateFormat": true,
+      "biblatexExtendedNameFormat": false,
+      "bibtexParticleNoOp": false,
+      "bibtexURL": "off",
+      "cacheFlushInterval": 5,
+      "citeCommand": "cite",
+      "citekeyFold": true,
+      "citekeyFormat": "[auth:lower][Title:fold:skipwords:select,1,1:lower:prefix,_][year:prefix,_][0]",
+      "citeprocNoteCitekey": false,
+      "csquotes": "",
+      "debug": false,
+      "debugLog": "",
+      "git": "config",
+      "itemObserverDelay": 100,
+      "jabrefFormat": 0,
+      "keyConflictPolicy": "keep",
+      "keyScope": "library",
+      "kuroshiro": false,
+      "lockedInit": false,
+      "parseParticles": true,
+      "postscript": "",
+      "preserveBibTeXVariables": false,
+      "qualityReport": false,
+      "quickCopyMode": "latex",
+      "quickCopyPandocBrackets": false,
+      "rawLaTag": "#LaTeX",
+      "relativeFilePaths": false,
+      "scrubDatabase": false,
+      "skipFields": [],
+      "skipWords": [
+        "a",
+        "ab",
+        "aboard",
+        "about",
+        "above",
+        "across",
+        "after",
+        "against",
+        "al",
+        "along",
+        "amid",
+        "among",
+        "an",
+        "and",
+        "anti",
+        "around",
+        "as",
+        "at",
+        "before",
+        "behind",
+        "below",
+        "beneath",
+        "beside",
+        "besides",
+        "between",
+        "beyond",
+        "but",
+        "by",
+        "d",
+        "da",
+        "das",
+        "de",
+        "del",
+        "dell",
+        "dello",
+        "dei",
+        "degli",
+        "della",
+        "dell",
+        "delle",
+        "dem",
+        "den",
+        "der",
+        "des",
+        "despite",
+        "die",
+        "do",
+        "down",
+        "du",
+        "during",
+        "ein",
+        "eine",
+        "einem",
+        "einen",
+        "einer",
+        "eines",
+        "el",
+        "en",
+        "et",
+        "except",
+        "for",
+        "from",
+        "gli",
+        "i",
+        "il",
+        "in",
+        "inside",
+        "into",
+        "is",
+        "l",
+        "la",
+        "las",
+        "le",
+        "les",
+        "like",
+        "lo",
+        "los",
+        "near",
+        "nor",
+        "of",
+        "off",
+        "on",
+        "onto",
+        "or",
+        "over",
+        "past",
+        "per",
+        "plus",
+        "round",
+        "save",
+        "since",
+        "so",
+        "some",
+        "sur",
+        "than",
+        "the",
+        "through",
+        "to",
+        "toward",
+        "towards",
+        "un",
+        "una",
+        "unas",
+        "under",
+        "underneath",
+        "une",
+        "unlike",
+        "uno",
+        "unos",
+        "until",
+        "up",
+        "upon",
+        "versus",
+        "via",
+        "von",
+        "while",
+        "with",
+        "within",
+        "without",
+        "yet",
+        "zu",
+        "zum"
+      ],
+      "sorted": false,
+      "strings": "",
+      "suppressTitleCase": false,
+      "testing": false,
+      "warnBulkModify": 10
+    },
+    "options": {
+      "exportFileData": false,
+      "exportNotes": false,
+      "exportPath": "/Users/cnobre/Documents/visdesignlab/STAR-website/_bibliography/"
+    }
+  },
+  "collections": {},
+  "items": [
+    {
+      "itemType": "journalArticle",
+      "pages": "10",
+      "libraryCatalog": "Zotero",
+      "language": "en",
+      "abstractNote": "Understanding perception is critical to effective visualization design. With its low cost and scalability, crowdsourcing presents an attractive option for evaluating the large design space of visualizations; however, it ﬁrst requires validation. In this paper, we assess the viability of Amazon’s Mechanical Turk as a platform for graphical perception experiments. We replicate previous studies of spatial encoding and luminance contrast and compare our results. We also conduct new experiments on rectangular area perception (as in treemaps or cartograms) and on chart size and gridline spacing. Our results demonstrate that crowdsourced perception experiments are viable and contribute new insights for visualization design. Lastly, we report cost and performance data from our experiments and distill recommendations for the design of crowdsourced studies.",
+      "title": "Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design",
+      "creators": [
+        {
+          "firstName": "Jeffrey",
+          "lastName": "Heer",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Michael",
+          "lastName": "Bostock",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:17:04Z",
+      "dateModified": "2019-02-20T20:17:04Z",
+      "uri": "http://zotero.org/users/2283401/items/5463AUH9",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Heer and Bostock - Crowdsourcing Graphical Perception Using Mechanic.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:17:02Z",
+          "dateModified": "2019-02-20T20:17:04Z",
+          "uri": "http://zotero.org/users/2283401/items/LGQDCKAD"
+        }
+      ],
+      "notes": [],
+      "itemID": 7820,
+      "citekey": "heer_crowdsourcing"
+    },
+    {
+      "itemType": "journalArticle",
+      "pages": "1-1",
+      "publicationTitle": "IEEE Transactions on Visualization and Computer Graphics",
+      "ISSN": "1077-2626",
+      "date": "2018",
+      "DOI": "10.1109/TVCG.2018.2865940",
+      "libraryCatalog": "IEEE Xplore",
+      "abstractNote": "Visualizing network data is applicable in domains such as biology, engineering, and social sciences. We report the results of a study comparing the effectiveness of the two primary techniques for showing network data: node-link diagrams and adjacency matrices. Specifically, an evaluation with a large number of online participants revealed statistically significant differences between the two visualizations. Our work adds to existing research in several ways. First, we explore a broad spectrum of network tasks, many of which had not been previously evaluated. Second, our study uses two large datasets, typical of many real-life networks not explored by previous studies. Third, we leverage crowdsourcing to evaluate many tasks with many participants. This paper is an expanded journal version of a Graph Drawing (GD'17) conference paper. We evaluated a second dataset, added a qualitative feedback section, and expanded the procedure, results, discussion, and limitations sections.",
+      "title": "Node-link or Adjacency Matrices: Old Question, New Insights",
+      "shortTitle": "Node-link or Adjacency Matrices",
+      "creators": [
+        {
+          "firstName": "M.",
+          "lastName": "Okoe",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "R.",
+          "lastName": "Jianu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "S. G.",
+          "lastName": "Kobourov",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        "adjacency matrices",
+        "Airports",
+        "Data visualization",
+        "Encoding",
+        "Evaluation",
+        "graphs",
+        "Layout",
+        "networks",
+        "node-link",
+        "Task analysis",
+        "Taxonomy",
+        "user study",
+        "Visualization"
+      ],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:17:17Z",
+      "dateModified": "2019-02-20T20:17:17Z",
+      "uri": "http://zotero.org/users/2283401/items/U4VP5U4H",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "IEEE Xplore Full Text PDF",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:17:17Z",
+          "dateModified": "2019-02-20T20:17:17Z",
+          "uri": "http://zotero.org/users/2283401/items/K2CBWJGJ"
+        },
+        {
+          "itemType": "attachment",
+          "title": "Okoe et al. - Node-link or Adjacency Matrices Old Question, New.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:17:17Z",
+          "dateModified": "2019-02-20T20:17:17Z",
+          "uri": "http://zotero.org/users/2283401/items/5RWMRLF4"
+        }
+      ],
+      "notes": [],
+      "itemID": 7821,
+      "citekey": "okoe_node-link_2018"
+    },
+    {
+      "itemType": "journalArticle",
+      "volume": "20",
+      "issue": "12",
+      "pages": "2231-2240",
+      "publicationTitle": "IEEE Transactions on Visualization and Computer Graphics",
+      "ISSN": "1077-2626",
+      "date": "December 2014",
+      "DOI": "10.1109/TVCG.2014.2346422",
+      "libraryCatalog": "IEEE Xplore",
+      "abstractNote": "Effectively showing the relationships between objects in a dataset is one of the main tasks in information visualization. Typically there is a well-defined notion of distance between pairs of objects, and traditional approaches such as principal component analysis or multi-dimensional scaling are used to place the objects as points in 2D space, so that similar objects are close to each other. In another typical setting, the dataset is visualized as a network graph, where related nodes are connected by links. More recently, datasets are also visualized as maps, where in addition to nodes and links, there is an explicit representation of groups and clusters. We consider these three Techniques, characterized by a progressive increase of the amount of encoded information: node diagrams, node-link diagrams and node-link-group diagrams. We assess these three types of diagrams with a controlled experiment that covers nine different tasks falling broadly in three categories: node-based tasks, network-based tasks and group-based tasks. Our findings indicate that adding links, or links and group representations, does not negatively impact performance (time and accuracy) of node-based tasks. Similarly, adding group representations does not negatively impact the performance of network-based tasks. Node-link-group diagrams outperform the others on group-based tasks. These conclusions contradict results in other studies, in similar but subtly different settings. Taken together, however, such results can have significant implications for the design of standard and domain snecific visualizations tools.",
+      "title": "Node, Node-Link, and Node-Link-Group Diagrams: An Evaluation",
+      "shortTitle": "Node, Node-Link, and Node-Link-Group Diagrams",
+      "creators": [
+        {
+          "firstName": "B.",
+          "lastName": "Saket",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "P.",
+          "lastName": "Simonetto",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "S.",
+          "lastName": "Kobourov",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "K.",
+          "lastName": "Börner",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        "data visualisation",
+        "Data visualization",
+        "dataset visualization",
+        "Datasets",
+        "Diagrams",
+        "distance notion",
+        "graph links",
+        "graphs",
+        "group-based tasks",
+        "Image color analysis",
+        "information visualization",
+        "Layout",
+        "maps",
+        "multidimensional scaling",
+        "network graph",
+        "network-based tasks",
+        "networks",
+        "node diagram",
+        "node-based tasks",
+        "node-link diagram",
+        "node-link-group diagram",
+        "principal component analysis",
+        "scatter plots",
+        "Visualization"
+      ],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:17:23Z",
+      "dateModified": "2019-02-20T20:17:23Z",
+      "uri": "http://zotero.org/users/2283401/items/MUUKCH7H",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "IEEE Xplore Abstract Record",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:17:23Z",
+          "dateModified": "2019-02-20T20:17:23Z",
+          "uri": "http://zotero.org/users/2283401/items/UFQ9V9DB"
+        },
+        {
+          "itemType": "attachment",
+          "title": "IEEE Xplore Full Text PDF",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:17:23Z",
+          "dateModified": "2019-02-20T20:17:23Z",
+          "uri": "http://zotero.org/users/2283401/items/XZKVGCJK"
+        }
+      ],
+      "notes": [],
+      "itemID": 7824,
+      "citekey": "saket_node_2014"
+    },
+    {
+      "itemType": "journalArticle",
+      "volume": "4",
+      "issue": "2",
+      "pages": "114 -135",
+      "publicationTitle": "Information Visualization",
+      "date": "Juni 20 , 2005",
+      "extra": "node-link,adj-matrix",
+      "DOI": "10.1057/palgrave.ivs.9500092",
+      "accessDate": "2012-01-17T15:24:38Z",
+      "libraryCatalog": "Highwire 2.0",
+      "abstractNote": "In this article, we describe a taxonomy of generic graph related tasks along with a computer-based evaluation designed to assess the readability of two representations of graphs: matrix-based representations and node-link diagrams. This evaluation encompasses seven generic tasks and leads to insightful recommendations for the representation of graphs according to their size and density. Typically, we show that when graphs are bigger than twenty vertices, the matrix-based visualization outperforms node-link diagrams on most tasks. Only path finding is consistently in favor of node-link diagrams throughout the evaluation.",
+      "title": "On the Readability of Graphs Using Node-Link and Matrix-Based Representations: A Controlled Experiment and Statistical Analysis",
+      "shortTitle": "On the Readability of Graphs Using Node-Link and Matrix-Based Representations",
+      "creators": [
+        {
+          "firstName": "Mohammad",
+          "lastName": "Ghoniem",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jean-Daniel",
+          "lastName": "Fekete",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Philippe",
+          "lastName": "Castagliola",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        "node-link",
+        "tabular"
+      ],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:17:27Z",
+      "dateModified": "2019-02-28T04:55:13Z",
+      "uri": "http://zotero.org/users/2283401/items/KRQBUFU4",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Ghoniem et al. - 2005 - On the Readability of Graphs Using Node-Link and M.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:17:27Z",
+          "dateModified": "2019-02-20T20:17:27Z",
+          "uri": "http://zotero.org/users/2283401/items/5H4SAHDF"
+        }
+      ],
+      "notes": [],
+      "itemID": 7827,
+      "citekey": "ghoniem_readability_2005"
+    },
+    {
+      "itemType": "journalArticle",
+      "volume": "25",
+      "issue": "3",
+      "pages": "1543 - 1558",
+      "publicationTitle": "Transaction on Visualization and Computer Graphics",
+      "date": "2019",
+      "DOI": "10.1109/TVCG.2018.2811488",
+      "language": "English",
+      "title": "Lineage: Visualizing Multivariate Clinical Data in Genealogy Graphs",
+      "shortTitle": "Lineage",
+      "creators": [
+        {
+          "firstName": "Carolina",
+          "lastName": "Nobre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Nils",
+          "lastName": "Gehlenborg",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Hilary",
+          "lastName": "Coon",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Alexander",
+          "lastName": "Lex",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:23:26Z",
+      "dateModified": "2019-02-20T20:23:26Z",
+      "uri": "http://zotero.org/users/2283401/items/4SPUCADK",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Nobre et al. - 2018 - Lineage Visualizing Multivariate Clinical Data in.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:23:26Z",
+          "dateModified": "2019-02-20T20:23:26Z",
+          "uri": "http://zotero.org/users/2283401/items/LXWSS8YQ"
+        }
+      ],
+      "notes": [],
+      "itemID": 7829,
+      "citekey": "nobre_lineage:_2019"
+    },
+    {
+      "itemType": "journalArticle",
+      "volume": "25",
+      "issue": "1",
+      "publicationTitle": "Transaction on Visualization and Computer Graphics (InfoVis '18)",
+      "date": "2019",
+      "DOI": "10.1109/TVCG.2018.2865149",
+      "accessDate": "2018-04-11T21:42:16Z",
+      "abstractNote": "Analyzing large, multivariate graphs is an important problem in many domains, yet such graphs are challenging to visualize. In this paper, we introduce a novel, scalable, tree+table multivariate graph visualization technique, which makes many tasks related to multivariate graph analysis easier to achieve. The core principle we follow is to selectively query for nodes or subgraphs of interest and visualize these subgraphs as a spanning tree of the graph. The tree is laid out in a linear layout, which enables us to juxtapose the nodes with a table visualization where diverse attributes can be shown. We also use this table as an adjacency matrix, so that the resulting technique is a hybrid node-link/adjacency matrix technique. We implement this concept in Juniper, and complement it with a set of interaction techniques that enable analysts to dynamically grow, re-structure, and aggregate the tree, as well as change the layout or show paths between nodes. We demonstrate the utility of our tool in usage scenarios for different multivariate networks: a bipartite network of scholars, papers, and citation metrics, and a multitype network of story characters, places, books, etc.",
+      "title": "Juniper: A Tree+Table Approach to Multivariate Graph Visualization",
+      "shortTitle": "Juniper",
+      "creators": [
+        {
+          "firstName": "Carolina",
+          "lastName": "Nobre",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Marc",
+          "lastName": "Streit",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Alexander",
+          "lastName": "Lex",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        "Computer Science - Human-Computer Interaction"
+      ],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:23:32Z",
+      "dateModified": "2019-02-20T20:23:32Z",
+      "uri": "http://zotero.org/users/2283401/items/JPDRDQ95",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "arXiv:1804.03261 PDF",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:23:32Z",
+          "dateModified": "2019-02-20T20:23:32Z",
+          "uri": "http://zotero.org/users/2283401/items/D44T9BEK"
+        }
+      ],
+      "notes": [],
+      "itemID": 7831,
+      "citekey": "nobre_juniper:_2019"
+    },
+    {
+      "itemType": "journalArticle",
+      "url": "https://doi.org/10.1186/1471-2105-13-275",
+      "volume": "13",
+      "issue": "1",
+      "pages": "275",
+      "publicationTitle": "BMC Bioinformatics",
+      "ISSN": "1471-2105",
+      "date": "October 27, 2012",
+      "journalAbbreviation": "BMC Bioinformatics",
+      "DOI": "10.1186/1471-2105-13-275",
+      "accessDate": "2018-10-11T16:46:32Z",
+      "libraryCatalog": "BioMed Central",
+      "abstractNote": "The analysis of large, complex networks is an important aspect of ongoing biological research. Yet there is a need for entirely new, scalable approaches for network visualization that can provide more insight into the structure and function of these complex networks.",
+      "title": "Combing the hairball with BioFabric: a new approach for visualization of large networks",
+      "shortTitle": "Combing the hairball with BioFabric",
+      "creators": [
+        {
+          "firstName": "William JR",
+          "lastName": "Longabaugh",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2019-02-20T20:26:59Z",
+      "dateModified": "2019-02-20T20:26:59Z",
+      "uri": "http://zotero.org/users/2283401/items/DVDTADQG",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Full Text PDF",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-20T20:26:59Z",
+          "dateModified": "2019-02-20T20:26:59Z",
+          "uri": "http://zotero.org/users/2283401/items/MM6GD6LA"
+        }
+      ],
+      "notes": [],
+      "itemID": 7833,
+      "citekey": "longabaugh_combing_2012"
+    },
+    {
+      "itemType": "journalArticle",
+      "url": "https://ieeexplore.ieee.org/document/8440830/",
+      "volume": "25",
+      "issue": "1",
+      "pages": "748-758",
+      "publicationTitle": "IEEE Transactions on Visualization and Computer Graphics",
+      "ISSN": "1077-2626, 1941-0506, 2160-9306",
+      "date": "1/2019",
+      "DOI": "10.1109/TVCG.2018.2865241",
+      "accessDate": "2019-02-26T00:03:30Z",
+      "libraryCatalog": "Crossref",
+      "language": "en",
+      "abstractNote": "Applied visualization researchers often work closely with domain collaborators to explore new and useful applications of visualization. The early stages of collaborations are typically time consuming for all stakeholders as researchers piece together an understanding of domain challenges from disparate discussions and meetings. A number of recent projects, however, report on the use of creative visualization-opportunities (CVO) workshops to accelerate the early stages of applied work, eliciting a wealth of requirements in a few days of focused work. Yet, there is no established guidance for how to use such workshops effectively. In this paper, we present the results of a 2-year collaboration in which we analyzed the use of 17 workshops in 10 visualization contexts. Its primary contribution is a framework for CVO workshops that: 1) identiﬁes a process model for using workshops; 2) describes a structure of what happens within effective workshops; 3) recommends 25 actionable guidelines for future workshops; and 4) presents an example workshop and workshop methods. The creation of this framework exempliﬁes the use of critical reﬂection to learn about visualization in practice from diverse studies and experience.",
+      "title": "A Framework for Creative Visualization-Opportunities Workshops",
+      "creators": [
+        {
+          "firstName": "Ethan",
+          "lastName": "Kerzner",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Sarah",
+          "lastName": "Goodwin",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jason",
+          "lastName": "Dykes",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Sara",
+          "lastName": "Jones",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Miriah",
+          "lastName": "Meyer",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2019-02-26T00:03:30Z",
+      "dateModified": "2019-02-26T00:03:30Z",
+      "uri": "http://zotero.org/users/2283401/items/NZR5WUGU",
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Kerzner et al. - 2019 - A Framework for Creative Visualization-Opportuniti.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2019-02-26T00:03:28Z",
+          "dateModified": "2019-02-26T00:03:31Z",
+          "uri": "http://zotero.org/users/2283401/items/2HI9QQXQ"
+        }
+      ],
+      "notes": [],
+      "itemID": 7837,
+      "citekey": "kerzner_framework_2019"
+    }
+  ]
+}
