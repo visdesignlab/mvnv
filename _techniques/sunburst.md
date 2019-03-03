@@ -25,9 +25,33 @@ papers:
      -  jankun-kelly_moiregraphs:_2003
 
 scores:
-     task1: 2
-     task2: 2
-     task3: 1
+     size: 
+          small: 3
+          medium: 2
+          large: 1
+     type: 
+          sparse: 0
+          dense: 0
+          layered: 0
+          trees: 3
+     node_attr_size: 
+          few: 3
+          several: 1
+     node_attr_type: 
+          homog: 3
+          hetero: 1
+     edge_attr_size: 
+          few: 0
+          several: 0
+     edge_attr_type: 
+          homog: 0
+          hetero: 0
+     structure: 
+          single: 3
+          neighbors: 3
+          paths: 3
+          clusters: 0
+          network: 3
 
 # After the --- you can put information that you want to appear on the website using markdown formatting or HTML. A good example are acknowledgements, extra references, an erratum, etc.
 ---

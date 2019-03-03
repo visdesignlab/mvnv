@@ -26,27 +26,29 @@ papers:
      -  jankun-kelly_moiregraphs:_2003
 
 scores:
-     Size: 
+     size: 
           small: 3
           medium: 2
           large: 1
-     Type: 
+     type: 
           sparse: 3
           dense: 1
           layered: 3
           trees: 3
-     Node Attributes: 
+     node_attr_size: 
           few: 2
           several: 1
-          homog: 0
+     node_attr_type: 
+          homog: 3
           hetero: 2
-     Edge Attributes: 
+     edge_attr_size: 
           few: 2
           several: 1
+     edge_attr_type: 
           homog: 3
           hetero: 1
-     Structure: 
-          single: 0
+     structure: 
+          single: 3
           neighbors: 3
           paths: 2
           clusters: 2

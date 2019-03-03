@@ -1,4 +1,5 @@
-    function technique_scores(scores) {
+    function technique_scores(scores,labels) {
+        console.log('labels',labels)
         let data = [];
 
     // let scores = JSON.parse(('{{page.scores}}'.replace(/=>/g, ':')));
@@ -8,10 +9,11 @@
 
     let tasks = [];
     Object.keys(scores).map((key)=>{
+      let label = labels[key];
       tasks.push({
         type:'category',
-        label:key,
-        multiLine:key.trim().indexOf(' ') != -1,
+        label:label,
+        multiLine:label.trim().indexOf(' ') != -1,
         children:Object.keys(scores[key]).length
       });
       Object.keys(scores[key]).map(task=>{
