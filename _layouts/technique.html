@@ -3,63 +3,73 @@ layout: default
 ---
 <div class="publication">
 
-  <header id="title" class="publication-title"><h1>{{page.category}} - {{ page.title | remove: "| Vis Design Lab" }}</h1></header>
+  <header id="title" class="publication-title">
+    <h1>{{page.category}} - {{ page.title | remove: "| Vis Design Lab" }}</h1>
+  </header>
 
 
   <article class="publication-content-main">
-
-    <!-- If we have a large picture, we display it here -->
-    {% if page.image_large %}
-    <img id="publication-image-large" alt="{{ page.shortname }} screenshot" class="paper-image-small" src="{{ site.baseurl }}/assets/images/techniques/{{ page.image }}">
-    {% endif %}
-
     {% if page.image %}
     <img id="publication-image" alt="{{ page.shortname }} screenshot" class="paper-image-small" src="{{ site.baseurl }}/assets/images/techniques/{{ page.image }}">
-      {% endif %}
+    {% endif %}
 
     <h1>Description</h1>
-
-   
     {{ page.description }}
+
+    <article class="publication-content">
+
+      <!-- main markdown content -->
+      {{ content }}
+
+    </article>
+
+
+  </article>
+
+  <!-- Add Sample Instances -->
+  <article class="publication-content-aside">
+    <h1>Technique Scores</h1>
+    <svg id = 'technique_scores', class='scores'> </svg>
+  </article>
+
+
+  <article class="publication-content">
+
+    <h1>Examples from Literature</h1>
+    {% for example in page.examples %}
+    <img alt="{{ page.shortname }} screenshot" class="paper-image-small-aside" src="{{ site.baseurl }}/assets/images/techniques/examples/{{ example.image }}">
+    <!-- {{ example.caption }} -->
+    <!-- <br/> -->
+    <!-- {% reference {{paper}} %} -->
+    {% endfor %}
 
   </article>
 
   <article class="publication-content">
-
-          <!-- main markdown content -->
-    {{ content }}
-
-    <h2>References</h2>
+    <h2>Relevant References</h2>
     <ul>
-    {% for paper in page.papers %}
-        <li>
+      {% for paper in page.papers %}
+      <li>
         {% reference {{paper}} %}
       </li>
       {% endfor %}
-      </ul>
-
-    
-<!-- {% bibliography -q @*[note ~= node-link] %} -->
-
-
-  </article> 
-
-
-  <article class="publication-meta">
-
+    </ul>
   </article>
 
-  <article class="publication-resources">
-  </article>
+
+
+
+
+  <!-- {% bibliography -q @*[note ~= node-link] %} -->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+  <script src="{{base.url}}/scripts/technique_scores.js"></script>
 
   <script>
+       let scores = JSON.parse(('{{page.scores}}'.replace(/=>/g, ':')));
+       technique_scores(scores);
 
-    function onClick(key) {
-      let scores = JSON.parse(key.replace(/=>/g, ':'));
-      console.log(scores.task1)
-      ;
-    }
-      document.getElementById("title").addEventListener("click", ()=>onClick('{{ page.scores }}'));
-                
-          </script>
+  </script>
+
 </div>

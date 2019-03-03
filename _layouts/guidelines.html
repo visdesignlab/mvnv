@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="banner"> 
+</div>
+
+  <article class="publications-content">
+
+    <h1>Recommended Techniques</h1>
+
+    {% for technique in site.techniques reversed  %}
+      {% if technique.type == "node-link" %}
+        {% include technique_list_entry.html %}
+      {% endif %}
+    {% endfor %}
+
+
+  </article>
+

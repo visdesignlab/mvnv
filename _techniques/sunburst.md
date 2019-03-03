@@ -1,23 +1,22 @@
 ---
 layout: technique
 # The quotes make the : possible, otherwise you can do it without quotes
-title: "Topology Driven"
-category: "Node-Link"
-key: node-link
-# node-link | tabular | implicit | coordinated | hybrid 
-type: node-link
+title: "Inner Nodes + Leaves"
+category: "Implicit"
+key: sunburst
+# node-link | tabular | implicit | coordinated | hybrid | smallMultiples
+type: implicit
 
-description : Topology driven layouts prioritize the topology of the network over the attributes of the nodes and edges. The most common node-link layouts, such as force-directed layouts, spectral layouts, or orthogonal layouts fall into this class, or more specifically into the free layouts as described by Schulz and Schumann. Trees are also commonly drawn as topology driven node-link layouts.
-
+description : desc.
 
 # Node-link diagrams are the most common graphical representation of networks. In a node-link diagram, the nodes are drawn as point marks and the links as line/curve marks connecting the nodes. Node link layouts are the subject of its own field of study -- graph drawing -- and countless algorithms for node-link layouts have been developed.
 
 abstract : abstract
 
 # The shortname is used for auto-generated titels
-shortname: NodeLink
+shortname: sunBurst
 # add a 2:1 aspect ratio (e.g., width: 400px, height: 200px) to the folder /assets/images/papers/
-image: topology-driven.png
+image: sunBurst.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
@@ -26,44 +25,9 @@ papers:
      -  jankun-kelly_moiregraphs:_2003
 
 scores:
-     Size: 
-          small: 3
-          medium: 2
-          large: 1
-     Type: 
-          sparse: 3
-          dense: 1
-          layered: 3
-          trees: 3
-     Node Attributes: 
-          few: 2
-          several: 1
-          homog: 0
-          hetero: 2
-     Edge Attributes: 
-          few: 2
-          several: 1
-          homog: 3
-          hetero: 1
-     Structure: 
-          single: 0
-          neighbors: 3
-          paths: 2
-          clusters: 2
-          network: 2
-
-
-examples:
- - image: "abyss-explorer.png"
-   caption: "Abyss-Explorer"
-   #bunch of properties...
- - image: "on-edge.png"
-   caption: "On Edge Encoding"
-   #bunch of properties...
- - image: "on-node.png"
-   caption: "On Node Encoding"
-   #bunch of properties...
-
+     task1: 2
+     task2: 2
+     task3: 1
 
 # After the --- you can put information that you want to appear on the website using markdown formatting or HTML. A good example are acknowledgements, extra references, an erratum, etc.
 ---

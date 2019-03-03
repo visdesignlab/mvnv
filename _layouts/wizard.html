@@ -1,4 +1,138 @@
 ---
 layout: default
 ---
-<div> </div>
+<div class="publication">
+
+  
+    <article class="publication-content-left">
+        <form>
+          <h1>Size</h1>
+            <group class="inline-radio">
+              <div><input type="radio" name="title"><label>Small</label></div>
+              <div><input type="radio" name="title" checked><label>Medium</label></div>
+              <div><input type="radio" name="title"><label>Large</label></div>
+            </group>
+            <h1>Type</h1>
+            <group class="inline-radio">
+              <div><input type="radio" name="visits"><label>Sparse</label></div>
+              <div><input type="radio" name="visits"><label>Dense</label></div>
+              <div><input type="radio" name="visits" checked><label>Layered</label></div>
+              <div><input type="radio" name="visits"><label>Trees</label></div>
+            </group>
+            <h1>No. of Node Attributes</h1>
+            <group class="inline-radio">
+              <div><input type="radio" name="lives" checked><label>Few</label></div>
+              <div><input type="radio" name="lives"><label>Several</label></div>
+            </group>
+            <h1>Types of Node Attributes</h1>
+            <group class="inline-radio">
+              <div><input type="radio" name="member"><label>Homogeneous</label></div>
+              <div><input type="radio" name="member" checked><label>Heterogenous</label></div>
+            </group>
+            <h1>No. of Edge Attributes</h1>
+            <group class="inline-radio">
+                <div><input type="radio" name="e_attr" checked><label>Few</label></div>
+                <div><input type="radio" name="e_attr"><label>Several</label></div>
+              </group>
+              <h1>Types of Edge Attributes</h1>
+              <group class="inline-radio">
+                <div><input type="radio" name="e_attr2" checked><label>Homogeneous</label></div>
+                <div><input type="radio" name="e_attr2" ><label>Heterogenous</label></div>
+              </group>
+
+          
+            <h1>Network Structures</h1>
+            <group class="stacked-radio">
+                <div><input type="radio" name="struct" checked><label>Single Entity</label></div>
+                <div><input type="radio" name="struct"><label>Neighbors</label></div>
+                <div><input type="radio" name="struct" ><label>Paths</label></div>
+                <div><input type="radio" name="struct"><label>Clusters</label></div>
+                <div><input type="radio" name="struct"><label>Networks</label></div>
+              </group>
+            </form>
+
+      </article>
+      
+      <article class="publication-content-right">
+
+          <h1>Recommended Techniques</h1>
+      
+          {% for technique in site.techniques reversed  %}
+            {% if technique.type == "node-link" %}
+              {% include technique_list_entry.html %}
+            {% endif %}
+          {% endfor %}
+      
+      
+        </article>
+
+    </div>
+  
+
+     <!-- <form action="#" method="post" class="demoForm" id="wizard_form">
+            <fieldset>
+            <legend>Describe your Network</legend>
+            
+            <p class = "wizard">Size:
+                <label><input type="radio" name="size" value="5" /> Small</label>
+                <label><input type="radio" name="size" value="8" checked="checked" /> Medium</label>
+                <label><input type="radio" name="size" value="12" /> Large </label>
+                <input type="hidden" name="sz_tot" value="0.00" />
+            </p>
+
+            <p class = "wizard">Type:
+                <label><input type="radio" name="type" value="5" /> Sparse</label>
+                <label><input type="radio" name="type" value="8" checked="checked" /> Dense</label>
+                <label><input type="radio" name="type" value="12" /> Layered</label>
+                <label><input type="radio" name="type" value="12" /> Trees</label>
+                <input type="hidden" name="sz_tot" value="0.00" />
+            </p>
+
+            <p class = "wizard">Node Attributes:
+                <input type="radio" name="n_attr" value="one" id="radio-one" class="form-radio" checked><label for="radio-one">Radio</label>
+
+                <label><input type="radio" name="n_attr" value="5"  /> Few</label>
+                <label><input type="radio" name="n_attr" value="8" checked="checked" /> Several</label>
+                <input type="hidden" name="sz_tot" value="0.00" />
+            </p>
+
+            <p class = "wizard">Node Attributes:
+                <label><input type="radio" name="n_attr_2" value="5" /> Homogenous</label>
+                <label><input type="radio" name="n_attr_2" value="8" checked="checked" /> Heterogenous</label>
+                <input type="hidden" name="sz_tot" value="0.00" />
+            </p>
+
+            <p class = "wizard">Edge Attributes:
+                <label><input type="radio" name="e_attr" value="5" /> Few</label>
+                <label><input type="radio" name="e_attr" value="8" checked="checked" /> Several</label>
+                <input type="hidden" name="sz_tot" value="0.00" />
+            </p>
+
+            <p class = "wizard" >Edge Attributes:
+                <label><input type="radio" name="e_attr_2" value="5" /> Homogenous</label>
+                <label><input type="radio" name="e_attr_2" value="8" checked="checked" /> Heterogenous</label>
+                <input type="hidden" name="sz_tot" value="0.00" />
+            </p>
+
+            </fieldset>
+            
+
+            <fieldset>
+                <legend>Select your Structures of interest</legend>
+            <p class = "wizard" >
+                <label><input type="checkbox" name="mushrooms" value=".40" /> Single Node/Edge</label>
+                <label><input type="checkbox" name="onions" value=".30" /> Neighbors</label>
+                <label><input type="checkbox" name="black_olives" value=".40" /> Paths</label>
+                <label><input type="checkbox" name="sausage" value=".50" /> Clusters</label>
+                <label><input type="checkbox" name="pepperoni" value=".50" /> Networks</label>
+                <input type="hidden" name="tops_tot" value="0.00" />
+            </p>
+                        
+         
+            </fieldset>
+
+            <p><input type="submit" name="submit" value="Submit" /> </p>
+            
+        </form> -->
+
+

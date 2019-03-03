@@ -18,7 +18,7 @@ layout: default
     <h1>Tabular Layouts</h1>
 
     {% for technique in site.techniques  %}
-      {% if technique.type == "node-link" %}
+      {% if technique.type == "tabular" %}
         {% include technique_list_entry.html %}
       {% endif %}
     {% endfor %}
@@ -27,15 +27,23 @@ layout: default
     <h1>Implicit Layouts</h1>
 
     {% for technique in site.techniques  %}
-      {% if technique.type == "node-link" %}
+      {% if technique.type == "implicit" %}
         {% include technique_list_entry.html %}
       {% endif %}
     {% endfor %}
 
-    <h1>Coordinated and Hybrid Views</h1>
+    <h1>Coordinated Views</h1>
 
     {% for technique in site.techniques  %}
-      {% if technique.type == "node-link" %}
+      {% if technique.type == "coordinated" %}
+        {% include technique_list_entry.html %}
+      {% endif %}
+    {% endfor %}
+
+    <h1>Hybrid Views</h1>
+
+    {% for technique in site.techniques  %}
+      {% if technique.type == "hybrid" %}
         {% include technique_list_entry.html %}
       {% endif %}
     {% endfor %}
