@@ -13,7 +13,7 @@ lsi: false
 google_analytics: "'--'"
 use_analytics: true
 
-paper_content_url: http://sci.utah.edu/~vdl/papers/
+
 
 plugins:
   - jekyll-redirect-from
@@ -30,9 +30,6 @@ exclude: ["README.md", ".idea/"]
 collections:
   # persons:
   #   output: true
-  publications:
-    output: true
-    permalink: /publications/:path/
   # videos:
   #   output: false
   # institutions:
@@ -45,28 +42,4 @@ collections:
     output: true
     permalink: /techniques/:path/
 
-scholar:
-  style: apa
-  locale: en
-
-  sort_by: year
-  order: ascending
-
-  group_by: none
-  group_order: ascending
-
-  source: ./_bibliography
-  bibliography: references.bib
-  bibliography_template: ""
-
-  replace_strings: true
-  join_strings:    true
-
-  use_raw_bibtex_entry: false
-
-  details_dir:    bibliography
-  details_layout: bibtex.html
-  details_link:   Details
-
-  query: "@*"
 
