@@ -17,7 +17,7 @@ function compute_scores(allScores) {
         let item = allTechniques.find(v=>v.key === technique);
         // console.log('item',item)
          item.value =  allScores[technique][category][value] ? item.value + allScores[technique][category][value] : item.value });      
-      })
+      });
 
     return allTechniques
     
