@@ -13,7 +13,7 @@ function compute_scores(allScores) {
 
       Object.keys(allScores).map(technique=>{
         let item = allTechniques.find(v=>v.key === technique);
-         item.value = item.value + allScores[technique][category][value]});      
+         item.value =  allScores[technique][category][value] ? item.value + allScores[technique][category][value] : item.value });      
       })
 
     return allTechniques

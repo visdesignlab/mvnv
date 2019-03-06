@@ -23,7 +23,6 @@ layout: default
       {% endif %}
     {% endfor %}
 
-
     <h1>Implicit Layouts</h1>
 
     {% for technique in site.techniques  %}
@@ -39,17 +38,6 @@ layout: default
         {% include technique_list_entry.html %}
       {% endif %}
     {% endfor %}
-
-    <h1>Hybrid Views</h1>
-
-    {% for technique in site.techniques  %}
-      {% if technique.type == "hybrid" %}
-        {% include technique_list_entry.html %}
-      {% endif %}
-    {% endfor %}
-
-
-
 
   </article>
 

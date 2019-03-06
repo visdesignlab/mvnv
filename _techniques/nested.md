@@ -1,20 +1,20 @@
 ---
 layout: technique
 # The quotes make the : possible, otherwise you can do it without quotes
-title: "Hybrid"
+title: "Nested"
 category: ""
-key: hybrid
-# node-link | tabular | implicit | coordinated | hybrid 
-type: hybrid
+key: nested
+# node-link | tabular | implicit | coordinated 
+type: coordinated
 
 description : description
 
 abstract : abstract
 
 # The shortname is used for auto-generated titels
-shortname: hybrid
+shortname: nested
 # add a 2:1 aspect ratio (e.g., width: 400px, height: 200px) to the folder /assets/images/papers/
-image: hybrid.png
+image: nested.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 

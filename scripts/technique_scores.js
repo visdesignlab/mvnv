@@ -1,5 +1,4 @@
-    function technique_scores(scores,labels) {
-        console.log('labels',labels)
+    function technique_scores(scores,categories) {
         let data = [];
 
     // let scores = JSON.parse(('{{page.scores}}'.replace(/=>/g, ':')));
@@ -8,18 +7,31 @@
     let panelHeight = d3.select('.scores').style('height').replace('px', '');
 
     let tasks = [];
-    Object.keys(scores).map((key)=>{
-      let label = labels[key];
-      tasks.push({
+    Object.keys(categories).map((category_label)=>{
+    
+      let categoryObject = {
         type:'category',
-        label:label,
-        multiLine:label.trim().indexOf(' ') != -1,
-        children:Object.keys(scores[key]).length
-      });
-      Object.keys(scores[key]).map(task=>{
-        tasks.push({type:'task',category:key, label:task,value:Number(scores[key][task])})
+        label:category_label,
+        order:categories[category_label].order,
+        multiLine:category_label.trim().indexOf(' ') != -1,
+      }
+      
+      tasks.push(categoryObject);
+
+      let numChildren = 0;
+      //find relevant fields for that category in the scores object;
+      categories[category_label].keys.map((key)=>{   
+        Object.keys(scores[key]).map(task=>{
+            tasks.push({type:'task',category:category_label, label:task,value:Number(scores[key][task])})
+            numChildren = numChildren +1;
+        })
       })
+
+      categoryObject.numChildren = numChildren;
+
      });
+
+     console.log(tasks)
 
     let groups = d3.select(".scores")
       .selectAll('g')
@@ -82,6 +94,6 @@
     .attr('transform','rotate(90,0,0)')
     .attr('dominant-baseline','baseline')
     .attr('text-anchor','middle')
-    .attr('x', (d)=>{return d.children*rectSize/2 + Number(rectSize)})
+    .attr('x', (d)=>{return d.numChildren*rectSize/2 + Number(rectSize)})
     .attr('y', function(d){return d3.select(this).classed('first') ? -160 : -140})
     }

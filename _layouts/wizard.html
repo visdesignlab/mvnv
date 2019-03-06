@@ -1,17 +1,54 @@
 ---
 layout: default
 
-labels:
-  size: Size
-  type: Type
-  node_attr_size: No. of Node Attributes 
-  node_attr_type: Types of Node Attributes 
-  edge_attr_size: No. of Edge Attributes
-  edge_attr_type: Types of Edge Attributes 
-  structure: Structures
+Options:
+  size: 
+    label: Size
+    options: 
+      - small
+      - medium 
+      - large 
+  type: 
+    label: Type
+    options: 
+      - sparse
+      - dense
+      - layered
+      - trees 
+  node_attr_size:
+    label: No. of Node Attributes
+    options: 
+      - none
+      - few
+      - several
+  node_attr_type:
+    label: Type of Node Attributes
+    options: 
+      - N/A
+      - homog
+      - hetero
+  edge_attr_size:
+    label: No. of Edge Attributes
+    options: 
+      - none
+      - few
+      - several 
+  edge_attr_type:
+    label: Type of Edge Attributes
+    options:  
+      - N/A
+      - homog
+      - hetero
+  structure: 
+    label: Structures
+    options:
+      - single
+      - neighbors
+      - paths
+      - clusters
+      - network
 ---
 <div class="publication">
-
 
     <article class="publication-content-left">
         <form id = 'wizard_panel'></form>
@@ -20,11 +57,11 @@ labels:
   
       <article class="publication-content-right">
           <h1>Recommended Techniques</h1>
-          {% for technique in site.techniques reversed  %}
+          <!-- {% for technique in site.techniques reversed  %}
             {% if technique.type == "node-link" %}
               {% include technique_list_entry.html %}
             {% endif %}
-          {% endfor %}
+          {% endfor %} -->
       
       
         </article>
@@ -36,7 +73,11 @@ labels:
 
           let allScores = {};
           let techniques = {};
-          let categories = JSON.parse(('{{layout.labels}}'.replace(/=>/g, ':')))
+          let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
+
+          // let categories = Object.keys(optionsObj).map(key=>optionsObj[key].label);
+
+          // console.log(categories);
 
         '{% for technique in site.techniques reversed  %}'
           allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
@@ -45,26 +86,42 @@ labels:
           allScores['{{technique.key}}'].image='{{technique.image}}';
         '{% endfor %}' 
 
-        console.log(allScores)
-
-      let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(categories));
+      let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
 
       let groupsEnter = groups.enter().append('div'); 
 
+      
+      let label = groupsEnter
+      .append('label')
+      .attr('class','switch')
 
       groupsEnter.append('h1');
+
+      label
+      .append('input')
+      .attr('type','checkbox');
+      label
+      .append('span')
+      .attr('class', 'slider round')
+
+
       groupsEnter.append('group')
+
+//       <label class="switch">
+//   <input type="checkbox">
+//   <span class="slider round"></span>
+// </label>
       
       groups = groupsEnter.merge(groups);
       
       groups.select('group')
       .attr('class',d=> d === 'structure' ? 'stacked-radio' : 'inline-radio')
 
-      groups.select('h1').text(d=>categories[d]);
+      groups.select('h1').text(d=>optionsObject[d].label);
 
       let options = groups
       .select('group')
-      .selectAll('div').data((d)=>Object.keys(allScores['node-link'][d]).map(
+      .selectAll('div').data((d)=>optionsObject[d].options.map(
         option=>{return {category:d,option}})
         );
 
@@ -79,31 +136,38 @@ labels:
       .attr('label',d=>d.option)
       .property('checked',(d,i)=>i==0)
       .on('click',(d)=>{
+        console.log(d);
+        //check if it is a 'none' option, in which case disable the type options;
+
+        // var radios = document.getElementsByName('node_attr_type');
+        //   for (var i = 0; i< radios.length;  i++){
+        //       radios[i].disabled = true;
+        //   }
+
         let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
         d3.selectAll('.paper-list-block')
             .remove();
 
-
       render_technique(scores[0])
       render_technique(scores[1])
       render_technique(scores[2])
-      });
 
+      console.log('scores', scores)
+
+      });
 
       optionsEnter.append('label')
       .text(d=>d.option);
 
       let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
-      console.log(scores)
+        d3.selectAll('.paper-list-block')
+            .remove();
 
-      '{% assign technique = site.techniques | where:"key", "integrated"  | first %}'
-        
-      console.log( 't is ', '{{test}}');
-      // d3.select('#wizard_panel').selectAll('input').filter(function(d){console.log(d3.select(this)); return true});
+      render_technique(scores[0])
+      render_technique(scores[1])
+      render_technique(scores[2])
 
-      
-        // console.log(allScores)
-
+      console.log('scores', scores)
 
        </script>
 

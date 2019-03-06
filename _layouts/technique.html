@@ -1,5 +1,29 @@
 ---
 layout: default
+
+categories:
+  Size: 
+    <!-- order: 1 -->
+    keys:
+      - size
+  Type: 
+    <!-- order: 2 -->
+    keys:
+      - type
+  Node Attributes:
+    <!-- order: 3 -->
+    keys: 
+      - node_attr_size 
+      - node_attr_type
+  Edge Attributes: 
+    <!-- order: 4 -->
+    keys:
+      - edge_attr_size 
+      - edge_attr_type
+  Structures : 
+    <!-- order: 5 -->
+    keys:
+      - structure
 ---
 <div class="publication">
 
@@ -68,7 +92,7 @@ layout: default
 
   <script>
        let scores = JSON.parse(('{{page.scores}}'.replace(/=>/g, ':')));
-       let labels = JSON.parse(('{{page.labels}}'.replace(/=>/g, ':')));
+       let labels = JSON.parse(('{{layout.categories}}'.replace(/=>/g, ':')));
        technique_scores(scores,labels);
 
   </script>
