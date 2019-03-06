@@ -18,25 +18,21 @@ Options:
   node_attr_size:
     label: No. of Node Attributes
     options: 
-      - none
       - few
       - several
   node_attr_type:
     label: Type of Node Attributes
     options: 
-      - N/A
       - homog
       - hetero
   edge_attr_size:
     label: No. of Edge Attributes
     options: 
-      - none
       - few
       - several 
   edge_attr_type:
     label: Type of Edge Attributes
     options:  
-      - N/A
       - homog
       - hetero
   structure: 
@@ -136,7 +132,7 @@ Options:
       .attr('label',d=>d.option)
       .property('checked',(d,i)=>i==0)
       .on('click',(d)=>{
-        console.log(d);
+        console.log('clicked', d);
         //check if it is a 'none' option, in which case disable the type options;
 
         // var radios = document.getElementsByName('node_attr_type');
@@ -167,7 +163,7 @@ Options:
       render_technique(scores[1])
       render_technique(scores[2])
 
-      console.log('scores', scores)
+      // console.log('scores', scores)
 
        </script>
 

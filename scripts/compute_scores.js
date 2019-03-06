@@ -7,12 +7,15 @@ function compute_scores(allScores) {
       Object.keys(allScores).map(technique=>allTechniques.push(
         {key:technique,value:0,description:allScores[technique].description,title:allScores[technique].title}));
 
-      d3.select('#wizard_panel').selectAll('input:checked').each(function(c){
+      d3.select('#wizard_panel').selectAll('input:checked').filter(function(d){
+        return d3.select(this).attr('type') === 'radio'
+      }).each(function(c){
         let category = d3.select(this).attr('name');
         let value = d3.select(this).attr('label');
 
       Object.keys(allScores).map(technique=>{
         let item = allTechniques.find(v=>v.key === technique);
+        // console.log('item',item)
          item.value =  allScores[technique][category][value] ? item.value + allScores[technique][category][value] : item.value });      
       })
 

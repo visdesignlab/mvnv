@@ -62,30 +62,9 @@ categories:
     <h1>Examples from Literature</h1>
     {% for example in page.examples %}
     <img alt="{{ page.shortname }} screenshot" class="paper-image-small-aside" src="{{ site.baseurl }}/assets/images/techniques/examples/{{ example.image }}">
-    <!-- {{ example.caption }} -->
-    <!-- <br/> -->
-    <!-- {% reference {{paper}} %} -->
     {% endfor %}
 
   </article>
-
-  <article class="publication-content">
-    <h2>Relevant References</h2>
-    <ul>
-      {% for paper in page.papers %}
-      <li>
-        {% reference {{paper}} %}
-      </li>
-      {% endfor %}
-    </ul>
-  </article>
-
-
-
-
-
-  <!-- {% bibliography -q @*[note ~= node-link] %} -->
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
   <script src="{{base.url}}/scripts/technique_scores.js"></script>

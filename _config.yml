@@ -17,7 +17,7 @@ paper_content_url: http://sci.utah.edu/~vdl/papers/
 
 plugins:
   - jekyll-redirect-from
-  - jekyll/scholar
+  # - jekyll/scholar
 
 # Build settings
 permalink: pretty
