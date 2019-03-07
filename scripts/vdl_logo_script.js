@@ -1,6 +1,8 @@
+---
+---
 svgString().then(logo => {
-    // d3.select("#svg").html(logo);
-        // run();
+     d3.select("#svg").html(logo);
+     run();
   });
   
   function run() {
@@ -31,7 +33,7 @@ svgString().then(logo => {
       clearInterval(loop);
       staticBubbles.transition().duration(0).attr('transform', `translate(0, 50)`);
       staticBubbles.transition().duration(8000).attr('transform', `translate(0, 0)`).style('opacity', 1);
-    })
+    });
   
     function addBubble(source) {
       let radius = getRandomRadius();
@@ -85,25 +87,25 @@ svgString().then(logo => {
       let points = [
         [xShift, 0],
         [xShift, -20]
-      ]
+      ];
   
       if (position === 'left') {
         xShift = xShift + 13;
-        points.push([xShift - 11, -22])
-        points.push([xShift - 6, -28])
-        points.push([xShift - 5, -30])
-        points.push([xShift - 1, -35])
+        points.push([xShift - 11, -22]);
+        points.push([xShift - 6, -28]);
+        points.push([xShift - 5, -30]);
+        points.push([xShift - 1, -35]);
       } else if (position === 'right') {
         xShift = xShift - 13;
-        points.push([xShift + 11, -25])
-        points.push([xShift + 6, -30])
-        points.push([xShift + 1, -36])
+        points.push([xShift + 11, -25]);
+        points.push([xShift + 6, -30]);
+        points.push([xShift + 1, -36]);
       }
   
       points.push(...[
         [xShift, -50], //Bottleneck
         [xShift, -90],
-      ])
+      ]);
       return points;
     }
   
@@ -120,7 +122,5 @@ svgString().then(logo => {
     let path = '{{ site.baseurl }}/assets/images/logos/animated_logo_template.svg';
     return await d3.text(path)
     // return await d3.text('/assets/images/logos/test.svg')
-
-        // return await d3.text('/assets/images/mvn_taxonomy.svg')
-
+    // return await d3.text('/assets/images/mvn_taxonomy.svg')
     }
