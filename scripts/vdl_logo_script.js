@@ -117,8 +117,9 @@ svgString().then(logo => {
   }
   
   async function svgString() {
-    // return await d3.text('/assets/images/logos/animated_logo_template.svg')
-    return await d3.text('/assets/images/logos/test.svg')
+    let path = '{{ site.baseurl }}/assets/images/logos/animated_logo_template.svg';
+    return await d3.text(path)
+    // return await d3.text('/assets/images/logos/test.svg')
 
         // return await d3.text('/assets/images/mvn_taxonomy.svg')
 
