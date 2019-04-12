@@ -195,7 +195,7 @@ $large-display: new-breakpoint(min-width 1200px $large-display-columns);
 
 .navigation {
   display: block;
-  height: 40px;
+  height: 120px;
   margin-bottom: 20px;
   padding-bottom:20px;
   width:100%;
@@ -1273,11 +1273,15 @@ label
   box-sizing: border-box;
 }
 
+.card.technique-card{
+  width:100%;
+}
+
 
 form {
-  background: #fff;
+  background: rgb(255, 255, 255);
   width: 30%;
-  margin: 30px 0px;
+  margin: 0px 0px;
   padding: 10px 30px 30px 30px ;
   min-width: 320px;
   // max-width: 540px;
@@ -1287,6 +1291,7 @@ form {
     font-size:1em;
   }
 }
+
 
 group + group {
   margin-top: 20px;

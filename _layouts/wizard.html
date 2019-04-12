@@ -44,132 +44,263 @@ Options:
       - clusters
       - network
 ---
-<div class="publication">
 
-    <article class="publication-content-left">
-        <form id = 'wizard_panel'></form>
-    </article>
-    <!-- {% include wizard_panel.html %} -->
-  
-      <article class="publication-content-right">
-          <h1>Recommended Techniques</h1>
-          <!-- {% for technique in site.techniques reversed  %}
-            {% if technique.type == "node-link" %}
-              {% include technique_list_entry.html %}
-            {% endif %}
-          {% endfor %} -->
-      
-      
-        </article>
+<div class="columns">
+  <div class="column is-one-third">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-        <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
+    <div class="publication">
 
-        <script>
-
-          let allScores = {};
-          let techniques = {};
-          let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
-
-          // let categories = Object.keys(optionsObj).map(key=>optionsObj[key].label);
-
-          // console.log(categories);
-
-        '{% for technique in site.techniques reversed  %}'
-          allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
-          allScores['{{technique.key}}'].title='{{technique.title}}';
-          allScores['{{technique.key}}'].description='{{technique.description}}';
-          allScores['{{technique.key}}'].image='{{technique.image}}';
-        '{% endfor %}' 
-
-      let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
-
-      let groupsEnter = groups.enter().append('div'); 
+      <article class="publication-content-left">
+          <form id = 'wizard_panel'></form>
+      </article>
 
       
-      let label = groupsEnter
-      .append('label')
-      .attr('class','switch')
-
-      groupsEnter.append('h1');
-
-      label
-      .append('input')
-      .attr('type','checkbox');
-      label
-      .append('span')
-      .attr('class', 'slider round')
-
-
-      groupsEnter.append('group')
-
-//       <label class="switch">
-//   <input type="checkbox">
-//   <span class="slider round"></span>
-// </label>
-      
-      groups = groupsEnter.merge(groups);
-      
-      groups.select('group')
-      .attr('class',d=> d === 'structure' ? 'stacked-radio' : 'inline-radio')
-
-      groups.select('h1').text(d=>optionsObject[d].label);
-
-      let options = groups
-      .select('group')
-      .selectAll('div').data((d)=>optionsObject[d].options.map(
-        option=>{return {category:d,option}})
-        );
-
-      let optionsEnter = options.enter().append('div');
-      optionsEnter.append('input')
-      .attr('type','radio');
-
-      options = optionsEnter.merge(options);
-
-      options.select('input')
-      .attr('name',(d)=>d.category)
-      .attr('label',d=>d.option)
-      .property('checked',(d,i)=>i==0)
-      .on('click',(d)=>{
-        console.log('clicked', d);
-        //check if it is a 'none' option, in which case disable the type options;
-
-        // var radios = document.getElementsByName('node_attr_type');
-        //   for (var i = 0; i< radios.length;  i++){
-        //       radios[i].disabled = true;
-        //   }
-
-        let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
-        d3.selectAll('.paper-list-block')
-            .remove();
-
-      render_technique(scores[0])
-      render_technique(scores[1])
-      render_technique(scores[2])
-
-      console.log('scores', scores)
-
-      });
-
-      optionsEnter.append('label')
-      .text(d=>d.option);
-
-      let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
-        d3.selectAll('.paper-list-block')
-            .remove();
-
-      render_technique(scores[0])
-      render_technique(scores[1])
-      render_technique(scores[2])
-
-      // console.log('scores', scores)
-
-       </script>
-
-    </div>
-  
-
     
+        <!-- <article class="publication-content-right">
+            <h1>Recommended Techniques</h1>
+          </article> -->
+    
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+          <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
+    
+          <script>
+    
+            let allScores = {};
+            let techniques = {};
+            let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
+    
+            // let categories = Object.keys(optionsObj).map(key=>optionsObj[key].label);
+    
+            // console.log(categories);
+    
+          '{% for technique in site.techniques reversed  %}'
+            allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
+            allScores['{{technique.key}}'].title='{{technique.title}}';
+            allScores['{{technique.key}}'].description='{{technique.description}}';
+            allScores['{{technique.key}}'].image='{{technique.image}}';
+          '{% endfor %}' 
+    
+        let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
+    
+        let groupsEnter = groups.enter().append('div'); 
+    
+        
+        let label = groupsEnter
+        .append('label')
+        .attr('class','switch')
+    
+        groupsEnter.append('h1');
+    
+        label
+        .append('input')
+        .attr('type','checkbox');
+        label
+        .append('span')
+        .attr('class', 'slider round')
+    
+    
+        groupsEnter.append('group')
+    
+    //       <label class="switch">
+    //   <input type="checkbox">
+    //   <span class="slider round"></span>
+    // </label>
+        
+        groups = groupsEnter.merge(groups);
+        
+        groups.select('group')
+        .attr('class',d=> d === 'structure' ? 'stacked-radio' : 'inline-radio')
+    
+        groups.select('h1')
+        .attr('class','tooltip is-tooltip-left')
+        .attr('data-tooltip','This is what this attribute means')
+        .text(d=>optionsObject[d].label);
+    
+        let options = groups
+        .select('group')
+        .selectAll('div').data((d)=>optionsObject[d].options.map(
+          option=>{return {category:d,option}})
+          )
+         
+
+        let optionsEnter = options.enter().append('div')
+        .attr('class','tooltip')
+        .attr('data-tooltip','Option Specific Explanation')
+        
+    
+        optionsEnter.append('input')
+        .attr('type','radio');
+
+        // class="button is-primary tooltip" data-tooltip="Tooltip Text"
+    
+        options = optionsEnter.merge(options);
+    
+        options.select('input')
+        .attr('name',(d)=>d.category)
+        .attr('label',d=>d.option)
+        .property('checked',(d,i)=>i==0)
+        .on('click',(d)=>{
+          console.log('clicked', d);
+          //check if it is a 'none' option, in which case disable the type options;
+    
+          // var radios = document.getElementsByName('node_attr_type');
+          //   for (var i = 0; i< radios.length;  i++){
+          //       radios[i].disabled = true;
+          //   }
+    
+          let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+          
+          d3.selectAll('.paper-list-block')
+              .remove();
+    
+        // render_technique(scores[0])
+        // render_technique(scores[1])
+        // render_technique(scores[2])
+        // render_technique(scores[3])
+    
+        console.log('scores', scores)
+    
+        });
+    
+        optionsEnter
+        // .append('div')
+        // .classed('tooltip','true')
+        // .attr('data-tooltip', 'This is a test tooltip')
+        .append('label')
+        .text(d=>d.option)
+        
+    
+        let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+          d3.selectAll('.card')
+              .remove();
+    
+        render_technique(scores[0])
+        render_technique(scores[1])
+        render_technique(scores[2])
+        render_technique(scores[3])
+    
+        // console.log('scores', scores)
+    
+         </script>
+    
+      </div>
+
+  </div>
+  <div class="column">
+
+      <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-96x96">
+                <img src="/mvnv/assets/images/techniques/icons/topology-driven.png" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                    <h4>On Node/Edge Encoding</h4>
+                  <!-- <small>subtitle</small>  -->
+                  <!-- <nav class="level is-mobile"> -->
+    
+                  <p>
+                    <span class="icon has-text-info tooltip" data-tooltip="Description">
+                      <i class="fas fa-info-circle"></i>
+                    </span> Topology driven layouts prioritize the topology of the network over
+                    the attributes of the nodes and edges. The most common node-link layouts,
+                    such as force-directed layouts, spectral layouts, or orthogonal layouts fall
+                    into this class, or more specifically into the free layouts as described by
+                    Schulz and Schumann. Trees are also commonly drawn as topology driven node-link
+                    layouts.
+                  </p>
+    
+                  <p>
+                    <span class="icon has-text-success tooltip" data-tooltip="Strengths">
+                        <i class="fas fa-check-square"></i>
+                      </span> This technique is particularly good at handling small graphs, with less than 3 attributes per node.
+                  </p>
+    
+                  <p>
+                  <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span> This technique is not very good at handling tree-like graphs.
+                </p>
+    
+                <p>
+                  <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
+                    <i class="fas fa-ban"></i>
+                  </span> This technique does not support edge attributes.
+                  
+                </p>
+                  <!-- </nav> -->
+                  <br>
+                </p>
+              </div>
+    
+            </div>
+          </article>
+        </div>
+
+
+  
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-96x96">
+              <img src="/mvnv/assets/images/techniques/icons/hybrid.png" alt="Image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <h4>Hybrid</h4>
+
+                <span class="icon has-text-info tooltip" data-tooltip="Description">
+                      <i class="fas fa-info-circle"></i>
+                    </span>
+                <!-- <small>subtitle</small>  -->
+                Topology driven layouts prioritize the topology of the network over
+                the attributes of the nodes and edges. The most common node-link layouts,
+                such as force-directed layouts, spectral layouts, or orthogonal layouts fall
+                into this class, or more specifically into the free layouts as described by
+                Schulz and Schumann. Trees are also commonly drawn as topology driven node-link
+                layouts.
+
+                <p>
+                    <span class="icon has-text-success tooltip" data-tooltip="Strengths">
+                        <i class="fas fa-check-square"></i>
+                        <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                        
+                      </span> This technique is particularly good at handling small graphs, with less than 3 attributes per node.
+                  </p>
+    
+                  <p>
+                  <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span> This technique is not very good at handling tree-like graphs.
+                </p>
+    
+                <p>
+                  <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
+                    <i class="fas fa-ban"></i>
+                    
+                  </span> This technique does not support edge attributes.
+                  
+                </p>
+              </p>
+            </div>
+  
+          </div>
+        </article>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
 
 
