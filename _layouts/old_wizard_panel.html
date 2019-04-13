@@ -1,0 +1,136 @@
+    <div class="publication">
+
+      <article class="publication-content-left">
+          <form id = 'wizard_panel'></form>
+      </article>
+
+      
+    
+        <!-- <article class="publication-content-right">
+            <h1>Recommended Techniques</h1>
+          </article> -->
+    
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+          <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
+    
+          <script>
+    
+            let allScores = {};
+            let techniques = {};
+            let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
+    
+            // let categories = Object.keys(optionsObj).map(key=>optionsObj[key].label);
+    
+            // console.log(categories);
+    
+          '{% for technique in site.techniques reversed  %}'
+            allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
+            allScores['{{technique.key}}'].title='{{technique.title}}';
+            allScores['{{technique.key}}'].description='{{technique.description}}';
+            allScores['{{technique.key}}'].image='{{technique.image}}';
+          '{% endfor %}' 
+    
+        let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
+    
+        let groupsEnter = groups.enter().append('div'); 
+    
+        
+        let label = groupsEnter
+        .append('label')
+        .attr('class','switch')
+    
+        groupsEnter.append('h1');
+    
+        label
+        .append('input')
+        .attr('type','checkbox');
+        label
+        .append('span')
+        .attr('class', 'slider round')
+    
+    
+        groupsEnter.append('group')
+    
+    //       <label class="switch">
+    //   <input type="checkbox">
+    //   <span class="slider round"></span>
+    // </label>
+        
+        groups = groupsEnter.merge(groups);
+        
+        groups.select('group')
+        .attr('class',d=> d === 'structure' ? 'stacked-radio' : 'inline-radio')
+    
+        groups.select('h1')
+        .attr('class','tooltip is-tooltip-left')
+        .attr('data-tooltip','This is what this attribute means')
+        .text(d=>optionsObject[d].label);
+    
+        let options = groups
+        .select('group')
+        .selectAll('div').data((d)=>optionsObject[d].options.map(
+          option=>{return {category:d,option}})
+          )
+         
+
+        let optionsEnter = options.enter().append('div')
+        .attr('class','tooltip')
+        .attr('data-tooltip','Option Specific Explanation')
+        
+    
+        optionsEnter.append('input')
+        .attr('type','radio');
+
+        // class="button is-primary tooltip" data-tooltip="Tooltip Text"
+    
+        options = optionsEnter.merge(options);
+    
+        options.select('input')
+        .attr('name',(d)=>d.category)
+        .attr('label',d=>d.option)
+        .property('checked',(d,i)=>i==0)
+        .on('click',(d)=>{
+          console.log('clicked', d);
+          //check if it is a 'none' option, in which case disable the type options;
+    
+          // var radios = document.getElementsByName('node_attr_type');
+          //   for (var i = 0; i< radios.length;  i++){
+          //       radios[i].disabled = true;
+          //   }
+    
+          let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+          
+          d3.selectAll('.paper-list-block')
+              .remove();
+    
+        // render_technique(scores[0])
+        // render_technique(scores[1])
+        // render_technique(scores[2])
+        // render_technique(scores[3])
+    
+        console.log('scores', scores)
+    
+        });
+    
+        optionsEnter
+        // .append('div')
+        // .classed('tooltip','true')
+        // .attr('data-tooltip', 'This is a test tooltip')
+        .append('label')
+        .text(d=>d.option)
+        
+    
+        let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+          d3.selectAll('.card')
+              .remove();
+    
+        render_technique(scores[0])
+        render_technique(scores[1])
+        render_technique(scores[2])
+        render_technique(scores[3])
+    
+        // console.log('scores', scores)
+    
+         </script>
+    
+      </div>

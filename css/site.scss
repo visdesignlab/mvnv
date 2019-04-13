@@ -240,6 +240,7 @@ $large-display: new-breakpoint(min-width 1200px $large-display-columns);
 .wrap {
   @include outer-container;
   @include clearfix;
+  max-width:2200px;
 }
 
 

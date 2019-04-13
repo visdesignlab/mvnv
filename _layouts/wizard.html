@@ -44,263 +44,291 @@ Options:
       - clusters
       - network
 ---
-
 <div class="columns">
   <div class="column is-one-third">
 
-    <div class="publication">
+    <div class="box">
+      <h4>Size <span class="icon tooltip is-tooltip-multiline"
+          data-tooltip="Small: <100 Nodes, Medium: <200 nodes, Large: <1000 nodes?">
+          <i class="fas fa-question-circle has-text-grey"></i>
+        </span>
+      </h4>
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <div>
+              <a>
+                <span class="tooltip is-tooltip-left"
+                  data-tooltip="Networks with less than 100 nodes">Small</span>
+              </a>
+            </div>
 
-      <article class="publication-content-left">
-          <form id = 'wizard_panel'></form>
-      </article>
-
-      
-    
-        <!-- <article class="publication-content-right">
-            <h1>Recommended Techniques</h1>
-          </article> -->
-    
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-          <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
-    
-          <script>
-    
-            let allScores = {};
-            let techniques = {};
-            let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
-    
-            // let categories = Object.keys(optionsObj).map(key=>optionsObj[key].label);
-    
-            // console.log(categories);
-    
-          '{% for technique in site.techniques reversed  %}'
-            allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
-            allScores['{{technique.key}}'].title='{{technique.title}}';
-            allScores['{{technique.key}}'].description='{{technique.description}}';
-            allScores['{{technique.key}}'].image='{{technique.image}}';
-          '{% endfor %}' 
-    
-        let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
-    
-        let groupsEnter = groups.enter().append('div'); 
-    
-        
-        let label = groupsEnter
-        .append('label')
-        .attr('class','switch')
-    
-        groupsEnter.append('h1');
-    
-        label
-        .append('input')
-        .attr('type','checkbox');
-        label
-        .append('span')
-        .attr('class', 'slider round')
-    
-    
-        groupsEnter.append('group')
-    
-    //       <label class="switch">
-    //   <input type="checkbox">
-    //   <span class="slider round"></span>
-    // </label>
-        
-        groups = groupsEnter.merge(groups);
-        
-        groups.select('group')
-        .attr('class',d=> d === 'structure' ? 'stacked-radio' : 'inline-radio')
-    
-        groups.select('h1')
-        .attr('class','tooltip is-tooltip-left')
-        .attr('data-tooltip','This is what this attribute means')
-        .text(d=>optionsObject[d].label);
-    
-        let options = groups
-        .select('group')
-        .selectAll('div').data((d)=>optionsObject[d].options.map(
-          option=>{return {category:d,option}})
-          )
-         
-
-        let optionsEnter = options.enter().append('div')
-        .attr('class','tooltip')
-        .attr('data-tooltip','Option Specific Explanation')
-        
-    
-        optionsEnter.append('input')
-        .attr('type','radio');
-
-        // class="button is-primary tooltip" data-tooltip="Tooltip Text"
-    
-        options = optionsEnter.merge(options);
-    
-        options.select('input')
-        .attr('name',(d)=>d.category)
-        .attr('label',d=>d.option)
-        .property('checked',(d,i)=>i==0)
-        .on('click',(d)=>{
-          console.log('clicked', d);
-          //check if it is a 'none' option, in which case disable the type options;
-    
-          // var radios = document.getElementsByName('node_attr_type');
-          //   for (var i = 0; i< radios.length;  i++){
-          //       radios[i].disabled = true;
-          //   }
-    
-          let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
-          
-          d3.selectAll('.paper-list-block')
-              .remove();
-    
-        // render_technique(scores[0])
-        // render_technique(scores[1])
-        // render_technique(scores[2])
-        // render_technique(scores[3])
-    
-        console.log('scores', scores)
-    
-        });
-    
-        optionsEnter
-        // .append('div')
-        // .classed('tooltip','true')
-        // .attr('data-tooltip', 'This is a test tooltip')
-        .append('label')
-        .text(d=>d.option)
-        
-    
-        let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
-          d3.selectAll('.card')
-              .remove();
-    
-        render_technique(scores[0])
-        render_technique(scores[1])
-        render_technique(scores[2])
-        render_technique(scores[3])
-    
-        // console.log('scores', scores)
-    
-         </script>
-    
+          </li>
+          <li>
+            <a>
+              <span class="tooltip is-tooltip-left" data-tooltip="Networks with less than 1000 nodes">Medium</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="tooltip is-tooltip-left" data-tooltip="Networks with more than 1000 nodes">Large</span>
+            </a>
+          </li>
+        </ul>
       </div>
+
+      <h4>Type<span class="icon tooltip" data-tooltip="Type Description">
+          <i class="fas fa-question-circle has-text-grey"></i>
+        </span>
+
+
+      </h4>
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>Sparse</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Dense</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Layered</span>
+            </a>
+          </li>
+
+          <li>
+            <a>
+              <span>Trees</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h4>No. of Node Attributes</h4>
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>few <small>(1-10)</small></span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>several <small>(10+)</small></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h4>Type of Node Attributes</h4>
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>Homogeneous</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Heterogeneous</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h4>No. of Edge Attributes</h4>
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+                <span>few <small>(1-5)</small></span>
+            </a>
+          </li>
+          <li>
+            <a>
+                <span>several <small>(5+)</small></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h4>Type of Edge Attributes</h4>
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>Homogeneous</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Heterogeneous</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h4>Structures<span class="icon tooltip is-tooltip-multiline"
+        data-tooltip="Small: <100 Nodes, Medium: <200 nodes, Large: <1000 nodes?">
+        <i class="fas fa-question-circle has-text-grey"></i>
+      </span>
+
+      </h4>
+
+      <div class="tabs is-fullwidth is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>Single</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Neighbor</span>
+            </a>
+          </li>
+          <li>
+              <a>
+                <span>Path</span>
+              </a>
+            </li>
+            <li>
+                <a>
+                  <span>Cluster</span>
+                </a>
+              </li>
+              <li>
+                  <a>
+                    <span>Network</span>
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
 
   </div>
   <div class="column">
 
-      <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-96x96">
-                <img src="/mvnv/assets/images/techniques/icons/topology-driven.png" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                    <h4>On Node/Edge Encoding</h4>
-                  <!-- <small>subtitle</small>  -->
-                  <!-- <nav class="level is-mobile"> -->
-    
-                  <p>
-                    <span class="icon has-text-info tooltip" data-tooltip="Description">
-                      <i class="fas fa-info-circle"></i>
-                    </span> Topology driven layouts prioritize the topology of the network over
-                    the attributes of the nodes and edges. The most common node-link layouts,
-                    such as force-directed layouts, spectral layouts, or orthogonal layouts fall
-                    into this class, or more specifically into the free layouts as described by
-                    Schulz and Schumann. Trees are also commonly drawn as topology driven node-link
-                    layouts.
-                  </p>
-    
-                  <p>
-                    <span class="icon has-text-success tooltip" data-tooltip="Strengths">
-                        <i class="fas fa-check-square"></i>
-                      </span> This technique is particularly good at handling small graphs, with less than 3 attributes per node.
-                  </p>
-    
-                  <p>
-                  <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </span> This technique is not very good at handling tree-like graphs.
-                </p>
-    
-                <p>
-                  <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
-                    <i class="fas fa-ban"></i>
-                  </span> This technique does not support edge attributes.
-                  
-                </p>
-                  <!-- </nav> -->
-                  <br>
-                </p>
-              </div>
-    
-            </div>
-          </article>
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-96x96">
+            <img src="/mvnv/assets/images/techniques/icons/topology-driven.png" alt="Image">
+          </figure>
         </div>
-
-
-  
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-96x96">
-              <img src="/mvnv/assets/images/techniques/icons/hybrid.png" alt="Image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <div class="content">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <h4>On Node/Edge Encoding</h4>
               <p>
-                <h4>Hybrid</h4>
-
-                <span class="icon has-text-info tooltip" data-tooltip="Description">
-                      <i class="fas fa-info-circle"></i>
-                    </span>
-                <!-- <small>subtitle</small>  -->
-                Topology driven layouts prioritize the topology of the network over
-                the attributes of the nodes and edges. The most common node-link layouts,
-                such as force-directed layouts, spectral layouts, or orthogonal layouts fall
-                into this class, or more specifically into the free layouts as described by
-                Schulz and Schumann. Trees are also commonly drawn as topology driven node-link
-                layouts.
-
-                <p>
-                    <span class="icon has-text-success tooltip" data-tooltip="Strengths">
-                        <i class="fas fa-check-square"></i>
-                        <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                        
-                      </span> This technique is particularly good at handling small graphs, with less than 3 attributes per node.
-                  </p>
-    
-                  <p>
-                  <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </span> This technique is not very good at handling tree-like graphs.
-                </p>
-    
-                <p>
-                  <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
-                    <i class="fas fa-ban"></i>
-                    
-                  </span> This technique does not support edge attributes.
-                  
-                </p>
+                <span class="tag is-warning ">Large</span>
+                <span class="tag is-success ">Sparse</span>
+                <span class="tag is-success ">Several Node Attr.</span>
+                <span class="tag is-success ">Homo. Node Attr.</span>
+                <span class="tag is-warning ">Few Edge Attr.</span>
+                <span class="tag is-danger ">Hetero Edge Attr.</span>
               </p>
-            </div>
-  
+
+              <p>
+                <span class="icon has-text-info tooltip" data-tooltip="Description">
+                  <i class="fas fa-info-circle"></i>
+                </span> Topology driven layouts prioritize the topology of the network over
+                the attributes of the nodes and edges. <a>More...</a>
+              </p>
+
+              <p>
+                <span class="icon has-text-success tooltip" data-tooltip="Strengths">
+                  <i class="fas fa-check-square"></i>
+                </span> This technique is particularly good at handling small graphs, with less than 3 attributes per
+                node.
+              </p>
+
+              <p>
+                <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span> This technique is not very good at handling tree-like graphs.
+              </p>
+
+              <p>
+                <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
+                  <i class="fas fa-ban"></i>
+                </span> This technique does not support edge attributes.
+
+              </p>
+              <!-- </nav> -->
+              <br>
+            </p>
           </div>
-        </article>
-      </div>
+
+        </div>
+      </article>
     </div>
 
 
+
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-96x96">
+            <img src="/mvnv/assets/images/techniques/icons/hybrid.png" alt="Image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <h4>Hybrid</h4>
+              <p>
+                <span class="tag is-success ">Small</span>
+                <span class="tag is-success ">Sparse</span>
+                <span class="tag is-warning ">Few Node Attr.</span>
+                <span class="tag is-success ">Homo. Node Attr.</span>
+                <span class="tag is-danger ">Few Edge Attr.</span>
+                <span class="tag is-success ">Hetero Edge Attr.</span>
+              </p>
+
+
+              <p>
+                <span class="icon has-text-info tooltip" data-tooltip="Description">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+                Topology driven layouts prioritize the topology of the network over
+                the attributes of the nodes and edges. <a>More...</a>
+
+              </p>
+
+              <p>
+                <span class="icon has-text-success tooltip" data-tooltip="Strengths">
+                  <i class="fas fa-check-square"></i>
+                </span> This technique is particularly good at handling small graphs, with less than 3 attributes per
+                node.
+              </p>
+
+              <p>
+                <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span> This technique is not very good at handling tree-like graphs.
+              </p>
+
+              <p>
+                <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
+                  <i class="fas fa-ban"></i>
+
+                </span> This technique does not support edge attributes.
+
+              </p>
+            </p>
+          </div>
+
+        </div>
+      </article>
+    </div>
   </div>
+
+
 </div>
-
-
-
-
-
-
-
+</div>
