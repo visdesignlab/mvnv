@@ -7687,3 +7687,19 @@ label.panel-block {
     border-color: transparent transparent transparent rgba(74, 74, 74, 0.9) !important; }
   .is-tooltip-left-fullhd:focus::before, .is-tooltip-left-fullhd:hover::before, .is-tooltip-left-fullhd.is-tooltip-active::before {
     transform: translate(-0.5rem, 50%) !important; } }
+
+.tag.score-three {
+  background-color: #2797b9;
+  color: white; }
+
+.tag.score-two {
+  background-color: #54a2ae;
+  color: white; }
+
+.tag.score-one {
+  background-color: #a7dbdb;
+  color: #4a4a4a; }
+
+.tag.score-zero {
+  background-color: #ababab;
+  color: #4a4a4a; }
