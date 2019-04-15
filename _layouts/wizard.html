@@ -23,8 +23,8 @@ Options:
   node_attr_type:
     label: Type of Node Attributes
     options: 
-      - homogenous
-      - heterogenous
+      - homogeneous
+      - heterogeneous
   edge_attr_size:
     label: No. of Edge Attributes
     options: 
@@ -33,8 +33,8 @@ Options:
   edge_attr_type:
     label: Type of Edge Attributes
     options:  
-      - homogenous
-      - heterogenous
+      - homogeneous
+      - heterogeneous
   structure: 
     label: Structures
     options:
@@ -48,8 +48,6 @@ Options:
   <div class="column is-one-third">
 
       <div class="box" id="wizard_panel">
-          <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
-
       </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
@@ -67,6 +65,7 @@ Options:
         allScores['{{technique.key}}'].title='{{technique.title}}';
         allScores['{{technique.key}}'].description='{{technique.description}}';
         allScores['{{technique.key}}'].image='{{technique.image}}';
+        allScores['{{technique.key}}'].totalScore = 0;
       '{% endfor %}' 
 
       console.log('allScores', allScores)
@@ -107,10 +106,12 @@ Options:
     groups.select('label')
     .attr('for',d=>'switch_'+d)
 
+    //You can only use the toggle to force disable a category, not to turn it on;
     d3.selectAll(".switch").on("change", function(d){
-      let isChecked = d3.select(this).attr('checked');
-      console.log('ischecked',isChecked);
-        d3.select(this).attr('checked',isChecked ? null : 'checked');
+      d3.select(this).property('checked', false);
+      let tabGroup = d3.select(((this.parentNode).parentNode).parentNode).select('.tabs');
+      tabGroup.selectAll('li')
+      .classed('is-active',false);
       });
 
     // groups.select('.switch')
@@ -156,21 +157,27 @@ Options:
       //if no elements are selected, set toggle to false;
       selectedTabs = tabGroup.selectAll('.is-active');
 
-      // if (selectedTabs.empty()){
-      //   document.getElementById("switch_" + category).removeAttribute("data-com.agilebits.onepassword.user-edited")
-      // }
-
-      // d3.select('#switch_' + category)
-      // .attr('checked',selectedTabs.empty()? null : 'apple')
+      d3.select('#switch_' + category)
+      .property('checked',selectedTabs.empty()? false : true)
   
-      if (selectedTabs.empty()){
-        document.getElementById("switch_" + category).removeAttribute("checked")
-      } else {
-        d3.select('#switch_' + category)
-      .attr('checked','apple')
-      }
 
-      let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+      //create a list of key/value pairs to use in the scores
+      let activeOptions = d3.selectAll('.is-active').data();     
+
+      Object.keys(allScores).map(technique => {
+        allScores[technique].totalScore = 0;
+        activeOptions.map(option=>{
+          let score = allScores[technique][option.category][option.option];
+          allScores[technique].totalScore = allScores[technique].totalScore + score;
+        })
+        allScores[technique].averageScore = allScores[technique].totalScore / activeOptions.length;
+      })
+
+      let scoreArray = Object.keys(allScores).map(key=>{
+        return [key,allScores[key].averageScore]
+      }).sort((a,b)=>b[1] - a[1])
+
+      console.log('allScores_computed',scoreArray)
       
       d3.selectAll('.paper-list-block')
           .remove();
@@ -180,21 +187,7 @@ Options:
     // render_technique(scores[2])
     // render_technique(scores[3])
 
-    console.log('scores', scores)
-
     });
-
-    
-    let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
-      d3.selectAll('.card')
-          .remove();
-
-    // render_technique(scores[0])
-    // render_technique(scores[1])
-    // render_technique(scores[2])
-    // render_technique(scores[3])
-
-    // console.log('scores', scores)
 
      </script>
 
