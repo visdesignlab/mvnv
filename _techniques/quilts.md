@@ -37,14 +37,14 @@ scores:
           few: 3
           several: 3
      node_attr_type: 
-          homog: 3
-          hetero: 3
+          homogeneous: 3
+          heterogeneous: 3
      edge_attr_size: 
           few: 3
           several: 3
      edge_attr_type: 
-          homog: 3
-          hetero: 2
+          homogeneous: 3
+          heterogeneous: 2
      structure: 
           single: 3
           neighbors: 3

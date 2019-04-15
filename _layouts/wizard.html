@@ -23,8 +23,8 @@ Options:
   node_attr_type:
     label: Type of Node Attributes
     options: 
-      - homog
-      - hetero
+      - homogenous
+      - heterogenous
   edge_attr_size:
     label: No. of Edge Attributes
     options: 
@@ -33,183 +33,170 @@ Options:
   edge_attr_type:
     label: Type of Edge Attributes
     options:  
-      - homog
-      - hetero
+      - homogenous
+      - heterogenous
   structure: 
     label: Structures
     options:
       - single
-      - neighbors
-      - paths
-      - clusters
+      - neighbor
+      - path
+      - cluster
       - network
 ---
 <div class="columns">
   <div class="column is-one-third">
 
-    <div class="box">
-      <h4>Size <span class="icon tooltip is-tooltip-multiline"
-          data-tooltip="Small: <100 Nodes, Medium: <200 nodes, Large: <1000 nodes?">
-          <i class="fas fa-question-circle has-text-grey"></i>
-        </span>
-      </h4>
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <div>
-              <a>
-                <span class="tooltip is-tooltip-left"
-                  data-tooltip="Networks with less than 100 nodes">Small</span>
-              </a>
-            </div>
+      <div class="box" id="wizard_panel">
+          <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 
-          </li>
-          <li>
-            <a>
-              <span class="tooltip is-tooltip-left" data-tooltip="Networks with less than 1000 nodes">Medium</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="tooltip is-tooltip-left" data-tooltip="Networks with more than 1000 nodes">Large</span>
-            </a>
-          </li>
-        </ul>
       </div>
 
-      <h4>Type<span class="icon tooltip" data-tooltip="Type Description">
-          <i class="fas fa-question-circle has-text-grey"></i>
-        </span>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+      <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
+
+      <script>
+
+        let allScores = {};
+        let techniques = {};
+        let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
 
 
-      </h4>
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <a>
-              <span>Sparse</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Dense</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Layered</span>
-            </a>
-          </li>
+      '{% for technique in site.techniques reversed  %}'
+        allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
+        allScores['{{technique.key}}'].title='{{technique.title}}';
+        allScores['{{technique.key}}'].description='{{technique.description}}';
+        allScores['{{technique.key}}'].image='{{technique.image}}';
+      '{% endfor %}' 
 
-          <li>
-            <a>
-              <span>Trees</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      console.log('allScores', allScores)
 
-      <h4>No. of Node Attributes</h4>
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <a>
-              <span>few <small>(1-10)</small></span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>several <small>(10+)</small></span>
-            </a>
-          </li>
-        </ul>
-      </div>
 
-      <h4>Type of Node Attributes</h4>
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <a>
-              <span>Homogeneous</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Heterogeneous</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+    let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
 
-      <h4>No. of Edge Attributes</h4>
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <a>
-                <span>few <small>(1-5)</small></span>
-            </a>
-          </li>
-          <li>
-            <a>
-                <span>several <small>(5+)</small></span>
-            </a>
-          </li>
-        </ul>
-      </div>
+    let groupsEnter = groups.enter().append('div');
+    
+    //Add Header
+    let h4 = groupsEnter.append('h4');
+    
+    h4.append('span').attr('id','header');
+    h4.append('span').attr('id','icon')
+    .append('i');
 
-      <h4>Type of Edge Attributes</h4>
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <a>
-              <span>Homogeneous</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Heterogeneous</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+     let switchEl = h4.append('span').attr('class','field is-pulled-right');
+     
+     switchEl.append('input')
+     .attr('type','checkbox')
+     .attr('class','switch is-rounded is-small')
 
-      <h4>Structures<span class="icon tooltip is-tooltip-multiline"
-        data-tooltip="Small: <100 Nodes, Medium: <200 nodes, Large: <1000 nodes?">
-        <i class="fas fa-question-circle has-text-grey"></i>
-      </span>
+     switchEl.append('label')
 
-      </h4>
+  
+    //Add options
+    groupsEnter.append('div').attr('class','tabs is-fullwidth is-toggle'); 
 
-      <div class="tabs is-fullwidth is-toggle">
-        <ul>
-          <li class="is-active">
-            <a>
-              <span>Single</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Neighbor</span>
-            </a>
-          </li>
-          <li>
-              <a>
-                <span>Path</span>
-              </a>
-            </li>
-            <li>
-                <a>
-                  <span>Cluster</span>
-                </a>
-              </li>
-              <li>
-                  <a>
-                    <span>Network</span>
-                  </a>
-                </li>
-        </ul>
-      </div>
-    </div>
+    let ul = groupsEnter.select('.tabs')
+    .append('ul');
+
+    groups = groupsEnter.merge(groups);
+
+    //Set data dependent attributes
+    groups.select('.switch')
+    .attr('id',d=>'switch_'+d)
+
+    groups.select('label')
+    .attr('for',d=>'switch_'+d)
+
+    d3.selectAll(".switch").on("change", function(d){
+      let isChecked = d3.select(this).attr('checked');
+      console.log('ischecked',isChecked);
+        d3.select(this).attr('checked',isChecked ? null : 'checked');
+      });
+
+    // groups.select('.switch')
+    // .on('change',console.log('changed'))
+
+    groups.select('#header')
+    .text(d=>optionsObject[d].label);
+
+    groups.select('#icon')
+    .attr('class','icon tooltip')
+    .attr('data-tooltip','tooltip info');
+
+    groups.select('i')
+    .attr('class','fas fa-question-circle has-text-grey');
+  
+  
+    let li = groups.select('ul').selectAll('li').data((d)=>optionsObject[d].options.map(
+      option=>{return {category:d,option}})
+      );
+    
+      let liEnter = li.enter().append('li');
+      
+      liEnter.append('a').append('span');
+
+      li = liEnter.merge(li);
+
+      li.select('span').text(d=>d.option);
+    
+
+    li.on('click',function(d){
+      
+      let tabGroup = d3.select((this.parentNode).parentNode);
+      let category = tabGroup.data()[0];
+
+      console.log('clicked', d);
+      let isSelected = d3.select(this).classed('is-active');
+
+      if (category !== 'structure'){
+        tabGroup.selectAll('li').classed('is-active',false);
+      }
+      d3.select(this).classed('is-active',!isSelected);
+
+      //if no elements are selected, set toggle to false;
+      selectedTabs = tabGroup.selectAll('.is-active');
+
+      // if (selectedTabs.empty()){
+      //   document.getElementById("switch_" + category).removeAttribute("data-com.agilebits.onepassword.user-edited")
+      // }
+
+      // d3.select('#switch_' + category)
+      // .attr('checked',selectedTabs.empty()? null : 'apple')
+  
+      if (selectedTabs.empty()){
+        document.getElementById("switch_" + category).removeAttribute("checked")
+      } else {
+        d3.select('#switch_' + category)
+      .attr('checked','apple')
+      }
+
+      let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+      
+      d3.selectAll('.paper-list-block')
+          .remove();
+
+    // render_technique(scores[0])
+    // render_technique(scores[1])
+    // render_technique(scores[2])
+    // render_technique(scores[3])
+
+    console.log('scores', scores)
+
+    });
+
+    
+    let scores = compute_scores(allScores).sort((a,b)=>b.value - a.value);
+      d3.selectAll('.card')
+          .remove();
+
+    // render_technique(scores[0])
+    // render_technique(scores[1])
+    // render_technique(scores[2])
+    // render_technique(scores[3])
+
+    // console.log('scores', scores)
+
+     </script>
 
   </div>
   <div class="column">
@@ -243,31 +230,32 @@ Options:
 <div class="field is-grouped is-grouped-multiline">
     <div class="control">
       <div class="tags has-addons">
-        <span class="tag ">Large</span>
-        <span class="tag score-three"><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
+        <span class="tag score-three">Large</span>
+        <span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
       </div>
     </div>
   
     <div class="control">
         <div class="tags has-addons">
-          <span class="tag ">Sparse</span>
-          <span class="tag score-two"><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
+          <span class="tag score-two ">Sparse</span>
+          <span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
         </div>
       </div>
 
       <div class="control">
           <div class="tags has-addons">
-            <span class="tag ">Several Node Attr.</span>
-            <span class="tag score-one"><i class="fas fa-star fa-xs"></i></span>
+            <span class="tag score-one">Several Node Attr.</span>
+            <span class="tag "><i class="fas fa-star fa-xs"></i></span>
           </div>
         </div>
         
-          <div class="control">
-              <div class="tags has-addons">
-                <span class="tag ">Homo. Node Attr.</span>
-                <span class="tag score-two"><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
+
+            <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag ">Hetero. Node Attr.</span>
+                </div>
               </div>
-            </div>
+  
 
           
       
@@ -286,7 +274,14 @@ Options:
               <p>
                 <span class="icon has-text-success tooltip" data-tooltip="Strengths">
                   <i class="fas fa-check-square"></i>
-                </span> This technique is particularly good at handling small graphs, with less than 3 attributes per
+                </span> 
+                
+                  <span class="tag has-text-success  ">Large <br></span>
+                  <span class="tag has-text-success  ">Several Node Attr <br></span>
+                  <span class="tag has-text-success  ">Some other thing <br></span>
+  
+  
+                  This technique is particularly good at handling small graphs, with less than 3 attributes per
                 node.
               </p>
 
