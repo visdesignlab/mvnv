@@ -49,9 +49,9 @@ scores:
           heterogeneous: 1
      structure: 
           single: 3
-          neighbors: 3
-          paths: 2
-          clusters: 2
+          neighbor: 3
+          path: 2
+          cluster: 2
           network: 2
 
 

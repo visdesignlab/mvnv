@@ -46,9 +46,9 @@ scores:
           heterogeneous: 3
      structure: 
           single: 2
-          neighbors: 1
-          paths: 1
-          clusters: 2
+          neighbor: 1
+          path: 1
+          cluster: 2
           network: 2
 
 # After the --- you can put information that you want to appear on the website using markdown formatting or HTML. A good example are acknowledgements, extra references, an erratum, etc.

@@ -86,7 +86,7 @@ Options:
      
      switchEl.append('input')
      .attr('type','checkbox')
-     .attr('class','switch is-rounded is-small')
+     .attr('class','switch is-small')
 
      switchEl.append('label')
 
@@ -146,7 +146,7 @@ Options:
       let tabGroup = d3.select((this.parentNode).parentNode);
       let category = tabGroup.data()[0];
 
-      console.log('clicked', d);
+      // console.log('clicked', d);
       let isSelected = d3.select(this).classed('is-active');
 
       if (category !== 'structure'){
@@ -168,6 +168,7 @@ Options:
         allScores[technique].totalScore = 0;
         activeOptions.map(option=>{
           let score = allScores[technique][option.category][option.option];
+          // console.log(technique,option.category,option.option,score);
           allScores[technique].totalScore = allScores[technique].totalScore + score;
         })
         allScores[technique].averageScore = allScores[technique].totalScore / activeOptions.length;
@@ -179,8 +180,8 @@ Options:
 
       console.log('allScores_computed',scoreArray)
       
-      d3.selectAll('.paper-list-block')
-          .remove();
+      // d3.selectAll('.paper-list-block')
+      //     .remove();
 
     // render_technique(scores[0])
     // render_technique(scores[1])
@@ -210,53 +211,7 @@ Options:
                     <span class="tag score-three "> 2.5</span>
                     <span class="tag score-three is-pulled-left"> <i class="fas fa-star fa-sm"></i>  <i class="fas fa-star fa-sm"></i> <i class="fas fa-star-half-alt fa-sm"></i></span> 
                   </div></h4>
-              <p>
-
-                            <span class="tag score-three  ">Large <br></span>
-                <span class="tag score-two ">Sparse</span>
-                <span class="tag score-one ">Several Node Attr.</span>
-                <span class="tag score-two ">Homo. Node Attr.</span>
-                <span class="tag score-three ">Few Edge Attr.</span>
-                <span class="tag ">Hetero Edge Attr.</span>
-<br/>
-
-<div class="field is-grouped is-grouped-multiline">
-    <div class="control">
-      <div class="tags has-addons">
-        <span class="tag score-three">Large</span>
-        <span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
-      </div>
-    </div>
-  
-    <div class="control">
-        <div class="tags has-addons">
-          <span class="tag score-two ">Sparse</span>
-          <span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
-        </div>
-      </div>
-
-      <div class="control">
-          <div class="tags has-addons">
-            <span class="tag score-one">Several Node Attr.</span>
-            <span class="tag "><i class="fas fa-star fa-xs"></i></span>
-          </div>
-        </div>
-        
-
-            <div class="control">
-                <div class="tags has-addons">
-                  <span class="tag ">Hetero. Node Attr.</span>
-                </div>
-              </div>
-  
-
-          
-      
-  </div>
-                
-
-              </p>
-
+              
               <p>
                 <span class="icon has-text-info tooltip" data-tooltip="Description">
                   <i class="fas fa-info-circle"></i>
@@ -267,27 +222,35 @@ Options:
               <p>
                 <span class="icon has-text-success tooltip" data-tooltip="Strengths">
                   <i class="fas fa-check-square"></i>
-                </span> 
-                
-                  <span class="tag has-text-success  ">Large <br></span>
-                  <span class="tag has-text-success  ">Several Node Attr <br></span>
-                  <span class="tag has-text-success  ">Some other thing <br></span>
-  
-  
-                  This technique is particularly good at handling small graphs, with less than 3 attributes per
+                </span>  This technique is particularly good at handling small graphs, with less than 3 attributes per
                 node.
+              
+                  <p>
+                      <span class="tag is-success  ">Large <br></span>
+                      <span class="tag is-success  ">Several Node Attr <br></span>
+                      <span class="tag is-success  ">Some other thing <br></span>
+                    
+                  </p>
               </p>
 
               <p>
                 <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
                   <i class="fas fa-exclamation-triangle"></i>
                 </span> This technique is not very good at handling tree-like graphs.
+
+                <p>
+                    <span class="tag is-warning  ">Trees <br></span>
+                    <span class="tag is-warning  "> Few Node Attr <br></span>
+                </p>
               </p>
 
               <p>
                 <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
                   <i class="fas fa-ban"></i>
                 </span> This technique does not support edge attributes.
+                <p>
+                    <span class="tag is-danger  ">Edge Attributes <br></span>
+                </p>
 
               </p>
               <!-- </nav> -->

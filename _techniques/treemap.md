@@ -45,12 +45,12 @@ scores:
           several: 0
      edge_attr_type: 
           homogeneous: 0
-          hetheterogeneousero: 0
+          heterogeneous: 0
      structure: 
           single: 3
-          neighbors: 2
-          paths: 1
-          clusters: 0
+          neighbor: 2
+          path: 1
+          cluster: 0
           network: 3
 
 # After the --- you can put information that you want to appear on the website using markdown formatting or HTML. A good example are acknowledgements, extra references, an erratum, etc.

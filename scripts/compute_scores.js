@@ -1,36 +1,6 @@
-function compute_scores(allScores) {
-
-
-  //set techniqueScore to 0;
-
-  let allTechniques = [];
-
-
-  Object.keys(allScores).map(technique => allTechniques.push({
-    key: technique,
-    value: 0,
-    description: allScores[technique].description,
-    title: allScores[technique].title
-  }));
-
-  d3.select('#wizard_panel').selectAll('input:checked').filter(function (d) {
-    return d3.select(this).attr('type') === 'radio'
-  }).each(function (c) {
-    let category = d3.select(this).attr('name');
-    let value = d3.select(this).attr('label');
-
-    Object.keys(allScores).map(technique => {
-      let item = allTechniques.find(v => v.key === technique);
-      // console.log('item',item)
-      item.value = allScores[technique][category][value] ? item.value + allScores[technique][category][value] : item.value
-    });
-  });
-
-  return allTechniques
-
-}
-
 function render_technique(technique) {
+
+  
 
   // console.log('here',site,technique)
   // d3.select('.paper-list-block')
@@ -73,3 +43,52 @@ function render_technique(technique) {
 
 
 }
+
+
+
+{/* <p>
+
+<span class="tag score-three  ">Large <br></span>
+<span class="tag score-two ">Sparse</span>
+<span class="tag score-one ">Several Node Attr.</span>
+<span class="tag score-two ">Homo. Node Attr.</span>
+<span class="tag score-three ">Few Edge Attr.</span>
+<span class="tag ">Hetero Edge Attr.</span>
+<br/>
+
+<div class="field is-grouped is-grouped-multiline">
+<div class="control">
+<div class="tags has-addons">
+<span class="tag score-three">Large</span>
+<span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
+</div>
+</div>
+
+<div class="control">
+<div class="tags has-addons">
+<span class="tag score-two ">Sparse</span>
+<span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
+</div>
+</div>
+
+<div class="control">
+<div class="tags has-addons">
+<span class="tag score-one">Several Node Attr.</span>
+<span class="tag "><i class="fas fa-star fa-xs"></i></span>
+</div>
+</div>
+
+
+<div class="control">
+<div class="tags has-addons">
+<span class="tag ">Hetero. Node Attr.</span>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+</p> */}
