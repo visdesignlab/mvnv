@@ -16,7 +16,7 @@ abstract : abstract
 # The shortname is used for auto-generated titels
 shortname: sunBurst
 # add a 2:1 aspect ratio (e.g., width: 400px, height: 200px) to the folder /assets/images/papers/
-image: sunBurst.png
+image: sunburst.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
