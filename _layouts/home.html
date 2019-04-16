@@ -112,13 +112,35 @@
 {% endif %}
 
 <script>
-    typologySVG().then(logo => {
+
+async function loadSVG() {
+      let path = '{{ site.baseurl }}/assets/images/typology.svg';
+      return await d3.text(path)
+      }
+
+
+    loadSVG().then(logo => {
      let div = d3.select("#typologySVG").html(logo);
 
     //  div.select('svg').attr('viewBox',"0 0 240 100");
 
-     div.select('#quilts').on('click',(d)=>console.log('moused over quilts'));
-     div.select('#adjmatrix').on('click',(d)=>console.log('moused over adj_matrix'));
+     div.select('#quilts')
+     .on('mouseover',(d)=>console.log('moused over quilts'));
+
+     console.log('how many hoverboxes', d3.selectAll("[id^='hoverBox']").size())
+     d3.selectAll("[id^='hoverBox']") 
+     .on('mouseover',function(d){
+         d3.select(this).style('opacity',.5)
+     })
+     .on('mouseout',function(d){
+         d3.select(this).style('opacity',0)
+     })
+
+
+     div.select('#adjmatrix')
+     .on('click',(d)=>console.log('moused over adj_matrix'));
+
+     
         console.log(div.select('#quilts').size())
   });
 

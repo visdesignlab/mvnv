@@ -6,9 +6,9 @@ svg {
   pointer-events: all
 }
 
-g {
+/* g {
   pointer-events: none
-}
+} */
 
 .inner-border {
   fill: none;
