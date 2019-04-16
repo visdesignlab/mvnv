@@ -124,3 +124,8 @@ svgString().then(logo => {
     // return await d3.text('/assets/images/logos/test.svg')
     // return await d3.text('/assets/images/mvn_taxonomy.svg')
     }
+
+    async function typologySVG() {
+      let path = '{{ site.baseurl }}/assets/images/typology.svg';
+      return await d3.text(path)
+      }

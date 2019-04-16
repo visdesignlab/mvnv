@@ -31,6 +31,9 @@
 
 <body>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+        <script src="{{site.baseurl}}/scripts/vdl_logo_script.js"></script>
+
 <div>
 {% include header.html %}
 
@@ -49,32 +52,6 @@
           </section>
 
           <section class="section">
-                <!-- <div class="column">
-                  <h4>About</h4>
-                        <p>This is a companion website for the STAR Report on Multivariate Network Visualization Techniques. The STAR report can be found <a href="https://www.vdl.sci.utah.edu/">here</a>. </p>
-  
-
-                        <p> Multivariate networks capture relationships between nodes and attributes about the nodes and relationships themselves. Most
-                         relational data is associated with rich attributes. Visualization of multivariate networks, however, is challenging, especially
-                         when both the topology of the network and the attributes need to be considered concurrently. In this state-of-the-art report, we
-                         
-                         analyze current practices and classify techniques along four axes: Layouts, View Operations, Layout Operations, and Data Operations.
-                          We also provide an analysis of tasks specific to multivariate networks and give recommendations for which technique
-                         
-                         to use in which scenario. Finally, we briefly survey application areas and evaluation methodologies.
-                         Keywords: graph visualization, network visualization, multivariate networks.</p>
-
-                         <h4>Quick Start</h4>
-                         
-                         <p> There are a few ways you can browse this site to better understand multivariate network visualization techniques. 
-                             By clicking on any technique in the figure below, you will be taken to its technique page, with more detailed information. 
-                             Conversely, navigate to the techniques tab above to get an overview of all techniques, including how they are grouped and why. 
-                             And last but not least, navigating over to the Wizard tab will allow you to select your specific network characteristics and 
-                             data structures of interest and receive technique recommendations that are best suited to your selection. Enjoy!  
-                         </p>
-                     
-           
-                </div> -->
 
                 <div class="tile is-ancestor">
                         <div class="tile is-vertical is-12">
@@ -104,9 +81,11 @@
                             <article class="tile is-child notification has-background-white-bis">
                               <p class="title"> Learn about the techniques </p>
                               <p class="subtitle">Click on a technique or category header to learn more!</p>
-                              <figure>
+                              <!-- <figure>
                                     <img src="{{ site.baseurl }}/assets/images/taxonomy.png"/>
-                                  </figure>
+                                  </figure> -->
+
+                                  <div id='typologySVG' ></div>
                               <div class="content">
                                 <!-- Content -->
                               </div>
@@ -131,7 +110,20 @@
 {% if site.use_analytics == true %}
 {% include google_analytics.html %}
 {% endif %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-<script src="{{site.baseurl}}/scripts/vdl_logo_script.js"></script>
+
+<script>
+    typologySVG().then(logo => {
+     let div = d3.select("#typologySVG").html(logo);
+
+    //  div.select('svg').attr('viewBox',"0 0 240 100");
+
+     div.select('#quilts').on('click',(d)=>console.log('moused over quilts'));
+     div.select('#adjmatrix').on('click',(d)=>console.log('moused over adj_matrix'));
+        console.log(div.select('#quilts').size())
+  });
+
+  
+  </script>
+
 </body>
 </html>
