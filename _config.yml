@@ -11,7 +11,7 @@ facebook_page:
 safe: false
 lsi: false
 google_analytics: "'--'"
-use_analytics: true
+use_analytics: false
 
 
 
