@@ -47,7 +47,12 @@ Options:
 <div class="columns">
   <div class="column is-one-third">
 
+      <div class="box" id="wizard_legend">
+        <h2> Legend </h2>
+        </div>
+
       <div class="box" id="wizard_panel">
+    
       </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
@@ -66,6 +71,10 @@ Options:
         allScores['{{technique.key}}'].description='{{technique.description}}';
         allScores['{{technique.key}}'].image='{{technique.image}}';
         allScores['{{technique.key}}'].totalScore = 0;
+        allScores['{{technique.key}}'].optimal = '{{technique.optimal}}'
+        allScores['{{technique.key}}'].good = '{{technique.good}}'
+        allScores['{{technique.key}}'].adequate = '{{technique.adequate}}'
+        allScores['{{technique.key}}'].bad = '{{technique.bad}}'
       '{% endfor %}' 
 
       console.log('allScores', allScores)
@@ -90,7 +99,6 @@ Options:
 
      switchEl.append('label')
 
-  
     //Add options
     groupsEnter.append('div').attr('class','tabs is-fullwidth is-toggle'); 
 
@@ -191,8 +199,16 @@ Options:
 
   </div>
   
-  <div class="column">
+  <div class="column" id="recommendations" style="visibility:hidden; height:820px; overflow-y:scroll;">
 
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
       {% include technique_card.html %}
       {% include technique_card.html %}
       {% include technique_card.html %}

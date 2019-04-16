@@ -24,6 +24,12 @@ papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
 
+optimal: Optimized for trees and tasks on single nodes, neighbors, paths, and subnetworks. 
+good: Suports medium networks, up to 1000 nodes.   
+adequate: Not ideal for several, heterogenous node attributes, as well as large networks with over 1000 nodes.
+bad: Does not support edge attributes or non-tree like networks, as well as tasks on clusters.  
+
+
 scores:
      size: 
           small: 3

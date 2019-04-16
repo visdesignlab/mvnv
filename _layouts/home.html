@@ -80,7 +80,7 @@
                           <div class="tile is-parent">
                             <article class="tile is-child notification has-background-white-bis">
                               <p class="title"> Learn about the techniques </p>
-                              <p class="subtitle">Click on a technique or category header to learn more!</p>
+                              <p class="subtitle">Click on a layout or operation to learn more!</p>
                               <!-- <figure>
                                     <img src="{{ site.baseurl }}/assets/images/taxonomy.png"/>
                                   </figure> -->
@@ -127,14 +127,20 @@ async function loadSVG() {
      div.select('#quilts')
      .on('mouseover',(d)=>console.log('moused over quilts'));
 
-     console.log('how many hoverboxes', d3.selectAll("[id^='hoverBox']").size())
      d3.selectAll("[id^='hoverBox']") 
+     .attr('class','tooltip')
+    .attr('data-tooltip','hover tooltip')
+    //  .append('a')
+    //  .attr('href','google.com')
      .on('mouseover',function(d){
          d3.select(this).style('opacity',.5)
      })
      .on('mouseout',function(d){
          d3.select(this).style('opacity',0)
      })
+    //  .on('click',d=>{
+    //     <a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a>
+    //  }
 
 
      div.select('#adjmatrix')

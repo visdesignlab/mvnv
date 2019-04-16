@@ -1,4 +1,7 @@
 function compute_scores(allScores){
+
+  d3.select('#recommendations').style('visibility','visible');
+
   //create a list of key/value pairs to use in the scores
   let activeOptions = d3.selectAll('.is-active').data();   
   
@@ -11,7 +14,8 @@ function compute_scores(allScores){
       // console.log(technique,option.category,option.option,score);
       allScores[technique].totalScore = allScores[technique].totalScore + score;
     })
-    allScores[technique].averageScore = allScores[technique].totalScore / activeOptions.length;
+     let score = allScores[technique].totalScore / activeOptions.length;
+     allScores[technique].averageScore = Math.round( score * 10) / 10
   })
 
   let scoreArray = Object.keys(allScores).map(key=>{
@@ -28,13 +32,30 @@ function render_techniques(techniques,info) {
    let cards = d3.selectAll('.techniqueCard').data(techniques);
 
    cards.select('h4').select('span').text(d=>info[d[0]].title)
-   cards.select('.totalScore').text(d=>d[1])
+   cards.select('.totalScore')
+   .classed('score-three',d=>d[1]>=2.5)
+   .classed('score-two',d=>(d[1]>=2 & d[1]<2.5))
+   .classed('score-one',d=>(d[1]>=1 & d[1]<2))
+   .classed('score-zero',d=>(d[1]>=0 & d[1]<1))
+
+   cards.select('.totalScore')
+   .text(d=>d[1])
 
   cards.select('img').property('src',d=>'/mvnv/assets/images/techniques/icons/' + info[d[0]].image);
-   cards.select('.techniqueDescription').text(d=>info[d[0]].description)
 
-   cards.select('.techniqueStrengths').text(d=>info[d[0]].strengths)
+  cards.select('.infoTooltip').attr('data-tooltip',d=>info[d[0]].description)
 
+  //  cards.select('.techniqueDescription').text(d=>info[d[0]].description)
+
+   cards.select('.optimal').text(d=>info[d[0]].optimal)
+   cards.select('.good').text(d=>info[d[0]].good)
+   cards.select('.adequate').text(d=>info[d[0]].adequate)
+   cards.select('.bad')
+   .text(d=>info[d[0]].bad)
+
+   //only show this for techniques that actually have a 0 score.
+   cards.select('.scoreZero')
+   .style('display',d=> info[d[0]].bad.length === 0 ?  'none' : 'block');
   //  let strengthTags = cards.select('.strengthTags').selectAll('tag').data();
 
 

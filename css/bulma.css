@@ -8131,18 +8131,21 @@ label.panel-block {
   .switch[type="checkbox"].is-unchecked-danger.is-outlined + label::after, .switch[type="checkbox"].is-unchecked-danger.is-outlined + label:after {
     background: #fdc0af; }
 
+.star {
+  background-color: #fd8d0e; }
+
 .tag.score-three {
-  background-color: #2797b9;
+  background-color: #248b04;
   color: white; }
 
 .tag.score-two {
-  background-color: #54a2ae;
+  background-color: #79cf5f;
   color: white; }
 
 .tag.score-one {
-  background-color: #a7dbdb;
+  background-color: #f8e361;
   color: #4a4a4a; }
 
 .tag.score-zero {
-  background-color: #ababab;
+  background-color: #fdc0af;
   color: #4a4a4a; }
