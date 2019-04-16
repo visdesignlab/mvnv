@@ -7,7 +7,7 @@ key: attr-driven
 # node-link | tabular | implicit | coordinated | hybrid 
 type: node-link
 
-description : Description
+description : Attr Driven Positioning is...
 
 abstract : abstract
 

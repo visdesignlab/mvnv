@@ -7,7 +7,7 @@ key: integrated
 # node-link | tabular | implicit | coordinated | hybrid 
 type: coordinated
 
-description : Topology driven layouts prioritize the topology of the network over the attributes of the nodes and edges. The most common node-link layouts, such as force-directed layouts, spectral layouts, or orthogonal layouts fall into this class, or more specifically into the free layouts as described by Schulz and Schumann. Trees are also commonly drawn as topology driven node-link layouts.
+description : Integrated views are...
 
 
 abstract : abstract

@@ -1,94 +1,92 @@
-function render_technique(technique) {
-
+function compute_scores(allScores){
+  //create a list of key/value pairs to use in the scores
+  let activeOptions = d3.selectAll('.is-active').data();   
   
+  console.log('activeOptions are', activeOptions)
 
-  // console.log('here',site,technique)
-  // d3.select('.paper-list-block')
-  // .append('a')
-  // .attr('href',site.baseurl+technique.url)
-  // .append('img')
-  // .attr('alt',technique.shortname + screenshot)
-  // .attr('class','paper-image-small')
-  // .attr('src',site.baseurl + '/assets/images/techniques/' + technique.image)
-  let newItem = d3.select('.publication-content-right')
+  Object.keys(allScores).map(technique => {
+    allScores[technique].totalScore = 0;
+    activeOptions.map(option=>{
+      let score = allScores[technique][option.category][option.option];
+      // console.log(technique,option.category,option.option,score);
+      allScores[technique].totalScore = allScores[technique].totalScore + score;
+    })
+    allScores[technique].averageScore = allScores[technique].totalScore / activeOptions.length;
+  })
+
+  let scoreArray = Object.keys(allScores).map(key=>{
+    return [key,allScores[key].averageScore]
+  }).sort((a,b)=>b[1] - a[1])
+
+  console.log('allScores_computed',scoreArray)
+
+  render_techniques(scoreArray,allScores);
+}
+
+function render_techniques(techniques,info) {
+
+   let cards = d3.selectAll('.techniqueCard').data(techniques);
+
+   cards.select('h4').select('span').text(d=>info[d[0]].title)
+   cards.select('.totalScore').text(d=>d[1])
+
+  cards.select('img').property('src',d=>'/mvnv/assets/images/techniques/icons/' + info[d[0]].image);
+   cards.select('.techniqueDescription').text(d=>info[d[0]].description)
+
+   cards.select('.techniqueStrengths').text(d=>info[d[0]].strengths)
+
+  //  let strengthTags = cards.select('.strengthTags').selectAll('tag').data();
+
+
+  //  <span class="tag is-success  ">Large <br></span>
+
+
    
-    .append('div')
-    .attr('class','paper-list-block');
 
-  newItem
-    .append('p')
-    .attr('class', 'pubs')
-    .append('span')
-    .attr('class', 'paper-title')
-    .append('a')
-    .text(technique.title);
+   //description info[d[0]].description
 
-  newItem
-    .append('p')
-    .text(technique.description);
+   //strengths  info[d[0]].strengths
 
-    newItem.append('div')
-    .attr('class', 'miniCard')
+   //weaknesses info[d[0]].weaknesses
+
+   //limitations info[d[0]].limitations
+
+   
+  console.log('info ', info)
 
 
-  //       <div class="paper-list-block">
-  //   <a href="{{ site.baseurl }}{{ technique.url }}"><img alt="{{ technique.shortname }} screenshot" class="paper-image-small"
-  //       src="{{ site.baseurl }}/assets/images/techniques/{{ technique.image }}"></a>
-  //   <p class="pubs">
+  //  let cardsEnter = cards.enter().append('div').attr('class','box techniqueCard');
 
-  //     <span class="paper-title"><a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a></span><br />
-  //     {{ technique.description }} <a href="{{ site.baseurl }}{{ technique.url }}">More...</a>
-  //   </p>
-  // </div>
+  //  let article = cardsEnter.append('article').attr('class','media');
+
+  //  article 
+  //  .append('div').attr('class','media-left')
+  //  .append('figure').attr('class','image is-96x96')
+  //  .append('img');
+  //  //data driven src attribute
+
+  //  let content = article
+  //  .append('div').attr('class','media-content')
+  //  .append('div').attr('class','content');
+
+
+  //  //card header
+  // let header = content.append('h4');
+  // header.append('span'); //data driven header;
+  // header.append('div')
+  
+  // //info icon
+  // content.append('p')
+  // .append('span')
+  // .attr('class','icon has-text-info tooltip')
+  // .attr('data-tooltip','Technique Description');
+
+  // content.append('p')
+  // .append('span')
+  // .attr('class','description') //data driven text goes here;
+
 
 
 }
 
 
-
-{/* <p>
-
-<span class="tag score-three  ">Large <br></span>
-<span class="tag score-two ">Sparse</span>
-<span class="tag score-one ">Several Node Attr.</span>
-<span class="tag score-two ">Homo. Node Attr.</span>
-<span class="tag score-three ">Few Edge Attr.</span>
-<span class="tag ">Hetero Edge Attr.</span>
-<br/>
-
-<div class="field is-grouped is-grouped-multiline">
-<div class="control">
-<div class="tags has-addons">
-<span class="tag score-three">Large</span>
-<span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
-</div>
-</div>
-
-<div class="control">
-<div class="tags has-addons">
-<span class="tag score-two ">Sparse</span>
-<span class="tag "><i class="fas fa-star fa-xs"></i><i class="fas fa-star fa-xs"></i></span>
-</div>
-</div>
-
-<div class="control">
-<div class="tags has-addons">
-<span class="tag score-one">Several Node Attr.</span>
-<span class="tag "><i class="fas fa-star fa-xs"></i></span>
-</div>
-</div>
-
-
-<div class="control">
-<div class="tags has-addons">
-<span class="tag ">Hetero. Node Attr.</span>
-</div>
-</div>
-
-
-
-
-</div>
-
-
-</p> */}

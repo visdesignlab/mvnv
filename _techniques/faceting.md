@@ -7,7 +7,7 @@ key: faceting
 # node-link | tabular | implicit | coordinated | hybrid 
 type: node-link
 
-description : Description
+description : Faceting is...
 
 abstract : abstract
 

@@ -73,7 +73,7 @@ Options:
 
     let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
 
-    let groupsEnter = groups.enter().append('div');
+    let groupsEnter = groups.enter().append('div').attr('class','dataDiv');
     
     //Add Header
     let h4 = groupsEnter.append('h4');
@@ -100,22 +100,15 @@ Options:
     groups = groupsEnter.merge(groups);
 
     //Set data dependent attributes
+
+    groups
+    .attr('class',d=>'dataDiv data_' + d);
+
     groups.select('.switch')
     .attr('id',d=>'switch_'+d)
 
     groups.select('label')
     .attr('for',d=>'switch_'+d)
-
-    //You can only use the toggle to force disable a category, not to turn it on;
-    d3.selectAll(".switch").on("change", function(d){
-      d3.select(this).property('checked', false);
-      let tabGroup = d3.select(((this.parentNode).parentNode).parentNode).select('.tabs');
-      tabGroup.selectAll('li')
-      .classed('is-active',false);
-      });
-
-    // groups.select('.switch')
-    // .on('change',console.log('changed'))
 
     groups.select('#header')
     .text(d=>optionsObject[d].label);
@@ -129,8 +122,7 @@ Options:
   
   
     let li = groups.select('ul').selectAll('li').data((d)=>optionsObject[d].options.map(
-      option=>{return {category:d,option}})
-      );
+      option=>{return {category:d,option}}));
     
       let liEnter = li.enter().append('li');
       
@@ -160,166 +152,51 @@ Options:
       d3.select('#switch_' + category)
       .property('checked',selectedTabs.empty()? false : true)
   
-
-      //create a list of key/value pairs to use in the scores
-      let activeOptions = d3.selectAll('.is-active').data();     
-
-      Object.keys(allScores).map(technique => {
-        allScores[technique].totalScore = 0;
-        activeOptions.map(option=>{
-          let score = allScores[technique][option.category][option.option];
-          // console.log(technique,option.category,option.option,score);
-          allScores[technique].totalScore = allScores[technique].totalScore + score;
-        })
-        allScores[technique].averageScore = allScores[technique].totalScore / activeOptions.length;
-      })
-
-      let scoreArray = Object.keys(allScores).map(key=>{
-        return [key,allScores[key].averageScore]
-      }).sort((a,b)=>b[1] - a[1])
-
-      console.log('allScores_computed',scoreArray)
-      
-      // d3.selectAll('.paper-list-block')
-      //     .remove();
-
-    // render_technique(scores[0])
-    // render_technique(scores[1])
-    // render_technique(scores[2])
-    // render_technique(scores[3])
-
+      compute_scores(allScores);
     });
+
+    d3.selectAll(".switch").on("change", function(d){
+
+      let tabGroup = d3.select(((this.parentNode).parentNode).parentNode).select('.tabs');
+      let category = tabGroup.data()[0];
+      
+      d3.select(this).property('checked',false); //for now disable turning the toggle on;
+
+      // let isOn = d3.select(this).property('checked');
+
+      // console.log('d is ',d, 'isOn is', isOn);
+
+      // let tabGroup = d3.select(((this.parentNode).parentNode).parentNode).select('.tabs');
+      // let tabGroup = d3.select('.data_' + d)
+
+      // console.log('data1',tabGroup.selectAll('li').data())
+
+      tabGroup.selectAll('li')
+      .classed('is-active',false);
+
+      // if (isOn){
+      //   console.log('datum',tabGroup.select('li').data())
+
+      //   // tabGroup.select('li')
+      //   // .classed('is-active',true);
+
+      //   console.log('datum for li',tabGroup.select('li').data())
+      //   console.log('allData',tabGroup.selectAll('li').data())
+      // }
+
+      compute_scores(allScores);
+      });
 
      </script>
 
   </div>
+  
   <div class="column">
 
-    <div class="box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-96x96">
-            <img src="/mvnv/assets/images/techniques/icons/topology-driven.png" alt="Image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <h4>On Node/Edge Encoding 
-                  <div class="tags has-addons is-inline-flex">
-                    <span class="tag ">Overall Score</span>
-                    <span class="tag score-three "> 2.5</span>
-                    <span class="tag score-three is-pulled-left"> <i class="fas fa-star fa-sm"></i>  <i class="fas fa-star fa-sm"></i> <i class="fas fa-star-half-alt fa-sm"></i></span> 
-                  </div></h4>
-              
-              <p>
-                <span class="icon has-text-info tooltip" data-tooltip="Description">
-                  <i class="fas fa-info-circle"></i>
-                </span> Topology driven layouts prioritize the topology of the network over
-                the attributes of the nodes and edges. <a>More...</a>
-              </p>
+      {% include technique_card.html %}
+      {% include technique_card.html %}
+      {% include technique_card.html %}
 
-              <p>
-                <span class="icon has-text-success tooltip" data-tooltip="Strengths">
-                  <i class="fas fa-check-square"></i>
-                </span>  This technique is particularly good at handling small graphs, with less than 3 attributes per
-                node.
-              
-                  <p>
-                      <span class="tag is-success  ">Large <br></span>
-                      <span class="tag is-success  ">Several Node Attr <br></span>
-                      <span class="tag is-success  ">Some other thing <br></span>
-                    
-                  </p>
-              </p>
-
-              <p>
-                <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
-                  <i class="fas fa-exclamation-triangle"></i>
-                </span> This technique is not very good at handling tree-like graphs.
-
-                <p>
-                    <span class="tag is-warning  ">Trees <br></span>
-                    <span class="tag is-warning  "> Few Node Attr <br></span>
-                </p>
-              </p>
-
-              <p>
-                <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
-                  <i class="fas fa-ban"></i>
-                </span> This technique does not support edge attributes.
-                <p>
-                    <span class="tag is-danger  ">Edge Attributes <br></span>
-                </p>
-
-              </p>
-              <!-- </nav> -->
-              <br>
-            </p>
-          </div>
-
-        </div>
-      </article>
-    </div>
-
-
-
-    <div class="box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-96x96">
-            <img src="/mvnv/assets/images/techniques/icons/hybrid.png" alt="Image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <h4>Hybrid</h4>
-              <p>
-                <span class="tag is-success ">Small</span>
-                <span class="tag is-success ">Sparse</span>
-                <span class="tag is-warning ">Few Node Attr.</span>
-                <span class="tag is-success ">Homo. Node Attr.</span>
-                <span class="tag is-danger ">Few Edge Attr.</span>
-                <span class="tag is-success ">Hetero Edge Attr.</span>
-              </p>
-
-
-              <p>
-                <span class="icon has-text-info tooltip" data-tooltip="Description">
-                  <i class="fas fa-info-circle"></i>
-                </span>
-                Topology driven layouts prioritize the topology of the network over
-                the attributes of the nodes and edges. <a>More...</a>
-
-              </p>
-
-              <p>
-                <span class="icon has-text-success tooltip" data-tooltip="Strengths">
-                  <i class="fas fa-check-square"></i>
-                </span> This technique is particularly good at handling small graphs, with less than 3 attributes per
-                node.
-              </p>
-
-              <p>
-                <span class="icon has-text-warning tooltip" data-tooltip="Weaknesses">
-                  <i class="fas fa-exclamation-triangle"></i>
-                </span> This technique is not very good at handling tree-like graphs.
-              </p>
-
-              <p>
-                <span class="icon has-text-danger tooltip" data-tooltip="Limitations">
-                  <i class="fas fa-ban"></i>
-
-                </span> This technique does not support edge attributes.
-
-              </p>
-            </p>
-          </div>
-
-        </div>
-      </article>
-    </div>
   </div>
 
 

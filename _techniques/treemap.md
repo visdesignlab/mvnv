@@ -7,7 +7,7 @@ key: treemap
 # node-link | tabular | implicit | coordinated | hybrid | smallMultiples
 type: implicit
 
-description : desc.
+description : Implicit views for leaves are...
 
 # Node-link diagrams are the most common graphical representation of networks. In a node-link diagram, the nodes are drawn as point marks and the links as line/curve marks connecting the nodes. Node link layouts are the subject of its own field of study -- graph drawing -- and countless algorithms for node-link layouts have been developed.
 

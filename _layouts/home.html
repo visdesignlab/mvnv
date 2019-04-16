@@ -31,29 +31,97 @@
 
 <body>
 
-<div class="wrap">
+<div>
 {% include header.html %}
-  <article class="home-content-main">
-
-  <h1>About</h1>
 
 
-      <p>This is a companion website for the STAR Report on Multivariate Network Visualization Techniques. The STAR report can be found <a href="https://www.vdl.sci.utah.edu/">here</a>. </p>
+    <section class="hero is-light">
+            <div class="hero-body">
+              <div class="column">
+                <h1 class="title">
+                        Multivariate Network Visualization Techniques
+                </h1>
+                <h2 class="subtitle">
+                  A companion website for the STAR Report on Multivariate Network Visualization Techniques.
+                </h2>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+                <!-- <div class="column">
+                  <h4>About</h4>
+                        <p>This is a companion website for the STAR Report on Multivariate Network Visualization Techniques. The STAR report can be found <a href="https://www.vdl.sci.utah.edu/">here</a>. </p>
   
 
-     <p> Multivariate networks capture relationships between nodes and attributes about the nodes and relationships themselves. Most
-      relational data is associated with rich attributes. Visualization of multivariate networks, however, is challenging, especially
-      when both the topology of the network and the attributes need to be considered concurrently. In this state-of-the-art report, we
-      
-      analyze current practices and classify techniques along four axes: Layouts, View Operations, Layout Operations, and Data Operations.
-       We also provide an analysis of tasks specific to multivariate networks and give recommendations for which technique
-      
-      to use in which scenario. Finally, we briefly survey application areas and evaluation methodologies.
-      Keywords: graph visualization, network visualization, multivariate networks.</p>
-  
+                        <p> Multivariate networks capture relationships between nodes and attributes about the nodes and relationships themselves. Most
+                         relational data is associated with rich attributes. Visualization of multivariate networks, however, is challenging, especially
+                         when both the topology of the network and the attributes need to be considered concurrently. In this state-of-the-art report, we
+                         
+                         analyze current practices and classify techniques along four axes: Layouts, View Operations, Layout Operations, and Data Operations.
+                          We also provide an analysis of tasks specific to multivariate networks and give recommendations for which technique
+                         
+                         to use in which scenario. Finally, we briefly survey application areas and evaluation methodologies.
+                         Keywords: graph visualization, network visualization, multivariate networks.</p>
 
-  </article>
-  {% include taxonomy.html %}
+                         <h4>Quick Start</h4>
+                         
+                         <p> There are a few ways you can browse this site to better understand multivariate network visualization techniques. 
+                             By clicking on any technique in the figure below, you will be taken to its technique page, with more detailed information. 
+                             Conversely, navigate to the techniques tab above to get an overview of all techniques, including how they are grouped and why. 
+                             And last but not least, navigating over to the Wizard tab will allow you to select your specific network characteristics and 
+                             data structures of interest and receive technique recommendations that are best suited to your selection. Enjoy!  
+                         </p>
+                     
+           
+                </div> -->
+
+                <div class="tile is-ancestor">
+                        <div class="tile is-vertical is-12">
+                          <div class="tile">
+                            <div class="tile is-parent is-vertical">
+                              <article class="tile is-child notification is-primary">
+                                <p class="title">About</p>
+                                <p class="subtitle">This is a companion website for the STAR Report on Multivariate Network Visualization Techniques. </p>
+                              </article>
+                              <article class="tile is-child notification is-warning">
+                                <p class="title">Read the STAR</p>
+                                <p class="subtitle">The STAR report can be found <a href="https://www.vdl.sci.utah.edu/">here</a>.</p>
+                              </article>
+                            </div>
+                            <div class="tile is-parent">
+                              <article class="tile is-child notification is-info">
+                                <p class="title">Use the Wizard</p>
+                                <p class="subtitle">Technique recommendations to fit your needs! 
+                                    
+                                    <br/><br/>
+                                    Navigate to the wizard tab (or click here) and select your specific network characteristics, such as size and network type
+                                 topological structures of interest, such as paths or clusters, and receive technique recommendations that are best suited to your selection. Enjoy! </p>
+                              </article>
+                            </div>
+                          </div>
+                          <div class="tile is-parent">
+                            <article class="tile is-child notification has-background-white-bis">
+                              <p class="title"> Learn about the techniques </p>
+                              <p class="subtitle">Click on a technique or category header to learn more!</p>
+                              <figure>
+                                    <img src="{{ site.baseurl }}/assets/images/taxonomy.png"/>
+                                  </figure>
+                              <div class="content">
+                                <!-- Content -->
+                              </div>
+                            </article>
+                          </div>
+                        </div>
+
+                          </article>
+                        </div>
+                      </div>
+          
+                
+
+              </section>
+  
 
 
 

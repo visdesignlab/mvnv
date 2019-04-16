@@ -7,7 +7,7 @@ key: juxtaposed
 # node-link | tabular | implicit | coordinated 
 type: coordinated
 
-description : description
+description : Juxtaposed Views are...
 
 abstract : abstract
 
