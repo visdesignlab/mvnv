@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1296.547 519.064" enable-background="new 0 0 1296.547 519.064" xml:space="preserve">
+<g>
+	<g>
+		
+			<line fill="#EDEBEC" stroke="#B3B1B1" stroke-width="3" stroke-miterlimit="10" x1="159.914" y1="37.327" x2="1131.05" y2="37.327"/>
+		<rect x="510.687" y="31.469" fill="#FFFFFF" width="282.724" height="11.715"/>
+		<text transform="matrix(1 0 0 1 516.8756 51.3656)" font-family="'AcmeGothic-Light'" font-size="36px">Node-Link Layouts</text>
+		<polyline fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" points="531.71,160.749 531.71,126.502 
+			173.848,126.502 173.848,160.749 		"/>
+		<rect x="195.228" y="120.354" fill="#FFFFFF" width="314.256" height="11.715"/>
+		<text transform="matrix(1 0 0 1 187.8843 134.2818)" font-family="'AcmeGothic-Light'" font-size="34px">Topology-Driven Layout</text>
+		<polyline fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" points="1126.867,160.749 1126.867,126.593 
+			582.043,126.593 582.043,160.867 		"/>
+		<rect x="684.149" y="121.552" fill="#FFFFFF" width="353.35" height="11.715"/>
+		<text transform="matrix(1 0 0 1 689.9426 134.8448)" font-family="'AcmeGothic-Light'" font-size="34px">Attribute-Driven Layouts</text>
+	</g>
+	<path id="hoverBox_8_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M1145.71,65.577
+		H150.837c-6.6,0-12-5.4-12-12V14.5c0-6.6,5.4-12,12-12h994.873c6.6,0,12,5.4,12,12v39.077
+		C1157.71,60.177,1152.31,65.577,1145.71,65.577z"/>
+	<g>
+		<text transform="matrix(1 0 0 1 877.1749 445.5435)"><tspan x="0" y="0" font-family="'AcmeGothic-Light'" font-size="34px">Attribute-Driven </tspan><tspan x="39.32" y="40.8" font-family="'AcmeGothic-Light'" font-size="34px">Positioning</tspan></text>
+		<g>
+			<g>
+				<g>
+					<polyline fill="none" stroke="#CB832A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="
+						1044.503,346.831 909.637,346.831 909.637,204.596 					"/>
+					<g>
+						<polygon fill="#CB832A" points="1040.009,340.905 1042.526,346.831 1040.009,352.756 1054.054,346.831 						"/>
+					</g>
+					<g>
+						<polygon fill="#CB832A" points="915.562,209.09 909.637,206.573 903.712,209.09 909.637,195.045 						"/>
+					</g>
+				</g>
+			</g>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M981.846,246.812"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M949.758,303.926"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M1020.165,242.56"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M951.367,303.926"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M955.641,269.359"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M988.758,270.574"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M962.875,271.451"/>
+			<path fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" d="M956.073,298.27
+				c-0.015-0.076,14.034-13.353,34.189-13.986c20.155-0.632,31.182,9.719,31.182,9.719"/>
+			<path fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" d="M990.984,328.414c0,0-12.671-29.375-3.243-53.045
+				c9.427-23.671,32.424-32.809,32.424-32.809"/>
+			<path fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" d="M949.758,303.926c0,0-8.003-22.557-9.139-41.962
+				c-1.136-19.404,5.882-40.555,5.882-40.555"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="1020.165" cy="242.56" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="946.502" cy="221.409" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="1028.36" cy="302.199" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="990.984" cy="328.414" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="949.758" cy="303.926" r="9.139"/>
+		</g>
+	</g>
+	<path id="hoverBox_2_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M1114.455,516.564
+		H881.792c-6.6,0-12-5.4-12-12V160.5c0-6.6,5.4-12,12-12h232.663c6.6,0,12,5.4,12,12v344.064
+		C1126.455,511.164,1121.055,516.564,1114.455,516.564z"/>
+	<g>
+		<text transform="matrix(1 0 0 1 614.571 445.544)"><tspan x="0" y="0" font-family="'AcmeGothic-Light'" font-size="34px">Attribute-Driven </tspan><tspan x="49.401" y="40.8" font-family="'AcmeGothic-Light'" font-size="34px"> Faceting </tspan></text>
+		<g>
+			
+				<rect x="654.856" y="197.318" fill="none" stroke="#CB832A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="144.417" height="57.324"/>
+			
+				<rect x="654.856" y="266.898" fill="none" stroke="#CB832A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="144.417" height="68.163"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M725.076,237.115"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M692.988,294.228"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M763.395,232.862"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M694.597,294.228"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M698.87,259.662"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M731.989,260.876"/>
+			<path fill="none" stroke="#214082" stroke-width="3" stroke-miterlimit="10" d="M706.105,261.754"/>
+			<path fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" d="M692.988,294.228
+				c-0.072-0.029-3.535-19.046,6.931-36.283c10.466-17.236,25.156-20.831,25.156-20.831"/>
+			<path fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" d="M734.214,318.717c0,0-12.671-29.375-3.243-53.045
+				c9.427-23.671,32.424-32.809,32.424-32.809"/>
+			<path fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" d="M692.988,294.228c0,0-8.003-22.557-9.139-41.962
+				s5.882-40.555,5.882-40.555"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="763.395" cy="232.862" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="689.732" cy="211.711" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="725.076" cy="237.115" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="764.442" cy="294.228" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="734.214" cy="318.717" r="9.139"/>
+			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="692.988" cy="294.228" r="9.139"/>
+		</g>
+	</g>
+	<path id="hoverBox_1_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M841.455,516.564
+		H608.792c-6.6,0-12-5.4-12-12V160.5c0-6.6,5.4-12,12-12h232.663c6.6,0,12,5.4,12,12v344.064
+		C853.455,511.164,848.055,516.564,841.455,516.564z"/>
+	<g>
+		<g>
+			
+				<line fill="none" stroke="#7F4A9D" stroke-width="9" stroke-miterlimit="10" x1="296.597" y1="328.393" x2="383.812" y2="275.105"/>
+			<line fill="none" stroke="#5E5F5F" stroke-width="3" stroke-miterlimit="10" x1="304.71" y1="211.46" x2="387.432" y2="274.79"/>
+			<circle fill="#727373" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="387.432" cy="274.79" r="35.463"/>
+			<circle fill="#727373" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="304.71" cy="211.46" r="35.463"/>
+			<circle fill="#727373" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="296.597" cy="330.452" r="35.463"/>
+			<rect x="290.138" y="200.365" fill="#F9A03F" width="10.346" height="23.624"/>
+			<rect x="308.138" y="195.228" fill="#F9A03F" width="10.346" height="28.762"/>
+			<rect x="373.455" y="259.274" fill="#F9A03F" width="10.689" height="28.762"/>
+			<rect x="391.112" y="277.239" fill="#F9A03F" width="10.689" height="10.797"/>
+			<rect x="282.162" y="332.943" fill="#F9A03F" width="10.772" height="10.797"/>
+			<rect x="299.737" y="314.978" fill="#F9A03F" width="10.772" height="28.762"/>
+		</g>
+		<text transform="matrix(1 0 0 1 222.0837 449.0162)"><tspan x="0" y="0" font-family="'AcmeGothic-Light'" font-size="34px">On-Node/ On-Edge </tspan><tspan x="66.112" y="40.8" font-family="'AcmeGothic-Light'" font-size="34px">Encoding </tspan></text>
+	</g>
+	<path id="hoverBox" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M506.887,516.564h-309.3
+		c-6.6,0-12-5.4-12-12V160.5c0-6.6,5.4-12,12-12h309.3c6.6,0,12,5.4,12,12v344.064C518.887,511.164,513.487,516.564,506.887,516.564
+		z"/>
+</g>
+</svg>
