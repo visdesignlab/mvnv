@@ -8196,3 +8196,6 @@ label.panel-block {
   fill: #248b04;
   width: 50px;
   x: -30; }
+
+.tag {
+  margin-right: 5px; }

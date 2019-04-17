@@ -3,14 +3,30 @@ function compute_scores(allScores){
   d3.select('#recommendations').style('visibility','visible');
 
   //create a list of key/value pairs to use in the scores
-  let activeOptions = d3.selectAll('.is-active').data();   
+  let activeOptions = d3.selectAll('.is-active').data(); 
+  
+  let num2strMap = {
+    "1": "ones",
+    "2": "twos",
+    "3": "threes",
+    "0": "zeros"
+  };
+
 
   Object.keys(allScores).map(technique => {
     allScores[technique].totalScore = 0;
+    allScores[technique].threes=[];
+    allScores[technique].twos=[];
+    allScores[technique].ones=[];
+    allScores[technique].zeros=[];
+
+
+
     activeOptions.map(option=>{
       let score = allScores[technique][option.category][option.option];
       // console.log(technique,option.category,option.option,score);
       allScores[technique].totalScore = allScores[technique].totalScore + score;
+      allScores[technique][num2strMap[score]].push([option.category,option.option]);
     })
      let score = activeOptions.length > 0 ? allScores[technique].totalScore / activeOptions.length : allScores[technique].totalScore;
      allScores[technique].averageScore = Math.round( score * 10) / 10
@@ -62,6 +78,34 @@ function render_techniques(techniques,info) {
 
   cards.select('.moreLink').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '"> More... </a>');
 
+  let three = cards.select('.threeTags').selectAll('.tag').data(d=>info[d[0]].threes);
+
+  let threeEnter = three.enter().append('span');
+
+  // three.exit().remove();
+
+  three = threeEnter.merge(three);
+
+  three
+  .classed('tag',true)
+  .classed('is-success', true);
+  three.text(d=>d[1]);
+
+  let two = cards.select('.twoTags').selectAll('.tag').data(d=>info[d[0]].twos);
+
+  let twoEnter = two.enter().append('span').attr('class','tag score-two')
+
+  two = twoEnter.merge(two);
+
+  two.text(d=>d[1]);
+
+  let one = cards.select('.oneTags').selectAll('.tag').data(d=>info[d[0]].ones);
+
+  let oneEnter = one.enter().append('span').attr('class','tag score-one')
+
+  one = oneEnter.merge(one);
+
+  one.text(d=>d[1]);
 
    cards.select('.techniqueDescription').text(d=>info[d[0]].description)
 
