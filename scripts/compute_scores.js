@@ -1,6 +1,10 @@
 function create_panel(allScores){
 
-  let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
+  tooltipDict={
+    size:'Small: <100 nodes  Medium: <1000 nodes Large: >1000 nodes'
+  }
+
+let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
 
 let groupsEnter = groups.enter().append('div').attr('class','dataDiv');
 
@@ -8,7 +12,8 @@ let groupsEnter = groups.enter().append('div').attr('class','dataDiv');
 let h4 = groupsEnter.append('h4');
 
 h4.append('span').attr('id','header');
-h4.append('span').attr('id','icon')
+h4.filter(d=>tooltipDict[d]).append('span')
+.attr('id','icon')
 .append('i');
 
 let switchEl = h4.append('span').attr('class','field is-pulled-right');
@@ -42,8 +47,8 @@ groups.select('#header')
 .text(d=>optionsObject[d].label);
 
 groups.select('#icon')
-.attr('class','icon tooltip')
-.attr('data-tooltip','tooltip info');
+.attr('class','icon tooltip is-tooltip-multiline')
+.attr('data-tooltip',d=>d === 'size' ? tooltipDict[d] : '');
 
 groups.select('i')
 .attr('class','fas fa-question-circle has-text-grey');
@@ -93,10 +98,6 @@ selectedTabs = d3.select('#wizard_panel').selectAll('.is-active').each(function(
    }).classed('is-focused',true);
 })
 
-
-
-
-
 });
 
 d3.selectAll(".switch").on("change", function(d){
@@ -106,29 +107,19 @@ let category = tabGroup.data()[0];
 
 d3.select(this).property('checked',false); //for now disable turning the toggle on;
 
-// let isOn = d3.select(this).property('checked');
-
-// console.log('d is ',d, 'isOn is', isOn);
-
-// let tabGroup = d3.select(((this.parentNode).parentNode).parentNode).select('.tabs');
-// let tabGroup = d3.select('.data_' + d)
-
-// console.log('data1',tabGroup.selectAll('li').data())
-
 tabGroup.selectAll('li')
 .classed('is-active',false);
 
-// if (isOn){
-//   console.log('datum',tabGroup.select('li').data())
-
-//   // tabGroup.select('li')
-//   // .classed('is-active',true);
-
-//   console.log('datum for li',tabGroup.select('li').data())
-//   console.log('allData',tabGroup.selectAll('li').data())
-// }
-
 compute_scores(allScores);
+
+//highlight all mini panel buttons for active tabs. 
+selectedTabs = d3.select('#wizard_panel').selectAll('.is-active').each(function(tab){
+  let currentClass = d3.select(this).attr('class').replace('is-active','').trim();
+  let miniButtons = d3.selectAll('.button').filter(function(b){
+      return d3.select(this).attr('class').includes(currentClass);
+   }).classed('is-focused',true);
+})
+
 });
 
 compute_scores(allScores);
@@ -179,7 +170,10 @@ li.attr('class',d=>{
 })
 .attr('data-tooltip',d=>d.option);
 
-li.text('');
+li.text(d=>{
+  let score = allScores[d.technique][d.category][d.option];
+  return score;
+});
 }
 
 function compute_scores(allScores){
@@ -256,87 +250,6 @@ function render_techniques(techniques,info) {
   cards.select('img').property('src',d=>'/mvnv/assets/images/techniques/icons/' + info[d[0]].image);
 
   cards.select('.moreLink').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '"> More... </a>');
-
-  // let three = cards.select('.threeTags').selectAll('.tag').data(d=>info[d[0]].threes);
-
-  // let threeEnter = three.enter().append('span').attr('class','tag score-three');
-
-  // three.exit().remove();
-
-  // three = threeEnter.merge(three);
-
-  // three.text(d=>{
-  //   let string; 
-  //   if (d[0].includes('node_attr')){
-  //     string = 'Node - ' + d[1];
-  //   } else if (d[0].includes('edge_attr')){
-  //     string = 'Edge - ' + d[1];
-  //   } else {
-  //     string = d[1];
-  //   }
-  //   return string
-  // });
-
-  // let two = cards.select('.twoTags').selectAll('.tag').data(d=>info[d[0]].twos);
-
-  // let twoEnter = two.enter().append('span').attr('class','tag score-two')
-
-  // two.exit().remove();
-
-  // two = twoEnter.merge(two);
-
-  // two.text(d=>{
-  //   let string; 
-  //   if (d[0].includes('node_attr')){
-  //     string = 'Node - ' + d[1];
-  //   } else if (d[0].includes('edge_attr')){
-  //     string = 'Edge - ' + d[1];
-  //   } else {
-  //     string = d[1];
-  //   }
-  //   return string
-  // })
-
-  // let one = cards.select('.oneTags').selectAll('.tag').data(d=>info[d[0]].ones);
-
-  // let oneEnter = one.enter().append('span').attr('class','tag score-one')
-
-  // one.exit().remove();
-
-  // one = oneEnter.merge(one);
-
-  // one.text(d=>{
-  //   let string; 
-  //   if (d[0].includes('node_attr')){
-  //     string = 'Node - ' + d[1];
-  //   } else if (d[0].includes('edge_attr')){
-  //     string = 'Edge - ' + d[1];
-  //   } else {
-  //     string = d[1];
-  //   }
-  //   return string
-  // })
-
-  // let zero = cards.select('.zeroTags').selectAll('.tag').data(d=>info[d[0]].zeros);
-
-  // let zeroEnter = zero.enter().append('span').attr('class','tag score-zero')
-
-  // zero.exit().remove();
-
-  // zero = zeroEnter.merge(zero);
-
-  // zero.text(d=>{
-  //   let string; 
-  //   if (d[0].includes('node_attr')){
-  //     string = 'Node - ' + d[1];
-  //   } else if (d[0].includes('edge_attr')){
-  //     string = 'Edge - ' + d[1];
-  //   } else {
-  //     string = d[1];
-  //   }
-  //   return string
-  // })
-
 
    cards.select('.techniqueDescription').text(d=>info[d[0]].description)
 

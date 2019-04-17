@@ -6953,7 +6953,7 @@ label.panel-block {
     background: rgba(74, 74, 74, 0.9);
     border-radius: 4px;
     color: white;
-    max-width: 18rem; }
+    max-width: 10rem; }
   .tooltip:focus:not(.is-loading)::after, .tooltip:hover:not(.is-loading)::after, .tooltip.is-tooltip-active:not(.is-loading)::after {
     opacity: 1;
     margin-left: -.5rem;
@@ -7015,7 +7015,7 @@ label.panel-block {
   .tooltip.is-tooltip-left:focus::before, .tooltip.is-tooltip-left:hover::before, .tooltip.is-tooltip-left.is-tooltip-active::before {
     transform: translate(-0.5rem, 50%); }
   .tooltip.is-tooltip-multiline::before {
-    min-width: 18rem;
+    min-width: 10rem;
     text-overflow: clip;
     white-space: normal;
     word-break: keep-all; }
