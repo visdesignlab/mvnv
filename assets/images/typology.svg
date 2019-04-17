@@ -138,12 +138,20 @@
 	<text transform="matrix(1 0 0 1 2117.0154 1153.3615)" font-family="'AcmeGothic-Light'" font-size="34px">Clustering</text>
 	
 		<line fill="#EDEBEC" stroke="#DBD9D9" stroke-width="3" stroke-miterlimit="10" x1="117.045" y1="573.379" x2="2924.463" y2="573.379"/>
-	<path id="hoverBox_20_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M1777.291,880.495
-		V602.493c0-6.6,5.4-12,12-12h419.472c6.6,0,12,5.4,12,12v278.001c0,6.6-5.4,12-12,12h-419.472
-		C1782.691,892.495,1777.291,887.095,1777.291,880.495z"/>
-	<path id="hoverBox_21_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M2236.572,875.512
-		V603.805c0-6.6,5.4-12,12-12h423.58c6.6,0,12,5.4,12,12v271.707c0,6.6-5.4,12-12,12h-423.58
-		C2241.972,887.512,2236.572,882.112,2236.572,875.512z"/>
+	<g display="none">
+		<path id="hoverBox_18_" display="inline" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="
+			M1063.398,1172.01V900.901c0-6.6,5.4-12,12-12h213.513c6.6,0,12,5.4,12,12v271.109c0,6.6-5.4,12-12,12h-213.513
+			C1068.798,1184.01,1063.398,1178.61,1063.398,1172.01z"/>
+		<path id="hoverBox_19_" display="inline" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="
+			M1063.398,862.571V613.015c0-6.6,5.4-12,12-12h213.513c6.6,0,12,5.4,12,12v249.556c0,6.6-5.4,12-12,12h-213.513
+			C1068.798,874.571,1063.398,869.171,1063.398,862.571z"/>
+		<path id="hoverBox_20_" display="inline" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="
+			M1777.291,880.495V602.493c0-6.6,5.4-12,12-12h419.472c6.6,0,12,5.4,12,12v278.001c0,6.6-5.4,12-12,12h-419.472
+			C1782.691,892.495,1777.291,887.095,1777.291,880.495z"/>
+		<path id="hoverBox_21_" display="inline" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="
+			M2236.572,875.512V603.805c0-6.6,5.4-12,12-12h423.58c6.6,0,12,5.4,12,12v271.707c0,6.6-5.4,12-12,12h-423.58
+			C2241.972,887.512,2236.572,882.112,2236.572,875.512z"/>
+	</g>
 	<g id="hybrids">
 		<g>
 			<g>
@@ -282,9 +290,6 @@
 				</g>
 			</g>
 		</g>
-		<path id="hoverBox_18_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M1063.398,1172.01
-			V900.901c0-6.6,5.4-12,12-12h213.513c6.6,0,12,5.4,12,12v271.109c0,6.6-5.4,12-12,12h-213.513
-			C1068.798,1184.01,1063.398,1178.61,1063.398,1172.01z"/>
 	</g>
 	<g id="small-multiples">
 		<g>
@@ -318,9 +323,6 @@
 			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="1135.918" cy="726.569" r="9.659"/>
 			<circle fill="#8D8D8E" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="1131.499" cy="776.987" r="9.659"/>
 		</g>
-		<path id="hoverBox_19_" opacity="0" fill="none" stroke="#DBD9D9" stroke-width="5" stroke-miterlimit="10" d="M1063.398,862.571
-			V613.015c0-6.6,5.4-12,12-12h213.513c6.6,0,12,5.4,12,12v249.556c0,6.6-5.4,12-12,12h-213.513
-			C1068.798,874.571,1063.398,869.171,1063.398,862.571z"/>
 	</g>
 </g>
 <g id="data-operations-label">
