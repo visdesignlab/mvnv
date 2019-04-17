@@ -242,7 +242,7 @@ function render_techniques(techniques,info) {
 
    let cards = d3.selectAll('.techniqueCard').data(techniques);
 
-   cards.select('.rec').select('h4').select('span').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '">' + info[d[0]].title + '</a>');
+   cards.select('.rec').select('h4').select('.techniqueTitle').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '">' + info[d[0]].title + '</a>');
 
    cards.select('.totalScore')
    .classed('score-three',d=>d[1]>=2.5)
@@ -257,85 +257,85 @@ function render_techniques(techniques,info) {
 
   cards.select('.moreLink').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '"> More... </a>');
 
-  let three = cards.select('.threeTags').selectAll('.tag').data(d=>info[d[0]].threes);
+  // let three = cards.select('.threeTags').selectAll('.tag').data(d=>info[d[0]].threes);
 
-  let threeEnter = three.enter().append('span').attr('class','tag score-three');
+  // let threeEnter = three.enter().append('span').attr('class','tag score-three');
 
-  three.exit().remove();
+  // three.exit().remove();
 
-  three = threeEnter.merge(three);
+  // three = threeEnter.merge(three);
 
-  three.text(d=>{
-    let string; 
-    if (d[0].includes('node_attr')){
-      string = 'Node - ' + d[1];
-    } else if (d[0].includes('edge_attr')){
-      string = 'Edge - ' + d[1];
-    } else {
-      string = d[1];
-    }
-    return string
-  });
+  // three.text(d=>{
+  //   let string; 
+  //   if (d[0].includes('node_attr')){
+  //     string = 'Node - ' + d[1];
+  //   } else if (d[0].includes('edge_attr')){
+  //     string = 'Edge - ' + d[1];
+  //   } else {
+  //     string = d[1];
+  //   }
+  //   return string
+  // });
 
-  let two = cards.select('.twoTags').selectAll('.tag').data(d=>info[d[0]].twos);
+  // let two = cards.select('.twoTags').selectAll('.tag').data(d=>info[d[0]].twos);
 
-  let twoEnter = two.enter().append('span').attr('class','tag score-two')
+  // let twoEnter = two.enter().append('span').attr('class','tag score-two')
 
-  two.exit().remove();
+  // two.exit().remove();
 
-  two = twoEnter.merge(two);
+  // two = twoEnter.merge(two);
 
-  two.text(d=>{
-    let string; 
-    if (d[0].includes('node_attr')){
-      string = 'Node - ' + d[1];
-    } else if (d[0].includes('edge_attr')){
-      string = 'Edge - ' + d[1];
-    } else {
-      string = d[1];
-    }
-    return string
-  })
+  // two.text(d=>{
+  //   let string; 
+  //   if (d[0].includes('node_attr')){
+  //     string = 'Node - ' + d[1];
+  //   } else if (d[0].includes('edge_attr')){
+  //     string = 'Edge - ' + d[1];
+  //   } else {
+  //     string = d[1];
+  //   }
+  //   return string
+  // })
 
-  let one = cards.select('.oneTags').selectAll('.tag').data(d=>info[d[0]].ones);
+  // let one = cards.select('.oneTags').selectAll('.tag').data(d=>info[d[0]].ones);
 
-  let oneEnter = one.enter().append('span').attr('class','tag score-one')
+  // let oneEnter = one.enter().append('span').attr('class','tag score-one')
 
-  one.exit().remove();
+  // one.exit().remove();
 
-  one = oneEnter.merge(one);
+  // one = oneEnter.merge(one);
 
-  one.text(d=>{
-    let string; 
-    if (d[0].includes('node_attr')){
-      string = 'Node - ' + d[1];
-    } else if (d[0].includes('edge_attr')){
-      string = 'Edge - ' + d[1];
-    } else {
-      string = d[1];
-    }
-    return string
-  })
+  // one.text(d=>{
+  //   let string; 
+  //   if (d[0].includes('node_attr')){
+  //     string = 'Node - ' + d[1];
+  //   } else if (d[0].includes('edge_attr')){
+  //     string = 'Edge - ' + d[1];
+  //   } else {
+  //     string = d[1];
+  //   }
+  //   return string
+  // })
 
-  let zero = cards.select('.zeroTags').selectAll('.tag').data(d=>info[d[0]].zeros);
+  // let zero = cards.select('.zeroTags').selectAll('.tag').data(d=>info[d[0]].zeros);
 
-  let zeroEnter = zero.enter().append('span').attr('class','tag score-zero')
+  // let zeroEnter = zero.enter().append('span').attr('class','tag score-zero')
 
-  zero.exit().remove();
+  // zero.exit().remove();
 
-  zero = zeroEnter.merge(zero);
+  // zero = zeroEnter.merge(zero);
 
-  zero.text(d=>{
-    let string; 
-    if (d[0].includes('node_attr')){
-      string = 'Node - ' + d[1];
-    } else if (d[0].includes('edge_attr')){
-      string = 'Edge - ' + d[1];
-    } else {
-      string = d[1];
-    }
-    return string
-  })
+  // zero.text(d=>{
+  //   let string; 
+  //   if (d[0].includes('node_attr')){
+  //     string = 'Node - ' + d[1];
+  //   } else if (d[0].includes('edge_attr')){
+  //     string = 'Edge - ' + d[1];
+  //   } else {
+  //     string = d[1];
+  //   }
+  //   return string
+  // })
 
 
    cards.select('.techniqueDescription').text(d=>info[d[0]].description)

@@ -8146,6 +8146,16 @@ label.panel-block {
   background-color: #cccccc;
   color: #4a4a4a; }
 
+.techniqueCard .content h4 {
+  height: 30px; }
+
+.techniqueCard figure {
+  height: 51px; }
+
+.tabs.is-toggle li.is-active a {
+  border-width: 2px;
+  border-color: #de6f01; }
+
 .tag.score-zero,
 .button.score-zero {
   background-color: #f3a685;
@@ -8202,7 +8212,7 @@ label.panel-block {
   width: 50px;
   x: -30; }
 
-.tag {
+.tag, .tabs li {
   margin-right: 5px; }
 
 #mini_wizard_panel h6 {
