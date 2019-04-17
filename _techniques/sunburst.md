@@ -1,7 +1,7 @@
 ---
 layout: technique
 # The quotes make the : possible, otherwise you can do it without quotes
-title: "Inner Nodes + Leaves"
+title: "Implicit - Inner Nodes + Leaves"
 category: "Implicit"
 key: sunburst
 # node-link | tabular | implicit | coordinated | hybrid | smallMultiples

@@ -63,7 +63,7 @@
                               </article>
                               <article class="tile is-child notification is-warning">
                                 <p class="title">Read the STAR</p>
-                                <p class="subtitle">The STAR report can be found <a href="https://www.vdl.sci.utah.edu/">here</a>.</p>
+                                <p class="subtitle">The STAR report can be found <a href="https://vdl.sci.utah.edu/publications/">here</a>.</p>
                               </article>
                             </div>
                             <div class="tile is-parent">
@@ -72,8 +72,8 @@
                                 <p class="subtitle">Technique recommendations to fit your needs! 
                                     
                                     <br/><br/>
-                                    Navigate to the wizard tab (or click here) and select your specific network characteristics, such as size and network type
-                                 topological structures of interest, such as paths or clusters, and receive technique recommendations that are best suited to your selection. Enjoy! </p>
+                                    Navigate to the wizard tab (or click <a href='/mvnv/wizard'>here</a>) and select your specific network characteristics -- such as size and network type --,
+                                 your topological structures of interest -- such as paths or clusters --, and receive technique recommendations that are best suited to your selection. Enjoy! </p>
                               </article>
                             </div>
                           </div>
@@ -124,23 +124,21 @@ async function loadSVG() {
 
     //  div.select('svg').attr('viewBox',"0 0 240 100");
 
-     div.select('#quilts')
-     .on('mouseover',(d)=>console.log('moused over quilts'));
-
      d3.selectAll("[id^='hoverBox']") 
      .attr('class','tooltip')
     .attr('data-tooltip','hover tooltip')
     //  .append('a')
     //  .attr('href','google.com')
      .on('mouseover',function(d){
-         d3.select(this).style('opacity',.5)
+         d3.select(this).style('opacity',.5);
      })
      .on('mouseout',function(d){
          d3.select(this).style('opacity',0)
      })
-    //  .on('click',d=>{
-    //     <a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a>
-    //  }
+     .on('click',function(d){
+      let groupId = d3.select(this.parentNode).attr('id');
+        window.location = '/mvnv/techniques/' + groupId + '/';
+     });
 
 
      div.select('#adjmatrix')

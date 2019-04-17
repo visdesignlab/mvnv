@@ -1,7 +1,7 @@
 ---
 layout: technique
 # The quotes make the : possible, otherwise you can do it without quotes
-title: "Leaves Only"
+title: "Implicit - Leaves Only"
 category: "Implicit"
 key: treemap
 # node-link | tabular | implicit | coordinated | hybrid | smallMultiples

@@ -4,8 +4,6 @@ function compute_scores(allScores){
 
   //create a list of key/value pairs to use in the scores
   let activeOptions = d3.selectAll('.is-active').data();   
-  
-  console.log('activeOptions are', activeOptions)
 
   Object.keys(allScores).map(technique => {
     allScores[technique].totalScore = 0;
@@ -14,7 +12,7 @@ function compute_scores(allScores){
       // console.log(technique,option.category,option.option,score);
       allScores[technique].totalScore = allScores[technique].totalScore + score;
     })
-     let score = allScores[technique].totalScore / activeOptions.length;
+     let score = activeOptions.length > 0 ? allScores[technique].totalScore / activeOptions.length : allScores[technique].totalScore;
      allScores[technique].averageScore = Math.round( score * 10) / 10
   })
 
@@ -31,7 +29,11 @@ function render_techniques(techniques,info) {
 
    let cards = d3.selectAll('.techniqueCard').data(techniques);
 
-   cards.select('h4').select('span').text(d=>info[d[0]].title)
+  //  cards.select('h4').select('span').text(d=>info[d[0]].title)
+
+
+   cards.select('h4').select('span').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '">' + info[d[0]].title + '</a>');
+
    cards.select('.totalScore')
    .classed('score-three',d=>d[1]>=2.5)
    .classed('score-two',d=>(d[1]>=2 & d[1]<2.5))
@@ -43,9 +45,10 @@ function render_techniques(techniques,info) {
 
   cards.select('img').property('src',d=>'/mvnv/assets/images/techniques/icons/' + info[d[0]].image);
 
-  cards.select('.infoTooltip').attr('data-tooltip',d=>info[d[0]].description)
+  cards.select('.moreLink').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '"> More... </a>');
 
-  //  cards.select('.techniqueDescription').text(d=>info[d[0]].description)
+
+   cards.select('.techniqueDescription').text(d=>info[d[0]].description)
 
    cards.select('.optimal').text(d=>info[d[0]].optimal)
    cards.select('.good').text(d=>info[d[0]].good)

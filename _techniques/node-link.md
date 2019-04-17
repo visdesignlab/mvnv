@@ -1,7 +1,7 @@
 ---
 layout: technique
 # The quotes make the : possible, otherwise you can do it without quotes
-title: "Topology Driven"
+title: "On-Node/On-Edge Encoding"
 category: "Node-Link"
 key: node-link
 # node-link | tabular | implicit | coordinated | hybrid 
