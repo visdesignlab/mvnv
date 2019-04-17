@@ -7,7 +7,7 @@ key: attr-driven
 # node-link | tabular | implicit | coordinated | hybrid 
 type: node-link
 
-description : Attr Driven Positioning is...
+description : Attribute-driven positioning (fixed layouts) assigns node or edge positions according to one or more attribute values.
 
 abstract : abstract
 
@@ -21,6 +21,10 @@ image: attr-driven.png
 papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
+
+optimal: Optimized for small and sparse networks. Is well suited for few node attributes, particular of homogenous types.  
+good: Supports few edge attributes, but only if of homogenous types. Can be used for tasks on neighbors and networks.   
+adequate: Not ideal for tasks on paths, clusters, and for large, dense, layered or tree networks. 
 
 scores:
      size: 
@@ -55,5 +59,13 @@ scores:
 
 # Reccommended Usage
 
-Rec Usage
+Attribute-driven positioning is well suited for cases where the value of a single node attribute or the relationships between two node attributes are the most important feature in a network dataset, but it does not lend itself well to visualizing the topology of the network. Even simple structures such as neighborhoods can be difficult to spot. Complex structures such as paths or clusters can be hidden completely. Unlike attribute-driven faceting, the technique is well suited for quantitative attributes. The technique works mostly for homogeneous networks since it relies on common node attributes for positioning.
+Due to the placement driven by attributes, nodes can occlude each
+other (although jitter was suggested to address that), and
+edge crossings are much more likely than, e.g., in a force-directed
+layout. Hence, attribute-driven positioning is not well suited for
+dense networks or for visualizing edge attributes. We recommend
+attribute-driven positioning for smaller, sparse networks where relationships
+between node attributes are paramount to the analysis
+task, and topological features only provide context.
 

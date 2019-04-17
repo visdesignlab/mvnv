@@ -18,7 +18,23 @@ function compute_scores(allScores){
 
   let scoreArray = Object.keys(allScores).map(key=>{
     return [key,allScores[key].averageScore]
-  }).sort((a,b)=>b[1] - a[1])
+  }).sort((a,b)=>{
+    if (b[1] <a[1]){
+      return -1
+    }
+
+    if (b[1] === a[1]){
+      if (b[0] > a[0]){
+        return -1
+      } else {
+        return 1
+      }
+    }
+
+    if (b[1] >a[1]){
+      return 1
+    }
+  })
 
   console.log('allScores_computed',scoreArray)
 

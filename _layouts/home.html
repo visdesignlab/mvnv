@@ -136,8 +136,17 @@ async function loadSVG() {
          d3.select(this).style('opacity',0)
      })
      .on('click',function(d){
+      
       let groupId = d3.select(this.parentNode).attr('id');
-        window.location = '/mvnv/techniques/' + groupId + '/';
+      console.log('groupId is ', groupId);
+
+        if (groupId.includes('label')){
+          window.location = '/mvnv/techniques/';
+        } else  if (groupId.includes('Layer_1')){
+            //do nothing
+        } else {
+          window.location = '/mvnv/techniques/' + groupId + '/';
+        }
      });
 
 

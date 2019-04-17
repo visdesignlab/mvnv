@@ -31,8 +31,6 @@
 
      });
 
-     console.log(tasks)
-
     let groups = d3.select(".scores")
       .selectAll('g')
       .data(tasks);
@@ -95,5 +93,5 @@
     .attr('dominant-baseline','baseline')
     .attr('text-anchor','middle')
     .attr('x', (d)=>{return d.numChildren*rectSize/2 + Number(rectSize)})
-    .attr('y', function(d){return d3.select(this).classed('first') ? -160 : -140})
+    .attr('y', function(d){return d3.select(this).classed('first') ? -200 : -180})
     }
