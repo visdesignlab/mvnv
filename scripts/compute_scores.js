@@ -82,30 +82,85 @@ function render_techniques(techniques,info) {
 
   let threeEnter = three.enter().append('span');
 
-  // three.exit().remove();
+  three.exit().remove();
 
   three = threeEnter.merge(three);
 
   three
   .classed('tag',true)
   .classed('is-success', true);
-  three.text(d=>d[1]);
+  three.text(d=>{
+    let string; 
+    if (d[0].includes('node_attr')){
+      string = 'Node - ' + d[1];
+    } else if (d[0].includes('edge_attr')){
+      string = 'Edge - ' + d[1];
+    } else {
+      string = d[1];
+    }
+    return string
+  })
 
   let two = cards.select('.twoTags').selectAll('.tag').data(d=>info[d[0]].twos);
 
   let twoEnter = two.enter().append('span').attr('class','tag score-two')
 
+  two.exit().remove();
+
   two = twoEnter.merge(two);
 
-  two.text(d=>d[1]);
+  two.text(d=>{
+    let string; 
+    if (d[0].includes('node_attr')){
+      string = 'Node - ' + d[1];
+    } else if (d[0].includes('edge_attr')){
+      string = 'Edge - ' + d[1];
+    } else {
+      string = d[1];
+    }
+    return string
+  })
 
   let one = cards.select('.oneTags').selectAll('.tag').data(d=>info[d[0]].ones);
 
   let oneEnter = one.enter().append('span').attr('class','tag score-one')
 
+  one.exit().remove();
+
   one = oneEnter.merge(one);
 
-  one.text(d=>d[1]);
+  one.text(d=>{
+    let string; 
+    if (d[0].includes('node_attr')){
+      string = 'Node - ' + d[1];
+    } else if (d[0].includes('edge_attr')){
+      string = 'Edge - ' + d[1];
+    } else {
+      string = d[1];
+    }
+    return string
+  })
+
+  let zero = cards.select('.zeroTags').selectAll('.tag').data(d=>info[d[0]].zeros);
+
+  let zeroEnter = zero.enter().append('span').attr('class','tag score-zero')
+
+  zero.exit().remove();
+
+  zero = zeroEnter.merge(zero);
+
+  zero.text(d=>{
+    let string; 
+    if (d[0].includes('node_attr')){
+      string = 'Node - ' + d[1];
+    } else if (d[0].includes('edge_attr')){
+      string = 'Edge - ' + d[1];
+    } else {
+      string = d[1];
+    }
+    return string
+  })
+
 
    cards.select('.techniqueDescription').text(d=>info[d[0]].description)
 
