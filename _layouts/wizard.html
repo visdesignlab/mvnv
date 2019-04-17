@@ -16,8 +16,8 @@ Options:
       - layered
       - trees 
   node_attr_size:
-    label: No. of Node Attributes
-    shortLabel: No. Node Attr.
+    label:  "Number of Node Attributes"
+    shortLabel:  "# Node Attr."
     options: 
       - few
       - several
@@ -29,7 +29,7 @@ Options:
       - heterogeneous
   edge_attr_size:
     label: No. of Edge Attributes
-    shortLabel: No. Edge Attr.
+    shortLabel: "# Edge Attr."
     options: 
       - few
       - several 
@@ -84,7 +84,7 @@ Options:
       
       let allScores = {};
   let techniques = {};
-  let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')))
+  let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')));
 
 
 '{% for technique in site.techniques reversed  %}'
@@ -95,15 +95,14 @@ Options:
   allScores['{{technique.key}}'].description='{{technique.description}}';
   allScores['{{technique.key}}'].image='{{technique.image}}';
   allScores['{{technique.key}}'].totalScore = 0;
-  allScores['{{technique.key}}'].optimal = '{{technique.optimal}}'
+  allScores['{{technique.key}}'].optimal = '{{technique.optimal}}';
   allScores['{{technique.key}}'].good = '{{technique.good}}'
-  allScores['{{technique.key}}'].adequate = '{{technique.adequate}}'
-  allScores['{{technique.key}}'].bad = '{{technique.bad}}'
+  allScores['{{technique.key}}'].adequate = '{{technique.adequate}}';
+  allScores['{{technique.key}}'].bad = '{{technique.bad}}';
 '{% endfor %}' 
 
-console.log('allScores', allScores)
+console.log('allScores', allScores);
       
       create_panel(allScores);   
       </script>
-</div>
 </div>

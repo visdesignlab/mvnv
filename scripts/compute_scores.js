@@ -15,9 +15,9 @@ let switchEl = h4.append('span').attr('class','field is-pulled-right');
 
 switchEl.append('input')
 .attr('type','checkbox')
-.attr('class','switch is-small')
+.attr('class','switch is-small');
 
-switchEl.append('label')
+switchEl.append('label');
 
 //Add options
 groupsEnter.append('div').attr('class','tabs is-fullwidth is-toggle'); 
@@ -33,10 +33,10 @@ groups
 .attr('class',d=>'dataDiv data_' + d);
 
 groups.select('.switch')
-.attr('id',d=>'switch_'+d)
+.attr('id',d=>'switch_'+d);
 
 groups.select('label')
-.attr('for',d=>'switch_'+d)
+.attr('for',d=>'switch_'+d);
 
 groups.select('#header')
 .text(d=>optionsObject[d].label);
@@ -80,7 +80,7 @@ d3.select(this).classed('is-active',!isSelected);
 selectedTabs = tabGroup.selectAll('.is-active');
 
 d3.select('#switch_' + category)
-.property('checked',selectedTabs.empty()? false : true)
+.property('checked',selectedTabs.empty()? false : true);
 
 compute_scores(allScores);
 
@@ -209,10 +209,10 @@ function compute_scores(allScores){
       // console.log(technique,option.category,option.option,score);
       allScores[technique].totalScore = allScores[technique].totalScore + score;
       allScores[technique][num2strMap[score]].push([option.category,option.option]);
-    })
+    });
      let score = activeOptions.length > 0 ? allScores[technique].totalScore / activeOptions.length : allScores[technique].totalScore;
      allScores[technique].averageScore = Math.round( score * 10) / 10
-  })
+  });
 
   let scoreArray = Object.keys(allScores).map(key=>{
     return [key,allScores[key].averageScore]
@@ -248,10 +248,10 @@ function render_techniques(techniques,info) {
    .classed('score-three',d=>d[1]>=2.5)
    .classed('score-two',d=>(d[1]>=2 & d[1]<2.5))
    .classed('score-one',d=>(d[1]>=1 & d[1]<2))
-   .classed('score-zero',d=>(d[1]>=0 & d[1]<1))
+   .classed('score-zero',d=>(d[1]>=0 & d[1]<1));
 
    cards.select('.totalScore')
-   .text(d=>d[1])
+   .text(d=>d[1]);
 
   cards.select('img').property('src',d=>'/mvnv/assets/images/techniques/icons/' + info[d[0]].image);
 
@@ -275,7 +275,7 @@ function render_techniques(techniques,info) {
       string = d[1];
     }
     return string
-  })
+  });
 
   let two = cards.select('.twoTags').selectAll('.tag').data(d=>info[d[0]].twos);
 
