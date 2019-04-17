@@ -64,8 +64,6 @@ li.select('span').text(d=>d.option);
 
 
 li.on('click',function(d){
-
-  compute_scores(allScores);
  
 let tabGroup = d3.select((this.parentNode).parentNode);
 let category = tabGroup.data()[0];
@@ -84,6 +82,9 @@ selectedTabs = tabGroup.selectAll('.is-active');
 d3.select('#switch_' + category)
 .property('checked',selectedTabs.empty()? false : true);
 
+compute_scores(allScores);
+
+
 //highlight all mini panel buttons for active tabs. 
 selectedTabs = d3.select('#wizard_panel').selectAll('.is-active').each(function(tab){
   let currentClass = d3.select(this).attr('class').replace('is-active','').trim();
@@ -91,6 +92,8 @@ selectedTabs = d3.select('#wizard_panel').selectAll('.is-active').each(function(
       return d3.select(this).attr('class').includes(currentClass);
    }).classed('is-focused',true);
 })
+
+
 
 
 
