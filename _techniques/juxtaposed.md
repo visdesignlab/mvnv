@@ -7,7 +7,7 @@ key: juxtaposed
 # node-link | tabular | implicit | coordinated 
 type: coordinated
 
-description : Juxtaposed Views are...
+description : In the context of MCV visualization, juxtaposed views separate the topology visualization from the attribute visualization into two or more views. Links between the topology and the attributes are not encoded and typically are revealed through interaction by linking and brushing.
 
 abstract : abstract
 
@@ -21,6 +21,11 @@ image: juxtaposed.png
 papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
+
+optimal: Optimized for networks with several, heterogenous, node or attributes. Also ideal for layered networks and trees.
+good: Supports medium networks, as well as tasks on clusters and subnetworks.     
+adequate: Not ideal for large or dense networks, as well as tasks on neighbors and paths.
+
 
 scores:
      size: 
@@ -56,6 +61,12 @@ scores:
 
 # Reccommended Usage
 
-Rec Usage.  
-
-
+Juxtaposed MCVs are recommended for large networks and/or very large numbers or heterogeneous types of node
+and link attributes. Since each view can optimize for
+either topology or attributes without concern for the other, the independent
+analysis of attributes or topology is generally well supported.
+Linking and brushing can reintroduce the connection, but
+require interaction, and even then matches between specific items
+in a large brushed set are difficult to identify. Consequently, juxtaposed
+views do not support the tasks on our topological structures
+well.

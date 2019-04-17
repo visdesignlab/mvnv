@@ -7,7 +7,7 @@ key: faceting
 # node-link | tabular | implicit | coordinated | hybrid 
 type: node-link
 
-description : Faceting is...
+description : Attribute-driven faceting groups nodes according to one or more attributes and places the elements of a group in a shared region.
 
 abstract : abstract
 
@@ -21,6 +21,11 @@ image: faceting.png
 papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
+
+optimal: Optimized for networks with few, but homogeneous or heteregenous node attributes. Also ideal for layered sparse or layered graphs.
+good: Supports few, homogenous edge attributes, and tasks on neighbors.    
+adequate: Not ideal for dense, layered or tree networks. Also, ill suited for tasks on paths or clusters. 
+
 
 scores:
      size: 
@@ -56,5 +61,18 @@ scores:
 
 # Reccommended Usage
 
-Rec Usage
-
+Attribute-driven faceting is well suited for
+networks with different node types or with an important categorical
+or set-like attribute. Such faceting is especially useful when the
+separation into groups and the study of the interaction within and
+between the groups are the subject of the analysis, which is commonly
+the case in k-partite and layered networks (see Table 2). Due
+to restrictions on the layout, it is slightly less scalable with respect
+to the number of nodes and network density than node-link layouts.
+Other attributes can be visualized independently of the basic
+principle of faceting, so that the scalability with respect to other attributes
+depends on these choices. Edge attributes are not supported
+by faceting and have to rely on a secondary encoding. Neighborhoods, paths, and clusters are not easily visible if they span different
+facets.We recommend attribute faceting for cases where nodes can
+be separated into groups easily and where these groups are central
+to the analysis.

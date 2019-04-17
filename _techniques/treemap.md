@@ -7,7 +7,7 @@ key: treemap
 # node-link | tabular | implicit | coordinated | hybrid | smallMultiples
 type: implicit
 
-description : Implicit views for leaves are...
+description : Leaf-centric layouts are those that only or predominantly allocate screen space for the leaves of a multivariate tree and encode the hierarchy by inclusion/nesting. The classical example of this type of layout is the Treemap, originally proposed by Johnson and Shneiderman.
 
 # Node-link diagrams are the most common graphical representation of networks. In a node-link diagram, the nodes are drawn as point marks and the links as line/curve marks connecting the nodes. Node link layouts are the subject of its own field of study -- graph drawing -- and countless algorithms for node-link layouts have been developed.
 
@@ -64,7 +64,12 @@ scores:
 
 # Reccommended Usage
 
-Rec Usage  
-  
-
+Leaf-centric implicit layouts are well
+suited for analyzing trees with an important numerical attribute on
+the leaves. Because this layout assigns most, if not all, display space
+to the leaves of a tree, and the hierarchical structure groups small
+elements, it is more scalable than implicit layouts that also visualize
+inner nodes (see Table 2). Treemaps have been used to visualize
+up to a million items. Path-related tasks can be difficult because
+the tree structure is often only implied.
 

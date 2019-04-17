@@ -1220,47 +1220,6 @@ pre.bibtex {
 }
 
 
-// scores panel specific .css
-
-#technique_scores, #score_wizard{
-  width: 100%;
-  height:600px;
-}
-
-.scoreRect{
-  width:20px;
-  height:20px;
-  rx:5;
-  ry:5;
-}
-
-.scoreText{
-  fill:white;
-  font-weight: 400;
-}
-.category{
-  font-weight: 400;
-}
-.score_0{
-  fill:rgb(248, 137, 137);
-  width:20px;
-  x:-30;
-}
-.score_1{
-  fill:rgb(159, 159, 159);
-  width:30px;
-  x:-30;
-}
-.score_2{
-  fill:rgb(127, 151, 222);
-  width:40px;
-  x:-30;
-}
-.score_3{
-  fill:rgb(6, 81, 200);
-  width:50px;
-  x:-30;
-}
 
 label
 {

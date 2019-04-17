@@ -7,7 +7,7 @@ key: sunburst
 # node-link | tabular | implicit | coordinated | hybrid | smallMultiples
 type: implicit
 
-description : Implicit view for inner nodes + leaves are...
+description : Implicit layouts such as Sunburst and Icicle Plots show both the whole backbone of the tree with the intermediate nodes and the leafs. The hierarchy is encoded by adjacency, i.e a child node is adjacent to its root. The root-child relationship is encoded by the order (inner-to-outer for Sunburst, for example).
 
 # Node-link diagrams are the most common graphical representation of networks. In a node-link diagram, the nodes are drawn as point marks and the links as line/curve marks connecting the nodes. Node link layouts are the subject of its own field of study -- graph drawing -- and countless algorithms for node-link layouts have been developed.
 
@@ -64,6 +64,16 @@ scores:
 
 # Reccommended Usage
 
-Rec Usage  
+Implicit tree layouts for inner nodes and
+leaves are well suited for tree datasets with numerical attributes
+at the leaves and potentially a secondary attribute at inner nodes
+and/or leaves. In contrast to leaves-only layouts, these layouts support
+finding neighbors and paths between nodes well (see Table 2).
+The layouts scale well with regard to the number of nodes; however,
+deep hierarchies tend to use plenty of of space. Various intuitive interactions are available, such as successively revealing leaves on
+demand, to deal with deeper trees. Overall, we recommend implicit
+tree layouts for inner nodes and leaves for tree datasets where one
+numerical leaf attribute is dominant, and the tree topology plays an
+important role. 
 
 

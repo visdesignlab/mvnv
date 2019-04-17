@@ -47,7 +47,7 @@ layout: default
 
     </p>
 
-    {% for technique in site.techniques  %}
+    {% for technique in site.techniques reversed  %}
       {% if technique.type == "tabular" %}
         {% include technique_list_entry.html %}
       {% endif %}
@@ -74,7 +74,7 @@ layout: default
 
       
 
-    {% for technique in site.techniques  %}
+    {% for technique in site.techniques reversed  %}
       {% if technique.type == "implicit" %}
         {% include technique_list_entry.html %}
       {% endif %}

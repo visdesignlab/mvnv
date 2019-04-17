@@ -30,7 +30,6 @@ function compute_scores(allScores){
         return 1
       }
     }
-
     if (b[1] >a[1]){
       return 1
     }

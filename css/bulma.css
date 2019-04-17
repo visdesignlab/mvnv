@@ -8158,3 +8158,41 @@ label.panel-block {
 
 .score-zero {
   color: #fdc0af; }
+
+#technique_scores, #score_wizard {
+  width: 100%;
+  height: 600px; }
+
+.scoreRect {
+  width: 20px;
+  height: 20px;
+  rx: 5;
+  ry: 5; }
+
+.scoreText {
+  font-weight: 400; }
+
+.category {
+  font-weight: 400; }
+
+.score_0 {
+  fill: #fdc0af;
+  width: 20px;
+  x: -30; }
+
+.score_1 {
+  fill: #f8e361;
+  color: #4a4a4a;
+  width: 30px;
+  x: -30; }
+
+.score_2 {
+  fill: #79cf5f;
+  color: #4a4a4a;
+  width: 40px;
+  x: -30; }
+
+.score_3 {
+  fill: #248b04;
+  width: 50px;
+  x: -30; }

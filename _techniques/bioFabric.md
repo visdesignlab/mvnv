@@ -7,7 +7,7 @@ key: bioFabric
 # node-link | tabular | implicit | coordinated | hybrid 
 type: tabular
 
-description : BioFabric is...
+description : Biofabric is a tabular layout that places each node in a row of the table and draws edges between the nodes in columns.
 
 
 abstract : abstract
@@ -22,6 +22,12 @@ image: bioFabric.png
 papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
+
+optimal: Optimized for showing node and edge attributes since it supports several attributes and of heterogeneous types. 
+good: Supports tasks on subnetworks and layered networks.   
+adequate: Not ideal for tasks on neighbors, paths,clusters, or for graphs with over 100 nodes. 
+
+
 
 scores:
      size: 
@@ -57,6 +63,17 @@ scores:
 
 # Reccommended Usage
 
-Recommended when...
+Biofabric is unique in that it can be used to
+visualize rich edge attributes and node attributes at the same time,
+while also making it possible to align these attribute visualizations
+on the same scale. It therefore has the potential to visualize large
+attribute datasets and also heterogeneous node types. Biofabric is
+about equally scalable to an adjacency matrix in terms of nodes,
+but less scalable with respect to the density of the network. Biofabric
+is not well studied with respect to users’ ability to detect
+topological features, but BioFabric is likely slightly more difficult
+for discovering neighbors and clusters than matrices. Overall, we
+recommend BioFabric for small, sparse networks with many nodes
+and rich edge attributes.
 
 

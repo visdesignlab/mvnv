@@ -7,10 +7,7 @@ key: node-link
 # node-link | tabular | implicit | coordinated | hybrid 
 type: node-link
 
-description : On-node encoding...
-
-
-# Node-link diagrams are the most common graphical representation of networks. In a node-link diagram, the nodes are drawn as point marks and the links as line/curve marks connecting the nodes. Node link layouts are the subject of its own field of study -- graph drawing -- and countless algorithms for node-link layouts have been developed.
+description : On-node and on-edge encoding refers to modifying the visual appearance (size, color) of a node or an edge or embedding marks (bar charts, line charts, etc.) in a node or an edge in a node-link diagram.
 
 abstract : abstract
 
@@ -24,6 +21,11 @@ image: topology-driven.png
 papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
+
+optimal: Optimized for layered networks and trees. Also ideal for tasks on single nodes or immediate neighbors.
+good: Supports tasks on paths, clusters, and subnetworks.     
+adequate: Not ideal for large or dense networks, as well as encoding several or heterogeneous edge attributes.
+    
 
 scores:
      size: 

@@ -7,7 +7,7 @@ key: integrated
 # node-link | tabular | implicit | coordinated | hybrid 
 type: coordinated
 
-description : Integrated views are...
+description : Unlike juxtaposed views, in integrated views the topology and the attribute visualizations are laid out with the other view in mind. Typically, integrated MCVs have an unambiguous spatial relationship between the topological features and their attributes.
 
 
 abstract : abstract
@@ -22,6 +22,10 @@ image: integrated.png
 papers:
      -  okoe_node-link_2018
      -  jankun-kelly_moiregraphs:_2003
+
+optimal: Optimized for networks with several, heterogenous, node attributes. Also ideal for tasks on single nodes, neighbors, and paths.
+good: Supports edge attributes both homogeneous and heterogeneous, and tasks on subnetworks.    
+adequate: Not ideal for large networks, or tasks on clusters. 
 
 scores:
      size: 
@@ -57,3 +61,16 @@ scores:
 
 # Reccommended Usage
 
+Integrated MCV approaches are exceptionally
+good at integrating complex attribute vectors of various types
+with topology, if the topology can be represented sensibly in a linear
+layout. Integration is easily achieved for tabular approaches
+such as adjacency matrices, trees, and cases where a linear ordering
+is natural, such as when using genome coordinates. For general
+networks, integrated MCVs can usually not visualize more complex
+topology, but they can be very useful if the network can be
+linearized, e.g., using spanning trees or user-selected paths. Compared
+to juxtaposed views, integrated views excel at tasks related to
+paths, neighborhoods, and when used with matrices, clusters (see
+Table 2). One drawback of integrated views is scalability with respect
+to the number of nodes and density.
