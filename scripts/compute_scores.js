@@ -20,7 +20,7 @@ let switchEl = h4.append('span').attr('class','field is-pulled-right');
 
 switchEl.append('input')
 .attr('type','checkbox')
-.attr('class','switch is-small');
+.attr('class','switch is-info is-small');
 
 switchEl.append('label');
 

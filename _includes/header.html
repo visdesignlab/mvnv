@@ -1,52 +1,49 @@
 <section class="hero ">
-    <div class="hero-body">
-      <!-- <div class="column"> -->
-        <h1 class="title">
-                Multivariate Network Visualization Techniques
-        </h1>
-        <h2 class="subtitle">
-          A companion website for the STAR Report on Multivariate Network Visualization Techniques.
-        </h2>
-      <!-- </div> -->
+  <div class="hero-body">
+    <!-- <div class="column"> -->
+    <h1 class="title">
+      Multivariate Network Visualization Techniques
+    </h1>
+    <h2 class="subtitle">
+      A companion website for the STAR Report on Multivariate Network Visualization Techniques.
+    </h2>
+    <div class="navigation">
 
+      <div class="navigation-buttons">
+        <ul>
+          <!-- {% assign navButtons = "home|team|publications|culture|positions" | split: "|" %} -->
+          {% assign navButtons = "home|techniques|wizard" | split: "|" %}
+          {% for nav in navButtons %}
+          {% assign navURL = nav %}
+          {% assign pageURL = page.url %}
+          {% assign pageURLSplit = page.url | split: "/" %}
+          {% if nav == "home" %}
+          {% assign navURL = "" %}
+          {% endif %}
+
+          {% if pageURLSplit[1] == navURL %}
+          <li class="{{ nav }}-button">
+            <a class="active" href="{{ site.baseurl }}/{{ navURL }}">
+              <span class="nav-text">{{ nav | upcase }}</span></a>
+          </li>
+
+          {% elsif navURL == "" and pageURL == "/" %}
+          <li class="{{ nav }}-button">
+            <a class="active" href="{{ site.baseurl }}/{{ navURL }}">
+              <span class="nav-text">{{ nav | upcase }}</span></a>
+          </li>
+
+          {% else %}
+          <li class="{{ nav }}-button">
+            <a href="{{ site.baseurl }}/{{ navURL }}">
+              <span class="nav-text">{{ nav | upcase }}</span></a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
     </div>
-    <!-- <div id="svg" class="logo">
-      </div> -->
-  </section>
 
-<div class="navigation">
- 
-  <div class="navigation-buttons">
-    <ul>
-      <!-- {% assign navButtons = "home|team|publications|culture|positions" | split: "|" %} -->
-      {% assign navButtons = "home|techniques|wizard" | split: "|" %}
-      {% for nav in navButtons %}
-      {% assign navURL = nav %}
-      {% assign pageURL = page.url %}
-      {% assign pageURLSplit = page.url | split: "/" %}
-      {% if nav == "home" %}
-      {% assign navURL = "" %}
-      {% endif %}
-
-      {% if pageURLSplit[1] == navURL %}
-      <li class="{{ nav }}-button">
-        <a class="active" href="{{ site.baseurl }}/{{ navURL }}">
-          <span class="nav-text">{{ nav | upcase }}</span></a>
-      </li>
-
-      {% elsif navURL == "" and pageURL == "/" %}
-      <li class="{{ nav }}-button">
-        <a class="active" href="{{ site.baseurl }}/{{ navURL }}">
-          <span class="nav-text">{{ nav | upcase }}</span></a>
-      </li>
-
-      {% else %}
-      <li class="{{ nav }}-button">
-        <a href="{{ site.baseurl }}/{{ navURL }}">
-          <span class="nav-text">{{ nav | upcase }}</span></a>
-      </li>
-      {% endif %}
-      {% endfor %}
-    </ul>
   </div>
-</div>
+
+</section>

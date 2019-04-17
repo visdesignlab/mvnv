@@ -8230,6 +8230,9 @@ label.panel-block {
 .button.is-focused {
   border-width: 3px; }
 
+.techniqueCard figure {
+  margin-left: 1em; }
+
 .button:focus:not(:active), .button.is-focused:not(:active) {
   box-shadow: none; }
 
@@ -8238,3 +8241,12 @@ label.panel-block {
 
 #mini_wizard_panel {
   padding: .8rem; }
+
+.hero-body {
+  padding: 0 1.5rem; }
+
+.section {
+  padding-top: 0px; }
+
+.logo {
+  text-align: center; }

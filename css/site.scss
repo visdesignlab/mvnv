@@ -220,7 +220,7 @@ $large-display: new-breakpoint(min-width 1200px $large-display-columns);
 }
 
 .logo {
-  float: right;
+  // float: right;
   margin-right: 0px;
 
   @include media($small-display) {
@@ -817,7 +817,7 @@ ul.post-list {
 }
 }
 .paper-list-block{
-  min-height: 120px;
+  min-height: 160px;
   margin-bottom: 20px;
   display: block;
  

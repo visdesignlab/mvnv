@@ -48,61 +48,65 @@ Options:
       - cluster
       - network
 ---
-<div class="columns">
-  <div class="column is-narrow">
 
-      <!-- <div class="box" id="wizard_legend">
-        <h2> Legend </h2>
-        </div> -->
-
-      <div class="box" id="wizard_panel">
-    
+<section class="section">
+    <div class="columns">
+        <div class="column is-narrow">
+      
+            <!-- <div class="box" id="wizard_legend">
+              <h2> Legend </h2>
+              </div> -->
+      
+            <div class="box" id="wizard_panel">
+          
+            </div>
+      
+          </div>
+      
+          <div class="column" id="recommendations" style="visibility:hidden; height:820px; overflow-y:scroll;">
+        
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+              {% include technique_card.html %}
+        
+          </div>
+      
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+            <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
+      
+            <script> 
+            
+            let allScores = {};
+        let techniques = {};
+        let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')));
+      
+      
+      '{% for technique in site.techniques reversed  %}'
+        allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
+        allScores['{{technique.key}}'].title='{{technique.title}}';
+        allScores['{{technique.key}}'].url='{{technique.url}}';
+        allScores['{{technique.key}}'].baseUrl='{{site.baseurl}}';
+        allScores['{{technique.key}}'].description='{{technique.description}}';
+        allScores['{{technique.key}}'].image='{{technique.image}}';
+        allScores['{{technique.key}}'].totalScore = 0;
+        allScores['{{technique.key}}'].optimal = '{{technique.optimal}}';
+        allScores['{{technique.key}}'].good = '{{technique.good}}'
+        allScores['{{technique.key}}'].adequate = '{{technique.adequate}}';
+        allScores['{{technique.key}}'].bad = '{{technique.bad}}';
+      '{% endfor %}' 
+      
+      console.log('allScores', allScores);
+            
+            create_panel(allScores);   
+            </script>
       </div>
-
-    </div>
-
-    <div class="column" id="recommendations" style="visibility:hidden; height:820px; overflow-y:scroll;">
-  
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-        {% include technique_card.html %}
-  
-    </div>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-      <script src="{{site.baseurl}}/scripts/compute_scores.js"></script>
-
-      <script> 
       
-      let allScores = {};
-  let techniques = {};
-  let optionsObject = JSON.parse(('{{layout.Options}}'.replace(/=>/g, ':')));
-
-
-'{% for technique in site.techniques reversed  %}'
-  allScores['{{technique.key}}']=JSON.parse(('{{technique.scores}}'.replace(/=>/g, ':')));
-  allScores['{{technique.key}}'].title='{{technique.title}}';
-  allScores['{{technique.key}}'].url='{{technique.url}}';
-  allScores['{{technique.key}}'].baseUrl='{{site.baseurl}}';
-  allScores['{{technique.key}}'].description='{{technique.description}}';
-  allScores['{{technique.key}}'].image='{{technique.image}}';
-  allScores['{{technique.key}}'].totalScore = 0;
-  allScores['{{technique.key}}'].optimal = '{{technique.optimal}}';
-  allScores['{{technique.key}}'].good = '{{technique.good}}'
-  allScores['{{technique.key}}'].adequate = '{{technique.adequate}}';
-  allScores['{{technique.key}}'].bad = '{{technique.bad}}';
-'{% endfor %}' 
-
-console.log('allScores', allScores);
-      
-      create_panel(allScores);   
-      </script>
-</div>
+</section>
