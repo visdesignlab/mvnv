@@ -17,16 +17,20 @@
           <div class="media-content">
             <p class="title is-4"><a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a></p>
           </div>
-          <div class="media-right">
-              <figure class="image is-96x96">
-                  <img src="{{ site.baseurl }}/assets/images/techniques/color_icons/{{ technique.image }}" alt="Placeholder image">
-                </figure>
-          </div>
+          
         </div>
-    
+
         <div class="content">
+
+            <div class="media-right is-pulled-right">
+                <figure class="image is-96x96 is-marginless">
+                    <img src="{{ site.baseurl }}/assets/images/techniques/color_icons/{{ technique.image }}" alt="Placeholder image">
+                  </figure>
+            </div>
             "{{ technique.description }}" 
         </div>
+    
+       
       </div>
     </div>
 
