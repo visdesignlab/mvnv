@@ -7,7 +7,7 @@ key: quilts
 # node-link | tabular | implicit | coordinated | hybrid 
 type: tabular
 
-description : A quilt is a tabular layout optimized for layered networks. Quilts are similar to an adjacency matrix in that nodes are represented as either rows or columns, and edges are shown in the cells at the intersection of the source and target nodes. The main difference between quilts and adjacency matrices is that nodes are assumed to be partitioned into layers, and no links exist between a link of a given layer.
+description : A quilt is a tabular layout optimized for layered networks. Quilts are similar to an adjacency matrix in that nodes are represented as either rows or columns, and edges are shown in the cells at the intersection of the source and target nodes.
 
 
 abstract : abstract

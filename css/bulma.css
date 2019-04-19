@@ -8250,3 +8250,6 @@ label.panel-block {
 
 .logo {
   text-align: center; }
+
+.card {
+  min-height: 50px !important; }

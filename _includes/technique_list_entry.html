@@ -1,8 +1,6 @@
 
 
-
-<!-- <div class="column"> -->
-    <div class="paper-list-block">
+    <!-- <div class="paper-list-block">
     <a href="{{ site.baseurl }}{{ technique.url }}"><img alt="{{ technique.shortname }} screenshot" class="paper-image-small"
       src="{{ site.baseurl }}/assets/images/techniques/{{ technique.image }}"></a>
   <p class="pubs">
@@ -10,18 +8,26 @@
     <span class="paper-title"><a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a></span><br />
     {{ technique.description }} <a href="{{ site.baseurl }}{{ technique.url }}">More...</a>
   </p>
-  </div>
-  <!-- </div> -->
+  </div> -->
 
 
-<!-- <div class="paper-list-block">
-  <a href="{{ site.baseurl }}{{ technique.url }}"><img alt="{{ technique.shortname }} screenshot" class="paper-image-small"
-      src="{{ site.baseurl }}/assets/images/techniques/{{ technique.image }}"></a>
-  <p class="pubs">
-
-    <span class="paper-title"><a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a></span><br />
-    {{ technique.description }} <a href="{{ site.baseurl }}{{ technique.url }}">More...</a>
-  </p>
-</div> -->
+  <div class="column is-narrow card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4"><a href="{{ site.baseurl }}{{ technique.url }}">{{ technique.title }}</a></p>
+          </div>
+          <div class="media-right">
+              <figure class="image is-96x96">
+                  <img src="{{ site.baseurl }}/assets/images/techniques/color_icons/{{ technique.image }}" alt="Placeholder image">
+                </figure>
+          </div>
+        </div>
+    
+        <div class="content">
+            "{{ technique.description }}" 
+        </div>
+      </div>
+    </div>
 
 
