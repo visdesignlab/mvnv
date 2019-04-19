@@ -134,6 +134,7 @@ function create_mini_panel(techniques,allScores){
     "0": "score-zero"
   };
 
+  
   let cards = d3.selectAll('.techniqueCard').data(techniques.map(t=>t[0]));
 
 
@@ -169,6 +170,7 @@ li.attr('class',d=>{
   return d.category +  ' ' + d.option + ' ' + score2class[score] + ' button tooltip';
 })
 .attr('data-tooltip',d=>d.option);
+
 
 li.text(d=>{
   let score = allScores[d.technique][d.category][d.option];
@@ -234,15 +236,16 @@ function compute_scores(allScores){
 
 function render_techniques(techniques,info) {
 
+  let color = d3.scaleLinear().domain([0,1,2,3])
+    .range(['#f3a685','#cccccc','#92c5de','#1773af']);
+
    let cards = d3.selectAll('.techniqueCard').data(techniques);
 
    cards.select('.rec').select('h4').select('.techniqueTitle').html(d=>'<a href="' + info[d[0]].baseUrl + info[d[0]].url + '">' + info[d[0]].title + '</a>');
 
    cards.select('.totalScore')
-   .classed('score-three',d=>d[1]>=2.5)
-   .classed('score-two',d=>(d[1]>=2 & d[1]<2.5))
-   .classed('score-one',d=>(d[1]>=1 & d[1]<2))
-   .classed('score-zero',d=>(d[1]>=0 & d[1]<1));
+   .style('background-color',d=>{
+    return color(d[1])})
 
    cards.select('.totalScore')
    .text(d=>d[1]);

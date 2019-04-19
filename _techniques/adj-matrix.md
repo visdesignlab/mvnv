@@ -7,7 +7,7 @@ key: adj-matrix
 # node-link | tabular | implicit | coordinated | hybrid 
 type: tabular
 
-description : Adjacency matrices encode nodes as rows and columns, wherease the presence/absence of an edge between two nodes is encoded in the cell where the nodes rows and columns intersect. 
+description : Adjacency matrices encode nodes as rows and columns, whereas the presence/absence of an edge between two nodes is encoded in the cell where the nodes rows and columns intersect. 
 
 abstract : abstract
 
