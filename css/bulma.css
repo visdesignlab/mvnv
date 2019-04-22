@@ -8192,25 +8192,21 @@ label.panel-block {
 
 .score_0 {
   fill: #f3a685;
-  width: 20px;
-  x: -30; }
+  width: 20px; }
 
 .score_1 {
   fill: #cccccc;
   color: #4a4a4a;
-  width: 30px;
-  x: -30; }
+  width: 30px; }
 
 .score_2 {
   fill: #92c5de;
   color: #4a4a4a;
-  width: 40px;
-  x: -30; }
+  width: 30px; }
 
 .score_3 {
   fill: #1773af;
-  width: 50px;
-  x: -30; }
+  width: 30px; }
 
 .tag, .tabs li {
   margin-right: 5px; }

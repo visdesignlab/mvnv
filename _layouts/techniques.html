@@ -75,7 +75,7 @@ layout: default
 
       <div class="columns">
 
-        {% for technique in site.techniques reversed  %}
+        {% for technique in site.techniques  %}
         {% if technique.type == "tabular" %}
         {% include technique_list_entry.html %}
         {% endif %}

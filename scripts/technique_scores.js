@@ -3,8 +3,8 @@
 
     // let scores = JSON.parse(('{{page.scores}}'.replace(/=>/g, ':')));
 
-    let panelWidth = d3.select('.scores').style('width').replace('px', '');
-    let panelHeight = d3.select('.scores').style('height').replace('px', '');
+    let panelWidth = d3.select('#technique_scores').style('width').replace('px', '');
+    let panelHeight = d3.select('#technique_scores').style('height').replace('px', '');
 
     let tasks = [];
     Object.keys(categories).map((category_label)=>{
@@ -31,9 +31,11 @@
 
      });
 
-    let groups = d3.select(".scores")
+    let groups = d3.select("#technique_scores")
       .selectAll('g')
       .data(tasks);
+
+      console.log('group size', groups.size())
 
     let groupsEnter = groups.enter().append('g')
     groups = groupsEnter.merge(groups);
@@ -50,7 +52,7 @@
     let yScale = d3.scaleLinear().domain([0, tasks.length]).range([0, panelHeight])
 
     groups
-      .attr('transform', (d, i) => 'translate(' + 40 + ',' + yScale(i) + ')')
+      .attr('transform', (d, i) => 'translate(0,' + yScale(i) + ')')
  
     groups.select('.scoreRect')
        .attr('y',-rectSize/2)
@@ -83,10 +85,11 @@
 
     d3.selectAll('.task,.scoreText')
     .attr('dominant-baseline','middle')
-    .attr('x', function(d){return d3.select(this).classed('task') ? rectSize *2 : -20});
+    .attr('x', function(d){return d3.select(this).classed('task') ? rectSize *2 : 15});
 
     d3.selectAll('.scoreText')
     .attr('text-anchor','middle')
+    .style('fill',d=>d.value < 3 ?  '#4a4a4a' : 'white')
 
     groups.selectAll('.category')
     .attr('transform','rotate(90,0,0)')
