@@ -10,13 +10,13 @@
     [
     {% for publication in site.publications %}
 
-    {% if publication.personal  %}
+    {% if publication.personal %}
     {% elsif publication.image_large and publication.year > 2017 and publication.type == "paper"%}
     {
-    "title"    : "{{ publication.title }}",
+    "title" : "{{ publication.title }}",
     "shortname" : "{{ publication.shortname }}",
-    "url"      : "{{ publication.url }}",
-    "image_large"     : "{{ publication.image_large }}",
+    "url" : "{{ publication.url }}",
+    "image_large" : "{{ publication.image_large }}",
     }
     {% if forloop.last %}{% else %},{% endif %}
     {% endif %}
@@ -25,76 +25,97 @@
     {% endcapture %}
 
     <script>
-    var publications = {{ publications }}
+        var publications = {
+        {
+            publications
+        }
+        }
     </script>
 </head>
 
 <body>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-        <script src="{{site.baseurl}}/scripts/vdl_logo_script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+<script src="{{site.baseurl}}/scripts/vdl_logo_script.js"></script>
 
 <div>
-{% include header.html %}
+    {% include header.html %}
 
-          <section class="section homePage">
+    <section class="section homePage">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child notification is-primary">
+                            <p class="title">About</p>
+                            <p class="subtitle">This is a companion website for a review article on multivariate network
+                                visualization techniques. </p>
+                            <p class="content">Multivariate networks are networks where both the structure of the
+                                network and the attributes of the nodes and edges matter. It turns out, these are very
+                                common. Every person in a social network, for example, has both, relationships and lots
+                                of other characteristics, such as their age, the school they went to, or the city they
+                                live in. Multivariate network visualization techniques are designed to be able to show
+                                both, these attributes and the structure. Using these visualization techniques, we can
+                                analyze, for example, if a network of friends predominantly went to the same high
+                                school.
+                            </p>
+                            <p class="content">
+                                The visualization research community has developed many techniques to visualize these
+                                kinds of networks, and our review article – and this website – are designed to help you
+                                sort through these options.
+                            </p>
+                            <p class="content">Browse through the techniques illustrated below, or use our wizard to
+                                find the right multivariate network visualization technique for your datasets and tasks!
+                                <a href="mailto:alex@sci.utah.edu,cnobre@sci.utah.edu">Get in touch</a> if you have
+                                questions or comments.</p>
+                        </article>
+                        <article class="tile is-child notification is-warning">
+                            <p class="title">Read the STAR</p>
+                            <p><b>The State of the Art in Visualizing Multivariate Networks</b> <br>
+                                Carolina Nobre, Miriah Meyer, Marc Streit, and Alexander Lex <br>
+                                To appear in Computer Graphics Forum (EuroVis 2019)</p>
+                            <p class="subtitle">The full report can be found <a
+                                    href="https://vdl.sci.utah.edu/publications/2019_eurovis_mvn/">here</a>.</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-info">
+                            <p class="title">Use the Wizard</p>
+                            <p class="subtitle">Technique recommendations to fit your needs!
 
-                <div class="tile is-ancestor">
-                        <div class="tile is-vertical is-12">
-                          <div class="tile">
-                            <div class="tile is-parent is-vertical">
-                              <article class="tile is-child notification is-primary">
-                                <p class="title">About</p>
-                                <p class="subtitle">This is a companion website for the STAR Report on Multivariate Network Visualization Techniques. </p>
-                              </article>
-                              <article class="tile is-child notification is-warning">
-                                <p class="title">Read the STAR</p>
-                                  <p><b>The State of the Art in Visualizing Multivariate Networks</b> <br>
-                                      Carolina Nobre, Miriah Meyer, Marc Streit, and Alexander Lex <br>
-                                      To appear in Computer Graphics Forum (EuroVis 2019)</p>
-                                <p class="subtitle">The full report can be found <a href="https://vdl.sci.utah.edu/publications/">here</a>.</p>
-                              </article>
-                            </div>
-                            <div class="tile is-parent">
-                              <article class="tile is-child notification is-info">
-                                <p class="title">Use the Wizard</p>
-                                <p class="subtitle">Technique recommendations to fit your needs! 
-                                    
-                                    <br/><br/>
+                                <br/><br/>
+                                Navigate to the <a href='/mvnv/wizard'>wizard tab</a> and select your specific network
+                                characteristics, such as the size of the network and its type,
+                                and what tasks are relevant for your analysis and receive technique recommendations that
+                                are best suited to your selection. Enjoy! </p>
+                        </article>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification has-background-white-bis">
+                        <p class="title"> Learn about the techniques </p>
+                        <p class="subtitle">Click on a layout or operation to learn more!</p>
+                        <!-- <figure>
+                              <img src="{{ site.baseurl }}/assets/images/taxonomy.png"/>
+                            </figure> -->
 
-                                    Navigate to the <a href='/mvnv/wizard'>wizard tab</a> and select your specific network characteristics, such as the size of the network and its type,
-                                 and what tasks are relevant for your analysis and receive technique recommendations that are best suited to your selection. Enjoy! </p>
-                              </article>
-                            </div>
-                          </div>
-                          <div class="tile is-parent">
-                            <article class="tile is-child notification has-background-white-bis">
-                              <p class="title"> Learn about the techniques </p>
-                              <p class="subtitle">Click on a layout or operation to learn more!</p>
-                              <!-- <figure>
-                                    <img src="{{ site.baseurl }}/assets/images/taxonomy.png"/>
-                                  </figure> -->
-
-                                  <div id='typologySVG' ></div>
-                              <div class="content">
-                                <!-- Content -->
-                              </div>
-                            </article>
-                          </div>
+                        <div id='typologySVG'></div>
+                        <div class="content">
+                            <!-- Content -->
                         </div>
+                    </article>
+                </div>
+            </div>
 
-                          </article>
-                        </div>
-                      </div>
-          
-                
-
-              </section>
-  
+            </article>
+        </div>
+</div>
 
 
+</section>
 
-    {% include footer.html %}
+
+{% include footer.html %}
 </div>
 
 {% if site.use_analytics == true %}
@@ -103,52 +124,52 @@
 
 <script>
 
-async function loadSVG() {
-      let path = '{{ site.baseurl }}/assets/images/typology.svg';
-      return await d3.text(path)
-      }
+    async function loadSVG() {
+        let path = '{{ site.baseurl }}/assets/images/typology.svg';
+        return await d3.text(path)
+    }
 
 
     loadSVG().then(logo => {
-     let div = d3.select("#typologySVG").html(logo);
+        let div = d3.select("#typologySVG").html(logo);
 
-    //  div.select('svg').attr('viewBox',"0 0 240 100");
+        //  div.select('svg').attr('viewBox',"0 0 240 100");
 
-     d3.selectAll("[id^='hoverBox']") 
-     .attr('class','tooltip')
-    .attr('data-tooltip','hover tooltip')
-    //  .append('a')
-    //  .attr('href','google.com')
-     .on('mouseover',function(d){
-         d3.select(this).style('opacity',.5);
-     })
-     .on('mouseout',function(d){
-         d3.select(this).style('opacity',0)
-     })
-     .on('click',function(d){
-      
-      let groupId = d3.select(this.parentNode).attr('id');
-      console.log('groupId is ', groupId);
+        d3.selectAll("[id^='hoverBox']")
+            .attr('class', 'tooltip')
+            .attr('data-tooltip', 'hover tooltip')
+            //  .append('a')
+            //  .attr('href','google.com')
+            .on('mouseover', function (d) {
+                d3.select(this).style('opacity', .5);
+            })
+            .on('mouseout', function (d) {
+                d3.select(this).style('opacity', 0)
+            })
+            .on('click', function (d) {
 
-        if (groupId.includes('label')){
-          window.location = '/mvnv/techniques/';
-        } else  if (groupId.includes('Layer_1')){
-            //do nothing
-        } else {
-          window.location = '/mvnv/techniques/' + groupId + '/';
-        }
-     });
+                let groupId = d3.select(this.parentNode).attr('id');
+                console.log('groupId is ', groupId);
+
+                if (groupId.includes('label')) {
+                    window.location = '/mvnv/techniques/';
+                } else if (groupId.includes('Layer_1')) {
+                    //do nothing
+                } else {
+                    window.location = '/mvnv/techniques/' + groupId + '/';
+                }
+            });
 
 
-     div.select('#adjmatrix')
-     .on('click',(d)=>console.log('moused over adj_matrix'));
+        div.select('#adjmatrix')
+            .on('click', (d) => console.log('moused over adj_matrix'));
 
-     
+
         console.log(div.select('#quilts').size())
-  });
+    });
 
-  
-  </script>
+
+</script>
 
 </body>
 </html>
