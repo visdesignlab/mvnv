@@ -4,26 +4,6 @@
 <head>
     {% include head_default.html %}
 
-    <!-- Here we write the publications into the publications javascript variable -->
-
-    {% capture publications %}
-    [
-    {% for publication in site.publications %}
-
-    {% if publication.personal %}
-    {% elsif publication.image_large and publication.year > 2017 and publication.type == "paper"%}
-    {
-    "title" : "{{ publication.title }}",
-    "shortname" : "{{ publication.shortname }}",
-    "url" : "{{ publication.url }}",
-    "image_large" : "{{ publication.image_large }}",
-    }
-    {% if forloop.last %}{% else %},{% endif %}
-    {% endif %}
-    {% endfor %}
-    ]
-    {% endcapture %}
-
 
 </head>
 
