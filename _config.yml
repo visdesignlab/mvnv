@@ -1,6 +1,6 @@
 # Site settings
 title: MVN Visualization Techniques
-email: cnobre@sci.utah.edu; alex@sci.utah.edu
+email: cnobre@sci.utah.edu;alex@sci.utah.edu
 description: "Partner website for STAR on Visualization Multivariate Networks"
 baseurl: "/mvnv"
 url: "http://vdl.sci.utah.edu"
