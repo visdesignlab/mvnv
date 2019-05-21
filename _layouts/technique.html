@@ -31,7 +31,8 @@ categories:
 
   <div class="columns">
 
-    <div class="column is-two-thirds">
+      <!-- <div class="column is-full"> -->
+    <div class="column is-three-quarters">
 
       <header id="title" class="publication-title">
         <h1>{{ page.title | remove: "| Vis Design Lab" }}
@@ -143,80 +144,85 @@ categories:
       </div>
 
       <!-- </div> -->
-
-
-      <div>
-
-        <!-- main markdown content -->
-        {{ content }}
-
-        <h1> References</h1>
-
-        <!-- Sort refs to show up from oldest to newest -->
-        {% assign sorted_refs = site.data.references.items | sort: "date" %}
-
-        {% for paper in sorted_refs %}
-        {% for ref in page.papers %}
-        {% if ref == paper.citekey%}
-        <ul>
-          <div class="citation">
-            <p>
-              {% for creator in paper.creators %}
-              {% if creator.creatorType == "author" %}
-              <!-- Only use initial of first Name -->
-              {% assign firstName = creator.firstName | slice: 0 %}
-              {{ creator.lastName }}&nbsp;{{firstName}}.,
-              {% endif %}
-              {% endfor %}
-
-
-              <!-- <br/> -->
-              <span class="paper-title">
-                :&nbsp; {{paper.title}}
-              </span>
-
-              <em>{{paper.publicationTitle}}</em>
-              <!-- <br/> -->
-
-              <span class="paper-citation">
-
-
-                ({{ paper.date }})
-                {% if paper.volume %} {{ paper.volume }}{% endif %}
-                {% if paper.number %}({{ paper.number }}){% endif %}
-                {% if paper.volume or paper.issue %}:{% endif %}
-                {% if paper.pages %} pp. {{ paper.pages }}, {% endif %}
-
-                {% if paper.DOI %} <a href="http://dx.doi.org/{{ paper.DOI }}">doi:{{ paper.DOI }}</a>, {%endif%}.
-
-
-              </span>
-          </div>
-
-          </a>
-
-        </ul>
-        {% endif %}
-        {% endfor %}
-        {% endfor %}
-
-
-
-      </div>
-
-
+    
     </div>
 
-    <div class="column ">
+    <div class="column is-one-fifth ">
 
-      <div class="box">
-        <h1>Technique Scores</h1>
-        <svg id='technique_scores' , class='scores'> </svg>
+        <div class="box">
+          <h1>Technique Scores</h1>
+          <svg id='technique_scores' , class='scores'> </svg>
+        </div>
       </div>
-    </div>
+
+      
+  
+  
+      
+
+      <!-- </div> -->
 
 
   </div>
+
+  <div class="column is-full">
+
+      <!-- main markdown content -->
+      {{ content }}
+
+      <h1> References</h1>
+
+      <!-- Sort refs to show up from oldest to newest -->
+      {% assign sorted_refs = site.data.references.items | sort: "date" %}
+
+      {% for paper in sorted_refs %}
+      {% for ref in page.papers %}
+      {% if ref == paper.citekey%}
+      <ul>
+        <div class="citation">
+          <p>
+            {% for creator in paper.creators %}
+            {% if creator.creatorType == "author" %}
+            <!-- Only use initial of first Name -->
+            {% assign firstName = creator.firstName | slice: 0 %}
+            {{ creator.lastName }}&nbsp;{{firstName}}.,
+            {% endif %}
+            {% endfor %}
+
+
+            <!-- <br/> -->
+            <span class="paper-title">
+              :&nbsp; {{paper.title}}
+            </span>
+
+            <em>{{paper.publicationTitle}}</em>
+            <!-- <br/> -->
+
+            <span class="paper-citation">
+
+
+              ({{ paper.date }})
+              {% if paper.volume %} {{ paper.volume }}{% endif %}
+              {% if paper.number %}({{ paper.number }}){% endif %}
+              {% if paper.volume or paper.issue %}:{% endif %}
+              {% if paper.pages %} pp. {{ paper.pages }}, {% endif %}
+
+              {% if paper.DOI %} <a href="http://dx.doi.org/{{ paper.DOI }}">doi:{{ paper.DOI }}</a>, {%endif%}.
+
+
+            </span>
+        </div>
+
+        </a>
+
+      </ul>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+
+
+
+    </div>
 
 </section>
 
