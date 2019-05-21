@@ -25,7 +25,6 @@ categories:
     keys:
       - structure
 ---
-
 <section class="section">
   <!-- <div class="publications-content"> -->
 
@@ -46,57 +45,102 @@ categories:
 
       <!-- <div class="card-content"> -->
       <div class="content">
- 
 
-          <p>
-              <span class="icon has-text-info tooltip" data-tooltip="Description">
-                <i class="fas fa-info-circle"></i>
-              </span>
-              <span class="techniqueDescription"> </span> {{page.description}}
-            </p>
 
-            <p class='scoreThree'>
-              <span class="icon score-three tooltip" data-tooltip="Optimized for">
-                <i class="fas fa-star"></i>
+        <p>
+          <span class="icon has-text-info tooltip" data-tooltip="Description">
+            <i class="fas fa-info-circle"></i>
+          </span>
+          <span class="techniqueDescription"> </span> {{page.description}}
+        </p>
 
-              </span> <span class="optimal"> {{page.optimal}}</span>
-            </p>
+        <p class='scoreThree'>
+          <span class="icon score-three tooltip" data-tooltip="Optimized for">
+            <i class="fas fa-star"></i>
 
-            <p class='scoreTwo'>
-              <span class="icon score-two tooltip" data-tooltip="Supports">
-                <i class="fas fa-check-square"></i>
-              </span> <span class="good">{{page.good}}</span>
+          </span> <span class="optimal"> {{page.optimal}}</span>
+        </p>
 
-              <p class='twoTags'></p>
-            </p>
+        <p class='scoreTwo'>
+          <span class="icon score-two tooltip" data-tooltip="Supports">
+            <i class="fas fa-check-square"></i>
+          </span> <span class="good">{{page.good}}</span>
 
-            <p class='scoreOne'>
-              <span class="icon score-one tooltip" data-tooltip="Weaknesses">
-                <i class="fas fa-exclamation-triangle"></i>
-              </span> <span class="adequate"> {{page.adequate}}</span>
+          <p class='twoTags'></p>
+        </p>
 
-              <p class='oneTags'> </p>
-            </p>
+        <p class='scoreOne'>
+          <span class="icon score-one tooltip" data-tooltip="Weaknesses">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span> <span class="adequate"> {{page.adequate}}</span>
 
-            {% if page.bad%}
-            <p class='scoreZero'>
-              <span class="icon score-zero tooltip" data-tooltip="Limitations">
-                <i class="fas fa-ban"></i>
-              </span> <span class="bad">{{page.bad}}</span>
+          <p class='oneTags'> </p>
+        </p>
 
-              {% endif %}
+        {% if page.bad%}
+        <p class='scoreZero'>
+          <span class="icon score-zero tooltip" data-tooltip="Limitations">
+            <i class="fas fa-ban"></i>
+          </span> <span class="bad">{{page.bad}}</span>
+
+          {% endif %}
 
 
       </div>
-<!-- 
+
       <div class="columns">
         <div class="column is-full">
 
           <h1>Examples from Literature</h1>
+          <div class="card-content">
 
-      
+            {% for example in page.examples %}
+            {% assign fileName = example | replace: ":", "-" %}
+
+
+
+            <div class="card column is-narrow">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="{{ site.baseurl }}/assets/images/techniques/examples/{{fileName}}.png"
+                    alt="Placeholder image">
+                </figure>
+              </div>
+                <div class="content" style="margin-top:5px; float:right">
+
+                  {% for paper in site.data.references.items %}
+                  {% if example contains paper.citekey%}
+                  {% assign firstAuthor = paper.creators.first %}
+          
+                  <em>
+  
+                      {{ firstAuthor.lastName}}
+
+                      {% if paper.creators.size > 1 %}
+                      et al.
+                      {% endif %}
+
+                      {% if paper.creators.size == 1 %}
+                      ,&nbsp;{{firstAuthor.firstName | slice: 0}}.
+                      {% endif %}
+                     
+
+                      {{paper.date}}
+
+            
+                  </em>
+
+                  {% endif %}
+                  {% endfor %}
+                </div>
+            </div>
+
+            {% endfor %}
+          </div>
+
+
         </div>
-      </div> -->
+      </div>
 
       <!-- </div> -->
 
@@ -112,48 +156,48 @@ categories:
         {% assign sorted_refs = site.data.references.items | sort: "date" %}
 
         {% for paper in sorted_refs %}
-          {% for ref in page.papers %}
-            {% if ref == paper.citekey%}
-            <ul>
-                       <div class="citation">
-                      <p>
-                        {% for creator in paper.creators %}
-                          {% if creator.creatorType == "author" %}
-                          <!-- Only use initial of first Name -->
-                          {% assign firstName = creator.firstName | slice: 0 %} 
-                            {{ creator.lastName }}&nbsp;{{firstName}}.,
-                          {% endif %}
-                        {% endfor %}
-                                     
-                
-                        <!-- <br/> -->
-                        <span class="paper-title">
-                          :&nbsp; {{paper.title}} 
-                          </span>
+        {% for ref in page.papers %}
+        {% if ref == paper.citekey%}
+        <ul>
+          <div class="citation">
+            <p>
+              {% for creator in paper.creators %}
+              {% if creator.creatorType == "author" %}
+              <!-- Only use initial of first Name -->
+              {% assign firstName = creator.firstName | slice: 0 %}
+              {{ creator.lastName }}&nbsp;{{firstName}}.,
+              {% endif %}
+              {% endfor %}
 
-                          <em>{{paper.publicationTitle}}</em>
-                          <!-- <br/> -->
-                       
-                        <span class="paper-citation">
 
-                      
-               ({{ paper.date }})
-              {% if paper.volume %} {{ paper.volume }}{% endif %}
-              {% if paper.number %}({{ paper.number }}){% endif %}
-              {% if paper.volume or paper.issue %}:{% endif %}
-              {% if paper.pages %} pp. {{ paper.pages }}, {% endif %} 
-              
-              {% if paper.DOI %} <a href="http://dx.doi.org/{{ paper.DOI }}">doi:{{ paper.DOI }}</a>, {%endif%}.
-                
-                  
-                      </span>
-                    </div>
-                  
-                </a>  
+              <!-- <br/> -->
+              <span class="paper-title">
+                :&nbsp; {{paper.title}}
+              </span>
 
-            </ul>          
-            {% endif %}
-          {% endfor %}
+              <em>{{paper.publicationTitle}}</em>
+              <!-- <br/> -->
+
+              <span class="paper-citation">
+
+
+                ({{ paper.date }})
+                {% if paper.volume %} {{ paper.volume }}{% endif %}
+                {% if paper.number %}({{ paper.number }}){% endif %}
+                {% if paper.volume or paper.issue %}:{% endif %}
+                {% if paper.pages %} pp. {{ paper.pages }}, {% endif %}
+
+                {% if paper.DOI %} <a href="http://dx.doi.org/{{ paper.DOI }}">doi:{{ paper.DOI }}</a>, {%endif%}.
+
+
+              </span>
+          </div>
+
+          </a>
+
+        </ul>
+        {% endif %}
+        {% endfor %}
         {% endfor %}
 
 

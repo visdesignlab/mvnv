@@ -18,6 +18,12 @@ image: topology-driven.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - neuweger_visualizing_2009
+     - jankun-kelly_moiregraphs:_2003
+     - nielsen_abyss-explorer:_2009
+     # - schoffel_user_2016
+
 papers:
      -  auber_multiscale_2003
      -  dunne_motif_2013
@@ -72,18 +78,6 @@ scores:
           path: 2
           cluster: 2
           network: 2
-
-
-examples:
- - image: "abyss-explorer.png"
-   caption: "Abyss-Explorer"
-   #bunch of properties...
- - image: "on-edge.png"
-   caption: "On Edge Encoding"
-   #bunch of properties...
- - image: "on-node.png"
-   caption: "On Node Encoding"
-   #bunch of properties...
 
 
 # After the --- you can put information that you want to appear on the website using markdown formatting or HTML. A good example are acknowledgements, extra references, an erratum, etc.

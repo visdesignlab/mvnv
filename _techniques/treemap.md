@@ -20,9 +20,16 @@ image: treemap.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - slingsby_configuring_2009
+     - balzer_voronoi_2005
+
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  schulz_design_2011
+     - bruls_squarified_2000
+     -  balzer_voronoi_2005
+     - slingsby_configuring_2009
+     - fekete_interactive_2002
 
 optimal: Optimized for tree structures and tasks on single nodes and subnetworks. 
 good: Suports medium and large networks with over 1000 nodes, as well as tasks on neighbors.

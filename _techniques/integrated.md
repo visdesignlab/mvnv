@@ -19,9 +19,28 @@ image: integrated.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - meyer_pathline:_2010
+     - nobre_juniper:_2019
+     - naquin_circus:_2014
+
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     - kerzner_graffinity:_2017
+      - meyer_pathline:_2010
+     - nobre_juniper:_2019
+     - naquin_circus:_2014
+     - krzywinski_circos:_2009
+     -  meyer_mizbee:_2009
+     - partl_enroute:_2012
+     - dunne_graphtrail:_2012
+     - partl_enroute:_2013
+     -  partl_pathfinder:_2016
+     - eisen_cluster_1998
+     -  seo_interactively_2002 
+     -  lee_det._2008
+     - nobre_lineage:_2019
+
+
 
 optimal: Optimized for networks with several, heterogenous, node attributes. Also ideal for tasks on single nodes, neighbors, and paths.
 good: Supports edge attributes both homogeneous and heterogeneous, and tasks on subnetworks.    

@@ -18,9 +18,20 @@ image: faceting.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples: 
+     - shneiderman_network_2006
+     - rodrigues_group-in-a-box_2011
+
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  shneiderman_network_2006
+     -  barsky_cerebral:_2008
+     -  schulz_visual_2008
+     -  partl_contour:_2014
+     -  pretorius_visual_2008
+     -  ghani_visual_2013
+     -  ahmed_visualisation_2007
+     -  rodrigues_group-in-a-box_2011
+     -  aris_designing_2007
 
 optimal: Optimized for networks with few, but homogeneous or heteregenous node attributes. Also ideal for layered sparse or layered graphs.
 good: Supports few, homogenous edge attributes, and tasks on neighbors.    

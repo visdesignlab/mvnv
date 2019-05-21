@@ -18,10 +18,13 @@ shortname: bioFabric
 image: bioFabric.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
+examples:
+     - longabaugh_combing_2012
+
+
 
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  longabaugh_combing_2012
 
 optimal: Optimized for showing node and edge attributes since it supports several attributes and of heterogeneous types. 
 good: Supports tasks on subnetworks and layered networks.   

@@ -18,9 +18,17 @@ image: overloaded.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - gansner_gmap:_2010
+     - alper_design_2011
+
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  collins_bubble_2009
+     -  gansner_gmap:_2010
+     -  alper_design_2011
+     - heer_vizster:_2005
+     - bezerianos_graphdice:_2010
+     -  saket_group-level_2014
 
 optimal: Optimized for networks with few, homogeneous, node attributes. Also ideal for layered networks, trees, and tasks on single nodes, neighbors, and clusters.
 good: Supports tasks on clusters and subnetworks.    

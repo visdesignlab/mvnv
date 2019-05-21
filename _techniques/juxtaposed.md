@@ -18,9 +18,21 @@ image: juxtaposed.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - guo_flow_2009_2
+     - pienta_vigor:_2018
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  guo_flow_2009
+     - pienta_vigor:_2018
+     - abello_matrix_2004
+     - heer_vizster:_2005
+     - stasko_jigsaw:_2008
+     - bezerianos_graphdice:_2010
+     - viau_flowvizmenu_2010
+     -  ko_analyzing_2014
+     - plaisant_information_1998
+     
+
 
 optimal: Optimized for networks with several, heterogenous, node or attributes. Also ideal for layered networks and trees.
 good: Supports medium networks, as well as tasks on clusters and subnetworks.     

@@ -18,9 +18,30 @@ image: adj-matrix.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - kerzner_graffinity:_2017
+     - elmqvist_zame:_2008
+     - alper_weighted_2013
+
 papers:
-     -  schreiber_generic_2009
-     -  jankun-kelly_moiregraphs:_2003
+     -  ghoniem_readability_2005
+     -   okoe_node-link_2018
+     -   okoe_revisited_2017
+     - kerzner_graffinity:_2017
+     -  yang_many-to-many_2017
+     - rufiange_treematrix:_2012
+     -  dunne_graphtrail:_2012
+     - elmqvist_zame:_2008
+     -  alper_weighted_2013
+     - bar-joseph_fast_2001
+     -  diaz_survey_2002
+     -  liiv_seriation_2010
+     - diaz_survey_2002
+     -  mueller_comparison_2007
+     - henry_matrixexplorer:_2006
+     -  fekete_reorder.js:_2015
+     - behrisch_matrix_2016
+     - shen_path_2007
 
 optimal: Optimized for small and dense networks. Is well suited for several node attributes, preferably of homogenous types.  
 good: Supports several edge attributes, and heterogenous node or edge attributes. Can be used for layered or sparse networks.   

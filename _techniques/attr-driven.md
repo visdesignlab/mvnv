@@ -18,9 +18,29 @@ image: attr-driven.png
 # add a 2:1 aspect ratio teaser figure (e.g., width: 1200px, height: 600px) to the folder /assets/images/papers/
 # icon: node-link.png
 
+examples:
+     - bezerianos_graphdice:_2010
+     # - guo_flow_2009
+     - dork_edgemaps:_2011
+     - peysakhovich_attribute-driven_2015
+
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  elzen_multivariate_2014
+     -  guo_flow_2009
+     -  krzywinski_circos:_2009
+     -   meyer_mizbee:_2009
+     -  dork_edgemaps:_2011
+     -  shneiderman_network_2006
+     -   bezerianos_graphdice:_2010
+     -  viau_flowvizmenu_2010
+     - bonabeau_graph_2002
+     - wattenberg_visual_2006
+     - holten_hierarchical_2006
+     -  holten_force-directed_2009
+     - kruiger_graph_2017
+     - lhuillier_state_2017
+     - peysakhovich_attribute-driven_2015
+
 
 optimal: Optimized for small and sparse networks. Is well suited for few node attributes, particular of homogenous types.  
 good: Supports few edge attributes, but only if of homogenous types. Can be used for tasks on neighbors and networks.   
