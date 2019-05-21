@@ -19,7 +19,7 @@ image: adj-matrix.png
 # icon: node-link.png
 
 papers:
-     -  okoe_node-link_2018
+     -  schreiber_generic_2009
      -  jankun-kelly_moiregraphs:_2003
 
 optimal: Optimized for small and dense networks. Is well suited for several node attributes, preferably of homogenous types.  

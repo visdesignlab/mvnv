@@ -1,0 +1,52 @@
+<div class="publication">
+
+  <header id="title" class="publication-title">
+    <h1>{{ page.title | remove: "| Vis Design Lab" }}</h1>
+  </header>
+
+
+  <article class="publication-content-main">
+    {% if page.image %}
+    <img id="publication-image" alt="{{ page.shortname }} screenshot" class="paper-image-small" src="{{ site.baseurl }}/assets/images/techniques/{{ page.image }}">
+    {% endif %}
+
+    <h1>Description</h1>
+    {{ page.description }}
+
+    <article class="publication-content">
+
+      <!-- main markdown content -->
+      {{ content }}
+
+    </article>
+
+
+  </article>
+
+  <!-- Add Sample Instances -->
+  <article class="publication-content-aside">
+    <h1>Technique Scores</h1>
+    <svg id = 'technique_scores', class='scores'> </svg>
+  </article>
+
+
+  <!-- <article class="publication-content">
+
+    <h1>Examples from Literature</h1>
+    {% for example in page.examples %}
+    <img alt="{{ page.shortname }} screenshot" class="paper-image-small-aside" src="{{site.baseurl}}/assets/images/techniques/examples/{{ example.image }}">
+    {% endfor %}
+
+  </article> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+  <script src="{{site.baseurl}}/scripts/technique_scores.js"></script>
+
+  <script>
+       let scores = JSON.parse(('{{page.scores}}'.replace(/=>/g, ':')));
+       let labels = JSON.parse(('{{layout.categories}}'.replace(/=>/g, ':')));
+       technique_scores(scores,labels);
+
+  </script>
+
+</div>

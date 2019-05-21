@@ -19,8 +19,25 @@ image: topology-driven.png
 # icon: node-link.png
 
 papers:
-     -  okoe_node-link_2018
-     -  jankun-kelly_moiregraphs:_2003
+     -  auber_multiscale_2003
+     -  dunne_motif_2013
+     -  gehlenborg_visualization_2010
+     -  heer_vizster:_2005
+     -  neuweger_visualizing_2009
+     - ghani_improving_2011
+     - jankun-kelly_moiregraphs:_2003
+     - jusufi_network_2010
+     - westenberg_visualizing_2008
+     - junker_vanted:_2006
+     - katz_sashimi_2013,guo_flow_2009
+     - guo_flow_2009
+     - xu_user_2012
+     - schwank_visualizing_2016
+     - schoffel_user_2016
+     - ko_analyzing_2014
+     - nielsen_abyss-explorer:_2009
+     - holten_extended_2011
+     - elzen_multivariate_2014
 
 optimal: Optimized for layered networks and trees. Also ideal for tasks on single nodes or immediate neighbors.
 good: Supports tasks on paths, clusters, and subnetworks.     
