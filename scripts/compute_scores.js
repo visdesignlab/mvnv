@@ -1,7 +1,13 @@
 function create_panel(allScores){
 
   tooltipDict={
-    size:'Small: <100 nodes  Medium: <1000 nodes Large: >1000 nodes'
+    size:'Small: <100 nodes  Medium: <1000 nodes Large: >1000 nodes',
+    // type:'Small: <100 nodes  Medium: <1000 nodes Large: >1000 nodes',
+    node_attr_size:'few attributes: <5  several attributes: >5',
+    node_attr_type:'homogeneous: 1 type heterogeneous: >1 type',
+    edge_attr_size:'few attributes: <3  several attributes: >3',
+    edge_attr_type:'homogeneous: 1 type heterogeneous: >1 type',
+    structure:'CLUSTER: a set of well connected nodes, such as a community in social networks. NETWORK: the entire network or a subset that is not limited to a specific structure'
   }
 
 let groups = d3.select('#wizard_panel').selectAll('div').data(Object.keys(optionsObject));
@@ -12,7 +18,9 @@ let groupsEnter = groups.enter().append('div').attr('class','dataDiv');
 let h4 = groupsEnter.append('h4');
 
 h4.append('span').attr('id','header');
-h4.filter(d=>tooltipDict[d]).append('span')
+h4
+.filter(d=>tooltipDict[d])
+.append('span')
 .attr('id','icon')
 .append('i');
 
@@ -48,7 +56,7 @@ groups.select('#header')
 
 groups.select('#icon')
 .attr('class','icon tooltip is-tooltip-multiline')
-.attr('data-tooltip',d=>d === 'size' ? tooltipDict[d] : '');
+.attr('data-tooltip',d=>tooltipDict[d]);
 
 groups.select('i')
 .attr('class','fas fa-question-circle has-text-grey');
