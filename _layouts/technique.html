@@ -92,7 +92,7 @@ categories:
       <div class="columns">
         <div class="column is-full">
 
-          <h1>Examples from Literature</h1>
+          <h1>Examples Figures from the Literature</h1>
           <div class="card-content">
 
             {% for example in page.examples %}
@@ -170,7 +170,7 @@ categories:
       <!-- main markdown content -->
       {{ content }}
 
-      <h1> References</h1>
+      <h1>Example Papers</h1>
 
       <!-- Sort refs to show up from oldest to newest -->
       {% assign sorted_refs = site.data.references.items | sort: "date" %}
@@ -192,7 +192,7 @@ categories:
 
             <!-- <br/> -->
             <span class="paper-title">
-              :&nbsp; {{paper.title}}
+              <b>{{paper.title}}.</b>
             </span>
 
             <em>{{paper.publicationTitle}}</em>
@@ -201,13 +201,12 @@ categories:
             <span class="paper-citation">
 
 
-              ({{ paper.date }})
-              {% if paper.volume %} {{ paper.volume }}{% endif %}
-              {% if paper.number %}({{ paper.number }}){% endif %}
-              {% if paper.volume or paper.issue %}:{% endif %}
-              {% if paper.pages %} pp. {{ paper.pages }}, {% endif %}
+              ({{ paper.date }}),
+              {% if paper.volume %}vol. {{ paper.volume }},{% endif %}
+              {% if paper.issue %}no. {{ paper.issue }},{% endif %}
+              {% if paper.pages %}pp. {{ paper.pages }},{% endif %}
 
-              {% if paper.DOI %} <a href="http://dx.doi.org/{{ paper.DOI }}">doi:{{ paper.DOI }}</a>, {%endif%}.
+              {% if paper.DOI %} <a href="http://dx.doi.org/{{ paper.DOI }}">doi:{{ paper.DOI }}</a>{%endif%}.
 
 
             </span>
